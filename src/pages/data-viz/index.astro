@@ -1,0 +1,116 @@
+---
+import Base from "../../layouts/Base.astro";
+const origin = Astro.site.href.replace(/\/$/, "");
+const title = "Data Visualisation | Pranav Gore, Solution Architect";
+const description = "Interactive data visualisation examples by Pranav Gore: a classic analytics dashboard plus ten creative charts, from radial timelines and beeswarms to sankeys, hex maps and chord diagrams.";
+const jsonld = [{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Data visualisation",
+  "url": `${origin}/data-viz/`,
+  "description": "Interactive data visualisation examples by Pranav Gore: a classic analytics dashboard plus ten creative charts, from radial timelines and beeswarms to sankeys, hex maps and chord diagrams.",
+  "author": {
+    "@id": `${origin}/#person`
+  },
+  "about": [
+    "Data visualisation",
+    "Dashboards",
+    "D3.js",
+    "Analytics"
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${origin}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Data visualisation",
+        "item": `${origin}/data-viz/`
+      }
+    ]
+  }
+}];
+import "../../styles/data-viz.css";
+---
+<Base title={title} description={description} jsonld={jsonld} current="data-viz" includeBase={true}>
+<main class="dv">
+  <div class="dv-hero">
+    <div class="wrap">
+      <span class="eyebrow">Data visualisation</span>
+      <h1>From a reliable dashboard to data people remember.</h1>
+      <p class="lead">Most teams need two things from their data. They need a dashboard they can trust every morning, and sometimes a way to tell a story that sticks. I build both. Hover, click and filter anything below.</p>
+      <span class="note">Every chart on this page uses fictional sample data</span>
+    </div>
+  </div>
+
+  <section aria-labelledby="dash-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">01 · The everyday dashboard</span>
+          <h2 id="dash-h">Trends, comparisons and shares, at a glance</h2>
+        </div>
+        <p>This is the dashboard most software ships with: headline numbers, a trend over time, a breakdown by category and a share of the whole. I can set one up like this for any analytics you want to track, fed automatically from your systems.</p>
+      </div>
+
+      <div class="dash">
+        <div class="dash-bar">
+          <b>Sample Co. · Sales overview</b>
+          <div class="seg" role="group" aria-label="Date range">
+            <button type="button" data-days="30" aria-pressed="false">30 days</button>
+            <button type="button" data-days="90" aria-pressed="true">90 days</button>
+            <button type="button" data-days="365" aria-pressed="false">12 months</button>
+          </div>
+        </div>
+        <div class="kpis" id="kpis"></div>
+        <div class="dash-grid">
+          <div class="panel"><h4>Revenue trend <span>· daily, AUD</span></h4><div id="d-line"></div></div>
+          <div class="panel"><h4>Revenue by segment</h4><div id="d-donut"></div><div class="legend" id="d-donut-legend"></div></div>
+        </div>
+        <div class="dash-grid">
+          <div class="panel"><h4>Revenue by channel</h4><div id="d-bar"></div></div>
+          <div class="panel"><h4>Orders by weekday</h4><div id="d-week"></div></div>
+        </div>
+      </div>
+
+      <div class="explain">
+        <div><b>Connected to your data</b>Pulled from your CRM, spreadsheets, forms or database on a schedule, so nobody updates it by hand.</div>
+        <div><b>Built in the tool you use</b>Looker Studio, Power BI or a custom web app, depending on who needs it and where.</div>
+        <div><b>Numbers people agree on</b>Every metric is defined once, so the dashboard ends arguments instead of starting them.</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="gal-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">02 · Beyond the dashboard</span>
+          <h2 id="gal-h">Ten creative ways to show data</h2>
+        </div>
+        <p>When the goal is to explain, persuade or delight, a different shape often tells the story better. Each of these is interactive and is inspired by the style of a piece I admire.</p>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <div class="cta-end">
+    <div class="wrap">
+      <h2>Have data that deserves better?</h2>
+      <p>Tell me what you're tracking and who needs to see it. I'll suggest the simplest view that works, from a dashboard to something more creative.</p>
+      <a class="btn" href="/#contact">Talk about your data</a>
+    </div>
+  </div>
+</main>
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script is:inline slot="scripts" src="/assets/vendor/d3.min.js"></script>
+<script is:inline slot="scripts" src="/assets/vendor/d3-sankey.min.js"></script>
+<script is:inline slot="scripts" src="/assets/data-viz.js"></script>
+</Base>

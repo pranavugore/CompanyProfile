@@ -1,0 +1,79 @@
+---
+import Base from "../../layouts/Base.astro";
+const origin = Astro.site.href.replace(/\/$/, "");
+const title = "About Pranav Gore | Solution Architect, Melbourne";
+const description = "About Pranav Gore: 19-year career from developer to Solution Architect across telecom, retail, banking and non-profit work. Certifications, education and approach.";
+const jsonld = [{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Pranav Gore",
+  "url": `${origin}/about/`,
+  "dateModified": "2026-10-11",
+  "mainEntity": {
+    "@id": `${origin}/#person`
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${origin}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": `${origin}/about/`
+      }
+    ]
+  }
+}];
+---
+<Base title={title} description={description} jsonld={jsonld} current="about" includeBase={true}>
+<main class="wrap-main">
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">About</span>
+        <h1>About Pranav Gore</h1>
+        <p class="lead">I started as a developer in 2007 and grew into solution design and architecture on large transformation programmes. I like building simple, elegant and efficient solutions to complex problems, and I've worked with stakeholders from many vendors and countries.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="career-h">
+      <div class="wrap">
+        <h2 id="career-h">Career</h2>
+        <ol class="timeline">
+          <li><time>2025 – 2026</time><div><h3>Full Stack Volunteer, non-profit (APAC)</h3><p>Operational and analytics solutions: low-code apps, n8n automation, dashboards and AI-assisted development.</p></div></li>
+          <li><time>2020 – 2025</time><div><h3>Solutions Engineer, banking</h3><p>Core banking modernisation, customer master and Open Banking integration, and small-business lending platforms at two major Australian banks.</p></div></li>
+          <li><time>2016 – 2020</time><div><h3>Solution Architect and Technical Business Analyst, telecom</h3><p>Enterprise automation (RPA) transition, end-to-end delivery of fulfilment programmes, Release Train Engineer.</p></div></li>
+          <li><time>2010 – 2016</time><div><h3>Senior Solution Designer and Product Specialist, telecom</h3><p>Order management and fulfilment architecture on Oracle OSM, UIM and AIA for carriers in Europe and Australia.</p></div></li>
+          <li><time>2007 – 2010</time><div><h3>Developer and Senior Developer, telecom and retail</h3><p>.NET web services integrating order entry and pricing systems, and store management and reporting applications.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="creds-h">
+      <div class="wrap">
+        <h2 id="creds-h">Certifications and education</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Certifications</h3>
+            <ul>
+              <li>AWS Certified Solutions Architect – Associate</li>
+              <li>SAFe Agile Scrum Master</li>
+              <li>ITIL</li>
+              <li>Machine Learning</li>
+              <li>Neural Networks and Deep Learning</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Education</h3>
+            <p>Bachelor of Engineering, Computer Science and Engineering, NMAM Institute of Technology (VTU), 2003 – 2007.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

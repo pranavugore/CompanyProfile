@@ -1,0 +1,1092 @@
+---
+import Base from "../layouts/Base.astro";
+const origin = Astro.site.href.replace(/\/$/, "");
+const title = "Pranav Gore | Solution Architect, Data & Automation, Melbourne";
+const description = "Pranav Gore is a Melbourne-based Solution Architect with 19 years in enterprise integration, data analytics dashboards AI agents and n8n workflow automation for banking, telecom and non-profits.";
+const jsonld = [{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${origin}/#website`,
+      "url": `${origin}/`,
+      "name": "Pranav Gore",
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${origin}/#profile`,
+      "url": `${origin}/`,
+      "isPartOf": {
+        "@id": `${origin}/#website`
+      },
+      "dateModified": "2026-10-11",
+      "mainEntity": {
+        "@id": `${origin}/#person`
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": `${origin}/#person`,
+      "name": "Pranav Gore",
+      "givenName": "Pranav",
+      "familyName": "Gore",
+      "jobTitle": "Solution Architect",
+      "description": "Solution Designer and Architect with 19 years of experience building enterprise applications, integrations, data analytics solutions and workflow automation.",
+      "url": `${origin}/`,
+      "email": "mailto:pranavugore@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Melbourne",
+        "addressRegion": "VIC",
+        "addressCountry": "AU"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "NMAM Institute of Technology (Visvesvaraya Technological University)"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "AWS Certified Solutions Architect – Associate",
+          "credentialCategory": "certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "SAFe Scrum Master",
+          "credentialCategory": "certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "ITIL Foundation",
+          "credentialCategory": "certification"
+        }
+      ],
+      "knowsAbout": [
+        "Solution architecture",
+        "System design",
+        "Enterprise integration",
+        "Microservices",
+        "Event-driven architecture",
+        "Apache Kafka",
+        "IBM MQ",
+        "Spring Boot",
+        "AWS",
+        "Open Banking",
+        "Master data management",
+        "Data analytics",
+        "Dashboards",
+        "Looker Studio",
+        "Workflow automation",
+        "n8n",
+        "AI agents",
+        "Large language models",
+        "Anthropic Claude API",
+        "ETL",
+        "PostgreSQL",
+        "REST APIs",
+        "Robotic process automation",
+        "Low-code development",
+        "Google AppSheet",
+        "AI-assisted software development",
+        "Claude Code",
+        "Cursor",
+        "Oracle OSM",
+        "Oracle UIM",
+        "Order management and fulfilment",
+        "Machine learning",
+        "Agile delivery",
+        "SAFe",
+        "Product design",
+        "Full-stack development",
+        "Mobile app development"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/pranavugore"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${origin}/#faq`,
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Pranav Gore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pranav Gore is a Melbourne-based Solution Designer and Architect with 19 years of experience designing enterprise applications, system integrations, data analytics solutions and workflow automation across banking, telecommunications, retail and non-profit organisations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Pranav Gore specialise in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solution architecture for complex enterprise systems: integration and microservices design, data migration and master data, analytics dashboards, and end-to-end workflow automation using n8n, AI agents built on large language models, AppSheet and AI-assisted development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What has Pranav Gore built end to end?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A data analytics web app, more than 50 n8n automations and AI agents, low-code AppSheet apps, the migration of more than 100 RPA robots in-house at Telstra, and two products in progress: the Stolen Minutes app and a platform for yoga teachers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which industries has Pranav Gore worked in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Banking and financial services, telecommunications, retail and the non-profit sector, in client-facing roles on large transformation programmes with multiple vendors and geographies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Pranav Gore build automation and analytics for a small team or non-profit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Pranav designs and ships practical, low-maintenance solutions: self-hosted n8n data pipelines, AI agents that research and draft outreach, low-code operational apps and dashboards that turn scattered operational data into decisions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Pranav Gore available for roles or projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Pranav is open to Solution Architect and Solution Designer roles and to automation, data and integration projects, based in Melbourne and open to remote work."
+          }
+        }
+      ]
+    }
+  ]
+}];
+---
+<Base title={title} description={description} jsonld={jsonld} current="home" includeBase={false}>
+<main>
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Systems, Data &amp; Automation</span>
+          <p class="kicker">Calmly fixing chaos since 2007…</p>
+          <h1 id="hero-h">Messy process in. <span class="hl">Working system</span> out.</h1>
+          <p class="lead">I'm Pranav Gore, a Melbourne solution architect who designs <strong>and</strong> builds. Enterprise integrations for banks and telcos, <strong>n8n automations and AI agents</strong>, <strong>dashboards</strong>, <strong>apps</strong>, and a couple of products of my own.</p>
+          <div class="cta">
+            <a class="btn" href="#contact">Tell me about your problem</a>
+            <a class="btn ghost" href="#work">See the work</a>
+          </div>
+        </div>
+        <div class="slider" aria-roledescription="carousel" aria-label="Six areas of work">
+          <div class="slides">
+          <figure class="slide t-data on" aria-hidden="false">
+            <svg viewBox="0 0 520 340" role="img" aria-label="Illustration of an analytics dashboard with KPI tiles, a trend line, bar chart and donut chart">
+            <rect x="0" y="0" width="520" height="34" rx="10" class="s-surface"/>
+            <circle cx="18" cy="17" r="5" class="s-tone"/><rect x="32" y="12" width="90" height="10" rx="5" class="s-muted" opacity=".4"/>
+            <rect x="380" y="10" width="60" height="14" rx="7" class="s-tone-soft"/><rect x="446" y="10" width="60" height="14" rx="7" class="s-tone-soft"/>
+            <g>
+              <rect x="0" y="48" width="160" height="70" rx="12" class="s-surface"/><rect x="14" y="62" width="60" height="8" rx="4" class="s-muted" opacity=".4"/><rect x="14" y="80" width="90" height="20" rx="6" class="s-tone"/>
+              <rect x="180" y="48" width="160" height="70" rx="12" class="s-surface"/><rect x="194" y="62" width="70" height="8" rx="4" class="s-muted" opacity=".4"/><rect x="194" y="80" width="70" height="20" rx="6" class="s-tone"/>
+              <rect x="360" y="48" width="160" height="70" rx="12" class="s-surface"/><rect x="374" y="62" width="50" height="8" rx="4" class="s-muted" opacity=".4"/><rect x="374" y="80" width="100" height="20" rx="6" class="s-tone"/>
+            </g>
+            <rect x="0" y="132" width="320" height="200" rx="12" class="s-surface"/>
+            <path d="M20 300 C60 280 80 290 110 250 S170 230 200 210 S260 200 300 160" fill="none" class="s-stroke-tone" stroke-width="3"/>
+            <path d="M20 300 C60 280 80 290 110 250 S170 230 200 210 S260 200 300 160 L300 316 L20 316 Z" class="s-tone-soft"/>
+            <g class="s-muted" opacity=".25"><rect x="20" y="180" width="280" height="1"/><rect x="20" y="230" width="280" height="1"/><rect x="20" y="280" width="280" height="1"/></g>
+            <rect x="336" y="132" width="184" height="96" rx="12" class="s-surface"/>
+            <g class="s-tone">
+              <rect class="grow" x="352" y="186" width="16" height="30" rx="3"/><rect class="grow" style="animation-delay:.1s" x="376" y="166" width="16" height="50" rx="3"/><rect class="grow" style="animation-delay:.2s" x="400" y="176" width="16" height="40" rx="3"/><rect class="grow" style="animation-delay:.3s" x="424" y="150" width="16" height="66" rx="3"/><rect class="grow" style="animation-delay:.4s" x="448" y="160" width="16" height="56" rx="3"/><rect class="grow" style="animation-delay:.5s" x="472" y="146" width="16" height="70" rx="3"/>
+            </g>
+            <rect x="336" y="240" width="184" height="92" rx="12" class="s-surface"/>
+            <circle cx="380" cy="286" r="28" fill="none" class="s-tone-soft" stroke="currentColor" stroke-width="0"/>
+            <circle cx="380" cy="286" r="28" fill="none" stroke="var(--line)" stroke-width="10"/>
+            <circle cx="380" cy="286" r="28" fill="none" class="s-stroke-tone" stroke-width="10" stroke-dasharray="120 176" transform="rotate(-90 380 286)"/>
+            <rect x="424" y="268" width="80" height="8" rx="4" class="s-muted" opacity=".4"/><rect x="424" y="284" width="60" height="8" rx="4" class="s-muted" opacity=".3"/><rect x="424" y="300" width="70" height="8" rx="4" class="s-muted" opacity=".3"/>
+          </svg>
+            <figcaption><b>Data analytics</b><span class="mono">Dashboards · Regional programme</span></figcaption>
+          </figure>
+          <figure class="slide t-flow" aria-hidden="true">
+            <svg viewBox="0 0 520 320" role="img" aria-label="Illustration of an automation workflow: a trigger fetches data from an API, transforms it, loads a database, and branches to an AI step that drafts email, with failure alerts">
+            <g fill="none" stroke-width="2.5">
+              <path class="flowline s-stroke-tone" d="M106 80 H140"/>
+              <path class="flowline s-stroke-tone" d="M236 80 H270"/>
+              <path class="flowline s-stroke-tone" d="M366 80 H400"/>
+              <path class="flowline s-stroke-tone" d="M318 102 V140 Q318 160 298 160 H210 Q190 160 190 180 V214"/>
+              <path class="flowline s-stroke-tone" d="M238 236 H270"/>
+              <path class="flowline" stroke="var(--muted)" d="M448 102 V214"/>
+            </g>
+            <g>
+              <rect x="10" y="58" width="96" height="44" rx="12" class="s-surface"/><circle cx="32" cy="80" r="9" class="s-tone"/><text x="48" y="84" class="s-text">Trigger</text>
+              <rect x="140" y="58" width="96" height="44" rx="12" class="s-surface"/><rect x="152" y="72" width="16" height="16" rx="4" class="s-tone"/><text x="174" y="84" class="s-text">API pull</text>
+              <rect x="270" y="58" width="96" height="44" rx="12" class="s-surface"/><text x="318" y="84" text-anchor="middle" class="s-text">Transform</text>
+              <rect x="400" y="58" width="96" height="44" rx="12" class="s-surface"/><ellipse cx="420" cy="74" rx="8" ry="4" class="s-tone"/><rect x="412" y="74" width="16" height="12" class="s-tone"/><text x="434" y="84" class="s-text">Postgres</text>
+              <rect x="142" y="214" width="96" height="44" rx="12" fill="var(--tone)"/><text x="190" y="240" text-anchor="middle" class="s-text" style="fill:var(--bg)">✦ AI agent</text>
+              <rect x="270" y="214" width="96" height="44" rx="12" class="s-surface"/><rect x="284" y="228" width="20" height="14" rx="3" fill="none" class="s-stroke-tone" stroke-width="2"/><text x="312" y="240" class="s-text">Email</text>
+              <rect x="400" y="214" width="96" height="44" rx="12" class="s-surface"/><circle cx="420" cy="236" r="8" fill="var(--muted)" opacity=".6"/><text x="434" y="240" class="s-text">Alert</text>
+            </g>
+            <text x="10" y="40" class="s-small">schedule · webhook · form</text>
+            <text x="142" y="282" class="s-small">research · draft · extract</text>
+            <text x="400" y="282" class="s-small">on failure</text>
+            <g class="pulse"><circle cx="58" cy="80" r="0"/></g>
+          </svg>
+            <figcaption><b>n8n and AI agents</b><span class="mono">Automation · Self-hosted</span></figcaption>
+          </figure>
+          <figure class="slide t-rpa" aria-hidden="true">
+            <svg viewBox="0 0 520 330" role="img" aria-label="Illustration of more than one hundred robots switching from vendor-run to in-house">
+            <text x="0" y="16" class="s-small">Vendor-run</text>
+            <text x="520" y="16" text-anchor="end" class="s-small" style="fill:var(--tone)">In-house team</text>
+            <rect x="80" y="10" width="360" height="4" rx="2" class="s-surface"/>
+            <rect x="80" y="10" width="360" height="4" rx="2" class="s-tone" opacity=".6"/>
+            <g>
+              <g><rect class="bot" style="animation-delay:0.00s" x="48" y="34" width="26" height="20" rx="6"/><rect x="56" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.18s" x="84" y="34" width="26" height="20" rx="6"/><rect x="92" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.36s" x="120" y="34" width="26" height="20" rx="6"/><rect x="128" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.54s" x="156" y="34" width="26" height="20" rx="6"/><rect x="164" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.72s" x="192" y="34" width="26" height="20" rx="6"/><rect x="200" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.90s" x="228" y="34" width="26" height="20" rx="6"/><rect x="236" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.08s" x="264" y="34" width="26" height="20" rx="6"/><rect x="272" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.26s" x="300" y="34" width="26" height="20" rx="6"/><rect x="308" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.44s" x="336" y="34" width="26" height="20" rx="6"/><rect x="344" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.62s" x="372" y="34" width="26" height="20" rx="6"/><rect x="380" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.80s" x="408" y="34" width="26" height="20" rx="6"/><rect x="416" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.98s" x="444" y="34" width="26" height="20" rx="6"/><rect x="452" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.05s" x="48" y="64" width="26" height="20" rx="6"/><rect x="56" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.23s" x="84" y="64" width="26" height="20" rx="6"/><rect x="92" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.41s" x="120" y="64" width="26" height="20" rx="6"/><rect x="128" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.59s" x="156" y="64" width="26" height="20" rx="6"/><rect x="164" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.77s" x="192" y="64" width="26" height="20" rx="6"/><rect x="200" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.95s" x="228" y="64" width="26" height="20" rx="6"/><rect x="236" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.13s" x="264" y="64" width="26" height="20" rx="6"/><rect x="272" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.31s" x="300" y="64" width="26" height="20" rx="6"/><rect x="308" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.49s" x="336" y="64" width="26" height="20" rx="6"/><rect x="344" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.67s" x="372" y="64" width="26" height="20" rx="6"/><rect x="380" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.85s" x="408" y="64" width="26" height="20" rx="6"/><rect x="416" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.03s" x="444" y="64" width="26" height="20" rx="6"/><rect x="452" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.10s" x="48" y="94" width="26" height="20" rx="6"/><rect x="56" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.28s" x="84" y="94" width="26" height="20" rx="6"/><rect x="92" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.46s" x="120" y="94" width="26" height="20" rx="6"/><rect x="128" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.64s" x="156" y="94" width="26" height="20" rx="6"/><rect x="164" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.82s" x="192" y="94" width="26" height="20" rx="6"/><rect x="200" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.00s" x="228" y="94" width="26" height="20" rx="6"/><rect x="236" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.18s" x="264" y="94" width="26" height="20" rx="6"/><rect x="272" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.36s" x="300" y="94" width="26" height="20" rx="6"/><rect x="308" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.54s" x="336" y="94" width="26" height="20" rx="6"/><rect x="344" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.72s" x="372" y="94" width="26" height="20" rx="6"/><rect x="380" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.90s" x="408" y="94" width="26" height="20" rx="6"/><rect x="416" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.08s" x="444" y="94" width="26" height="20" rx="6"/><rect x="452" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.15s" x="48" y="124" width="26" height="20" rx="6"/><rect x="56" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.33s" x="84" y="124" width="26" height="20" rx="6"/><rect x="92" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.51s" x="120" y="124" width="26" height="20" rx="6"/><rect x="128" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.69s" x="156" y="124" width="26" height="20" rx="6"/><rect x="164" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.87s" x="192" y="124" width="26" height="20" rx="6"/><rect x="200" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.05s" x="228" y="124" width="26" height="20" rx="6"/><rect x="236" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.23s" x="264" y="124" width="26" height="20" rx="6"/><rect x="272" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.41s" x="300" y="124" width="26" height="20" rx="6"/><rect x="308" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.59s" x="336" y="124" width="26" height="20" rx="6"/><rect x="344" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.77s" x="372" y="124" width="26" height="20" rx="6"/><rect x="380" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.95s" x="408" y="124" width="26" height="20" rx="6"/><rect x="416" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.13s" x="444" y="124" width="26" height="20" rx="6"/><rect x="452" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.20s" x="48" y="154" width="26" height="20" rx="6"/><rect x="56" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.38s" x="84" y="154" width="26" height="20" rx="6"/><rect x="92" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.56s" x="120" y="154" width="26" height="20" rx="6"/><rect x="128" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.74s" x="156" y="154" width="26" height="20" rx="6"/><rect x="164" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.92s" x="192" y="154" width="26" height="20" rx="6"/><rect x="200" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.10s" x="228" y="154" width="26" height="20" rx="6"/><rect x="236" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.28s" x="264" y="154" width="26" height="20" rx="6"/><rect x="272" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.46s" x="300" y="154" width="26" height="20" rx="6"/><rect x="308" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.64s" x="336" y="154" width="26" height="20" rx="6"/><rect x="344" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.82s" x="372" y="154" width="26" height="20" rx="6"/><rect x="380" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.00s" x="408" y="154" width="26" height="20" rx="6"/><rect x="416" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.18s" x="444" y="154" width="26" height="20" rx="6"/><rect x="452" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.25s" x="48" y="184" width="26" height="20" rx="6"/><rect x="56" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.43s" x="84" y="184" width="26" height="20" rx="6"/><rect x="92" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.61s" x="120" y="184" width="26" height="20" rx="6"/><rect x="128" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.79s" x="156" y="184" width="26" height="20" rx="6"/><rect x="164" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.97s" x="192" y="184" width="26" height="20" rx="6"/><rect x="200" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.15s" x="228" y="184" width="26" height="20" rx="6"/><rect x="236" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.33s" x="264" y="184" width="26" height="20" rx="6"/><rect x="272" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.51s" x="300" y="184" width="26" height="20" rx="6"/><rect x="308" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.69s" x="336" y="184" width="26" height="20" rx="6"/><rect x="344" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.87s" x="372" y="184" width="26" height="20" rx="6"/><rect x="380" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.05s" x="408" y="184" width="26" height="20" rx="6"/><rect x="416" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.23s" x="444" y="184" width="26" height="20" rx="6"/><rect x="452" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.30s" x="48" y="214" width="26" height="20" rx="6"/><rect x="56" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.48s" x="84" y="214" width="26" height="20" rx="6"/><rect x="92" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.66s" x="120" y="214" width="26" height="20" rx="6"/><rect x="128" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.84s" x="156" y="214" width="26" height="20" rx="6"/><rect x="164" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.02s" x="192" y="214" width="26" height="20" rx="6"/><rect x="200" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.20s" x="228" y="214" width="26" height="20" rx="6"/><rect x="236" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.38s" x="264" y="214" width="26" height="20" rx="6"/><rect x="272" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.56s" x="300" y="214" width="26" height="20" rx="6"/><rect x="308" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.74s" x="336" y="214" width="26" height="20" rx="6"/><rect x="344" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.92s" x="372" y="214" width="26" height="20" rx="6"/><rect x="380" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.10s" x="408" y="214" width="26" height="20" rx="6"/><rect x="416" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.28s" x="444" y="214" width="26" height="20" rx="6"/><rect x="452" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.35s" x="48" y="244" width="26" height="20" rx="6"/><rect x="56" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.53s" x="84" y="244" width="26" height="20" rx="6"/><rect x="92" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.71s" x="120" y="244" width="26" height="20" rx="6"/><rect x="128" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.89s" x="156" y="244" width="26" height="20" rx="6"/><rect x="164" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.07s" x="192" y="244" width="26" height="20" rx="6"/><rect x="200" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.25s" x="228" y="244" width="26" height="20" rx="6"/><rect x="236" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.43s" x="264" y="244" width="26" height="20" rx="6"/><rect x="272" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.61s" x="300" y="244" width="26" height="20" rx="6"/><rect x="308" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.79s" x="336" y="244" width="26" height="20" rx="6"/><rect x="344" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.97s" x="372" y="244" width="26" height="20" rx="6"/><rect x="380" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.15s" x="408" y="244" width="26" height="20" rx="6"/><rect x="416" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.33s" x="444" y="244" width="26" height="20" rx="6"/><rect x="452" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.40s" x="48" y="274" width="26" height="20" rx="6"/><rect x="56" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.58s" x="84" y="274" width="26" height="20" rx="6"/><rect x="92" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.76s" x="120" y="274" width="26" height="20" rx="6"/><rect x="128" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.94s" x="156" y="274" width="26" height="20" rx="6"/><rect x="164" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.12s" x="192" y="274" width="26" height="20" rx="6"/><rect x="200" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.30s" x="228" y="274" width="26" height="20" rx="6"/><rect x="236" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.48s" x="264" y="274" width="26" height="20" rx="6"/><rect x="272" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.66s" x="300" y="274" width="26" height="20" rx="6"/><rect x="308" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.84s" x="336" y="274" width="26" height="20" rx="6"/><rect x="344" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.02s" x="372" y="274" width="26" height="20" rx="6"/><rect x="380" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.20s" x="408" y="274" width="26" height="20" rx="6"/><rect x="416" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.38s" x="444" y="274" width="26" height="20" rx="6"/><rect x="452" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+            </g>
+            <text x="260" y="322" text-anchor="middle" class="s-text">100+ robots · zero disruption · zero defects</text>
+          </svg>
+            <figcaption><b>100+ robots, moved in-house</b><span class="mono">RPA · Telstra</span></figcaption>
+          </figure>
+          <figure class="slide t-apps" aria-hidden="true">
+            <svg viewBox="0 0 520 330" role="img" aria-label="Illustration of two phone screens from a low-code app, a list and a form, syncing to a spreadsheet">
+            <g>
+              <rect x="40" y="10" width="150" height="310" rx="24" fill="var(--text)"/><rect x="48" y="18" width="134" height="294" rx="18" fill="var(--bg)"/>
+              <rect x="58" y="32" width="114" height="22" rx="6" class="s-tone"/>
+              <g><rect x="58" y="66" width="114" height="40" rx="8" class="s-surface"/><circle cx="74" cy="86" r="9" class="s-tone-soft"/><rect x="90" y="78" width="60" height="6" rx="3" class="s-muted" opacity=".5"/><rect x="90" y="90" width="40" height="6" rx="3" class="s-muted" opacity=".3"/></g>
+              <g><rect x="58" y="114" width="114" height="40" rx="8" class="s-surface"/><circle cx="74" cy="134" r="9" class="s-tone-soft"/><rect x="90" y="126" width="54" height="6" rx="3" class="s-muted" opacity=".5"/><rect x="90" y="138" width="34" height="6" rx="3" class="s-muted" opacity=".3"/></g>
+              <g><rect x="58" y="162" width="114" height="40" rx="8" class="s-surface"/><circle cx="74" cy="182" r="9" class="s-tone-soft"/><rect x="90" y="174" width="64" height="6" rx="3" class="s-muted" opacity=".5"/><rect x="90" y="186" width="44" height="6" rx="3" class="s-muted" opacity=".3"/></g>
+              <g><rect x="58" y="210" width="114" height="40" rx="8" class="s-surface"/><circle cx="74" cy="230" r="9" class="s-tone-soft"/><rect x="90" y="222" width="50" height="6" rx="3" class="s-muted" opacity=".5"/><rect x="90" y="234" width="30" height="6" rx="3" class="s-muted" opacity=".3"/></g>
+              <circle cx="152" cy="282" r="16" class="s-tone"/><path d="M146 282 H158 M152 276 V288" stroke="var(--bg)" stroke-width="2.5"/>
+            </g>
+            <g>
+              <rect x="220" y="10" width="150" height="310" rx="24" fill="var(--text)"/><rect x="228" y="18" width="134" height="294" rx="18" fill="var(--bg)"/>
+              <rect x="238" y="32" width="70" height="10" rx="5" class="s-muted" opacity=".5"/>
+              <rect x="238" y="56" width="114" height="28" rx="7" fill="none" stroke="var(--line)" stroke-width="2"/>
+              <rect x="238" y="96" width="114" height="28" rx="7" fill="none" stroke="var(--line)" stroke-width="2"/>
+              <rect x="238" y="136" width="114" height="28" rx="7" fill="none" class="s-stroke-tone" stroke-width="2"/>
+              <rect x="238" y="176" width="54" height="28" rx="7" class="s-tone-soft"/><rect x="298" y="176" width="54" height="28" rx="7" class="s-surface"/>
+              <rect x="238" y="262" width="114" height="34" rx="10" class="s-tone"/><text x="295" y="284" text-anchor="middle" class="s-text" style="fill:var(--bg)">Save</text>
+            </g>
+            <path class="flowline s-stroke-tone" d="M372 165 H410" stroke-width="2.5" fill="none"/>
+            <g>
+              <rect x="410" y="110" width="100" height="110" rx="10" class="s-surface"/>
+              <g stroke="var(--line)" stroke-width="1.5"><path d="M410 136 H510 M410 158 H510 M410 180 H510 M410 202 H510 M443 110 V220 M476 110 V220"/></g>
+              <rect x="410" y="110" width="100" height="26" rx="10" class="s-tone-soft"/>
+            </g>
+          </svg>
+            <figcaption><b>AppSheet apps</b><span class="mono">Low-code · Non-profit</span></figcaption>
+          </figure>
+          <figure class="slide t-time" aria-hidden="true">
+            <svg viewBox="0 0 520 330" role="img" aria-label="Illustration of a mobile app screen with a circular time ring">
+            <rect x="185" y="6" width="150" height="318" rx="26" fill="var(--text)"/><rect x="193" y="14" width="134" height="302" rx="20" fill="var(--bg)"/>
+            <rect x="215" y="34" width="90" height="10" rx="5" class="s-muted" opacity=".45"/>
+            <circle cx="260" cy="140" r="54" fill="none" stroke="var(--line)" stroke-width="12"/>
+            <circle cx="260" cy="140" r="54" fill="none" class="s-stroke-tone" stroke-width="12" stroke-linecap="round" stroke-dasharray="230 340" transform="rotate(-90 260 140)"/>
+            <g class="spin"><circle cx="260" cy="86" r="6" class="s-tone"/><circle cx="260" cy="140" r="54" fill="none" stroke="none"/></g>
+            <path d="M260 116 V140 L276 150" class="s-stroke-tone" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <rect x="207" y="216" width="106" height="30" rx="10" class="s-surface"/><rect x="217" y="227" width="50" height="8" rx="4" class="s-muted" opacity=".5"/>
+            <rect x="207" y="254" width="106" height="30" rx="10" class="s-surface"/><rect x="217" y="265" width="64" height="8" rx="4" class="s-muted" opacity=".5"/>
+            <g class="s-tone-soft"><circle cx="90" cy="90" r="34"/><circle cx="430" cy="240" r="44"/><circle cx="440" cy="70" r="18"/><circle cx="70" cy="250" r="20"/></g>
+          </svg>
+            <figcaption><b>Stolen Minutes</b><span class="mono">Product · In progress</span></figcaption>
+          </figure>
+          <figure class="slide t-yoga" aria-hidden="true">
+            <svg viewBox="0 0 520 330" role="img" aria-label="Illustration of a web platform with a teacher profile and a weekly class schedule">
+            <rect x="0" y="0" width="520" height="330" rx="14" class="s-surface"/>
+            <rect x="0" y="0" width="520" height="30" rx="14" fill="var(--line)"/>
+            <circle cx="18" cy="15" r="5" fill="var(--c-yoga)"/><circle cx="34" cy="15" r="5" fill="var(--c-time)"/><circle cx="50" cy="15" r="5" fill="var(--c-rpa)"/>
+            <rect x="140" y="8" width="240" height="14" rx="7" fill="var(--bg)"/>
+            <rect x="16" y="46" width="150" height="268" rx="12" fill="var(--bg)"/>
+            <circle cx="91" cy="96" r="30" class="s-tone-soft"/>
+            <circle cx="91" cy="84" r="7" class="s-tone"/><path d="M73 110 Q91 88 109 110 M91 92 L91 104" class="s-stroke-tone" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <rect x="46" y="140" width="90" height="9" rx="4.5" class="s-muted" opacity=".55"/><rect x="58" y="156" width="66" height="7" rx="3.5" class="s-muted" opacity=".35"/>
+            <rect x="32" y="262" width="118" height="34" rx="10" class="s-tone"/><text x="91" y="284" text-anchor="middle" class="s-text" style="fill:var(--bg)">Book a class</text>
+            <g class="s-muted" opacity=".35"><rect x="32" y="182" width="118" height="7" rx="3.5"/><rect x="32" y="196" width="100" height="7" rx="3.5"/><rect x="32" y="210" width="110" height="7" rx="3.5"/></g>
+            <g>
+              <text x="186" y="62" class="s-small">Mon</text><text x="252" y="62" class="s-small">Tue</text><text x="318" y="62" class="s-small">Wed</text><text x="384" y="62" class="s-small">Thu</text><text x="450" y="62" class="s-small">Fri</text>
+              <rect x="182" y="74" width="58" height="56" rx="8" class="s-tone"/><rect x="248" y="104" width="58" height="44" rx="8" class="s-tone-soft"/><rect x="314" y="74" width="58" height="70" rx="8" class="s-tone-soft"/><rect x="380" y="90" width="58" height="50" rx="8" class="s-tone"/><rect x="446" y="74" width="58" height="40" rx="8" class="s-tone-soft"/>
+              <rect x="182" y="150" width="58" height="40" rx="8" class="s-tone-soft"/><rect x="248" y="170" width="58" height="60" rx="8" class="s-tone"/><rect x="314" y="164" width="58" height="44" rx="8" class="s-tone-soft"/><rect x="446" y="132" width="58" height="66" rx="8" class="s-tone"/>
+              <rect x="182" y="244" width="322" height="70" rx="10" fill="var(--bg)"/>
+              <path d="M198 296 C230 286 250 270 280 276 S340 258 370 262 S440 240 488 252" fill="none" class="s-stroke-tone" stroke-width="3"/>
+            </g>
+          </svg>
+            <figcaption><b>A platform for yoga teachers</b><span class="mono">Platform · In progress</span></figcaption>
+          </figure>
+          </div>
+          <div class="slider-ctrl">
+            <div class="dots" role="group" aria-label="Choose a slide"><button type="button" aria-label="Show Data analytics" aria-current="true"></button><button type="button" aria-label="Show n8n and AI agents"></button><button type="button" aria-label="Show 100+ robots, moved in-house"></button><button type="button" aria-label="Show AppSheet apps"></button><button type="button" aria-label="Show Stolen Minutes"></button><button type="button" aria-label="Show A platform for yoga teachers"></button></div>
+            <div class="arrows"><button type="button" data-dir="-1" aria-label="Previous slide">←</button><button type="button" data-dir="1" aria-label="Next slide">→</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" aria-labelledby="intro-h">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Welcome</span>
+          <h2 id="intro-h">An architect who still builds the thing.</h2>
+        </div>
+        <div>
+          <p>For <strong>19 years</strong> I've designed systems that big organisations depend on: <strong>core banking integration</strong>, <strong>telecom order fulfilment</strong>, and a fleet of <strong>100+ automation robots</strong> at Telstra.</p>
+          <p>These days I also build the whole thing myself, fast, with <strong>AI-assisted development</strong>. Data pipelines, AI agents, dashboards, mobile apps and full platforms. Different problems, same habit: understand it properly, keep it simple, ship it.</p>
+          <ul class="thumbs" aria-label="Jump to an area of work">
+            <li><a class="t-data" href="#work-analytics" title="Data analytics"><svg viewBox="204 24 52 52" aria-hidden="true" focusable="false">
+            <rect x="211" y="44" width="7" height="20" rx="2" class="s-tone"/><rect x="222" y="36" width="7" height="28" rx="2" class="s-tone"/><rect x="233" y="50" width="7" height="14" rx="2" class="s-tone"/><rect x="244" y="40" width="7" height="24" rx="2" class="s-tone"/>
+            </svg><span class="sr">Data analytics</span></a></li>
+            <li><a class="t-flow" href="#work-automation" title="n8n and AI agents"><svg viewBox="344 98 52 52" aria-hidden="true" focusable="false">
+            <circle cx="352" cy="124" r="6" class="s-tone"/><circle cx="370" cy="114" r="6" class="s-tone"/><circle cx="388" cy="124" r="6" class="s-tone"/><path d="M352 124 L370 114 L388 124" class="s-stroke-tone" stroke-width="2" fill="none"/>
+            </svg><span class="sr">n8n and AI agents</span></a></li>
+            <li><a class="t-rpa" href="#work-rpa" title="100+ robots, moved in-house"><svg viewBox="344 264 52 52" aria-hidden="true" focusable="false">
+            <rect x="356" y="276" width="28" height="22" rx="6" class="s-tone"/><circle cx="364" cy="287" r="3" fill="var(--bg)"/><circle cx="376" cy="287" r="3" fill="var(--bg)"/><rect x="368" y="270" width="4" height="6" class="s-tone"/>
+            </svg><span class="sr">100+ robots, moved in-house</span></a></li>
+            <li><a class="t-apps" href="#work-appsheet" title="AppSheet apps"><svg viewBox="204 338 52 52" aria-hidden="true" focusable="false">
+            <rect x="218" y="346" width="24" height="38" rx="5" class="s-tone"/><rect x="222" y="352" width="16" height="3" rx="1.5" fill="var(--bg)"/><rect x="222" y="359" width="16" height="3" rx="1.5" fill="var(--bg)"/><rect x="222" y="366" width="10" height="3" rx="1.5" fill="var(--bg)"/>
+            </svg><span class="sr">AppSheet apps</span></a></li>
+            <li><a class="t-time" href="#work-stolen-minutes" title="Stolen Minutes"><svg viewBox="64 264 52 52" aria-hidden="true" focusable="false">
+            <circle cx="90" cy="286" r="14" fill="none" class="s-stroke-tone" stroke-width="3"/><path d="M90 278 L90 286 L96 290" class="s-stroke-tone" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </svg><span class="sr">Stolen Minutes</span></a></li>
+            <li><a class="t-yoga" href="#work-yoga" title="A platform for yoga teachers"><svg viewBox="64 98 52 52" aria-hidden="true" focusable="false">
+            <circle cx="90" cy="108" r="5" class="s-tone"/><path d="M76 132 Q90 114 104 132 M90 114 L90 126 M78 134 L102 134" class="s-stroke-tone" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg><span class="sr">A platform for yoga teachers</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="who" id="who" aria-labelledby="who-h">
+      <div class="wrap">
+        <span class="eyebrow">Who are you?</span>
+        <h2 id="who-h">See yourself <em>as…</em></h2>
+        <ul>
+          <li><a class="t-data" href="#enterprise">A hiring manager</a></li>
+          <li><a class="t-rpa" href="#enterprise">A bank or telco team</a></li>
+          <li><a class="t-flow" href="#small-teams">A non-profit</a></li>
+          <li><a class="t-apps" href="#small-teams">A small business</a></li>
+          <li><a class="t-time" href="#builders">A founder with an idea</a></li>
+          <li><a class="t-yoga" href="#builders">A teacher or coach</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel t-data" id="enterprise" aria-labelledby="ent-h">
+      <div class="wrap">
+        <div class="text reveal">
+          <p class="kicker">If your systems can't afford to fall over…</p>
+          <span class="eyebrow">For enterprise, banking &amp; telco teams</span>
+          <h2 id="ent-h" class="caps">Architecture for <i>serious</i> systems</h2>
+          <p>I've been the lead solution designer on bank acquisitions, Open Banking and telecom fulfilment. I talk to the business, the vendors and the engineers, and I design something all three can live with.</p>
+          <ul class="feats">
+            <li><span class="n">01</span><div><b>Integration &amp; microservices</b><span>Spring Boot, Kafka, MQ and APIs that let modern channels safely reuse mainframe capability.</span></div></li>
+            <li><span class="n">02</span><div><b>Migrations &amp; master data</b><span>Moving customer records from an acquired institution into a major bank, with downstream systems kept consistent.</span></div></li>
+            <li><span class="n">03</span><div><b>Automation at scale</b><span>Took 100+ robots in-house at Telstra with no outage, then kept shipping new ones with zero defects.</span></div></li>
+          </ul>
+          <div class="cta"><a class="btn" href="#contact">Talk about a role</a></div>
+        </div>
+        <div class="art t-rpa reveal"><svg viewBox="0 0 520 330" aria-hidden="true" focusable="false">
+            <text x="0" y="16" class="s-small">Vendor-run</text>
+            <text x="520" y="16" text-anchor="end" class="s-small" style="fill:var(--tone)">In-house team</text>
+            <rect x="80" y="10" width="360" height="4" rx="2" class="s-surface"/>
+            <rect x="80" y="10" width="360" height="4" rx="2" class="s-tone" opacity=".6"/>
+            <g>
+              <g><rect class="bot" style="animation-delay:0.00s" x="48" y="34" width="26" height="20" rx="6"/><rect x="56" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.18s" x="84" y="34" width="26" height="20" rx="6"/><rect x="92" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.36s" x="120" y="34" width="26" height="20" rx="6"/><rect x="128" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.54s" x="156" y="34" width="26" height="20" rx="6"/><rect x="164" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.72s" x="192" y="34" width="26" height="20" rx="6"/><rect x="200" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.90s" x="228" y="34" width="26" height="20" rx="6"/><rect x="236" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.08s" x="264" y="34" width="26" height="20" rx="6"/><rect x="272" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.26s" x="300" y="34" width="26" height="20" rx="6"/><rect x="308" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.44s" x="336" y="34" width="26" height="20" rx="6"/><rect x="344" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.62s" x="372" y="34" width="26" height="20" rx="6"/><rect x="380" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.80s" x="408" y="34" width="26" height="20" rx="6"/><rect x="416" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.98s" x="444" y="34" width="26" height="20" rx="6"/><rect x="452" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.05s" x="48" y="64" width="26" height="20" rx="6"/><rect x="56" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.23s" x="84" y="64" width="26" height="20" rx="6"/><rect x="92" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.41s" x="120" y="64" width="26" height="20" rx="6"/><rect x="128" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.59s" x="156" y="64" width="26" height="20" rx="6"/><rect x="164" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.77s" x="192" y="64" width="26" height="20" rx="6"/><rect x="200" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.95s" x="228" y="64" width="26" height="20" rx="6"/><rect x="236" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.13s" x="264" y="64" width="26" height="20" rx="6"/><rect x="272" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.31s" x="300" y="64" width="26" height="20" rx="6"/><rect x="308" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.49s" x="336" y="64" width="26" height="20" rx="6"/><rect x="344" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.67s" x="372" y="64" width="26" height="20" rx="6"/><rect x="380" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.85s" x="408" y="64" width="26" height="20" rx="6"/><rect x="416" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.03s" x="444" y="64" width="26" height="20" rx="6"/><rect x="452" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.10s" x="48" y="94" width="26" height="20" rx="6"/><rect x="56" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.28s" x="84" y="94" width="26" height="20" rx="6"/><rect x="92" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.46s" x="120" y="94" width="26" height="20" rx="6"/><rect x="128" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.64s" x="156" y="94" width="26" height="20" rx="6"/><rect x="164" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.82s" x="192" y="94" width="26" height="20" rx="6"/><rect x="200" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.00s" x="228" y="94" width="26" height="20" rx="6"/><rect x="236" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.18s" x="264" y="94" width="26" height="20" rx="6"/><rect x="272" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.36s" x="300" y="94" width="26" height="20" rx="6"/><rect x="308" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.54s" x="336" y="94" width="26" height="20" rx="6"/><rect x="344" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.72s" x="372" y="94" width="26" height="20" rx="6"/><rect x="380" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.90s" x="408" y="94" width="26" height="20" rx="6"/><rect x="416" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.08s" x="444" y="94" width="26" height="20" rx="6"/><rect x="452" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.15s" x="48" y="124" width="26" height="20" rx="6"/><rect x="56" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.33s" x="84" y="124" width="26" height="20" rx="6"/><rect x="92" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.51s" x="120" y="124" width="26" height="20" rx="6"/><rect x="128" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.69s" x="156" y="124" width="26" height="20" rx="6"/><rect x="164" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.87s" x="192" y="124" width="26" height="20" rx="6"/><rect x="200" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.05s" x="228" y="124" width="26" height="20" rx="6"/><rect x="236" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.23s" x="264" y="124" width="26" height="20" rx="6"/><rect x="272" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.41s" x="300" y="124" width="26" height="20" rx="6"/><rect x="308" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.59s" x="336" y="124" width="26" height="20" rx="6"/><rect x="344" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.77s" x="372" y="124" width="26" height="20" rx="6"/><rect x="380" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.95s" x="408" y="124" width="26" height="20" rx="6"/><rect x="416" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.13s" x="444" y="124" width="26" height="20" rx="6"/><rect x="452" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.20s" x="48" y="154" width="26" height="20" rx="6"/><rect x="56" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.38s" x="84" y="154" width="26" height="20" rx="6"/><rect x="92" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.56s" x="120" y="154" width="26" height="20" rx="6"/><rect x="128" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.74s" x="156" y="154" width="26" height="20" rx="6"/><rect x="164" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.92s" x="192" y="154" width="26" height="20" rx="6"/><rect x="200" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.10s" x="228" y="154" width="26" height="20" rx="6"/><rect x="236" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.28s" x="264" y="154" width="26" height="20" rx="6"/><rect x="272" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.46s" x="300" y="154" width="26" height="20" rx="6"/><rect x="308" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.64s" x="336" y="154" width="26" height="20" rx="6"/><rect x="344" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.82s" x="372" y="154" width="26" height="20" rx="6"/><rect x="380" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.00s" x="408" y="154" width="26" height="20" rx="6"/><rect x="416" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.18s" x="444" y="154" width="26" height="20" rx="6"/><rect x="452" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.25s" x="48" y="184" width="26" height="20" rx="6"/><rect x="56" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.43s" x="84" y="184" width="26" height="20" rx="6"/><rect x="92" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.61s" x="120" y="184" width="26" height="20" rx="6"/><rect x="128" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.79s" x="156" y="184" width="26" height="20" rx="6"/><rect x="164" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.97s" x="192" y="184" width="26" height="20" rx="6"/><rect x="200" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.15s" x="228" y="184" width="26" height="20" rx="6"/><rect x="236" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.33s" x="264" y="184" width="26" height="20" rx="6"/><rect x="272" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.51s" x="300" y="184" width="26" height="20" rx="6"/><rect x="308" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.69s" x="336" y="184" width="26" height="20" rx="6"/><rect x="344" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.87s" x="372" y="184" width="26" height="20" rx="6"/><rect x="380" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.05s" x="408" y="184" width="26" height="20" rx="6"/><rect x="416" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.23s" x="444" y="184" width="26" height="20" rx="6"/><rect x="452" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.30s" x="48" y="214" width="26" height="20" rx="6"/><rect x="56" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.48s" x="84" y="214" width="26" height="20" rx="6"/><rect x="92" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.66s" x="120" y="214" width="26" height="20" rx="6"/><rect x="128" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.84s" x="156" y="214" width="26" height="20" rx="6"/><rect x="164" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.02s" x="192" y="214" width="26" height="20" rx="6"/><rect x="200" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.20s" x="228" y="214" width="26" height="20" rx="6"/><rect x="236" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.38s" x="264" y="214" width="26" height="20" rx="6"/><rect x="272" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.56s" x="300" y="214" width="26" height="20" rx="6"/><rect x="308" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.74s" x="336" y="214" width="26" height="20" rx="6"/><rect x="344" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.92s" x="372" y="214" width="26" height="20" rx="6"/><rect x="380" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.10s" x="408" y="214" width="26" height="20" rx="6"/><rect x="416" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.28s" x="444" y="214" width="26" height="20" rx="6"/><rect x="452" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.35s" x="48" y="244" width="26" height="20" rx="6"/><rect x="56" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.53s" x="84" y="244" width="26" height="20" rx="6"/><rect x="92" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.71s" x="120" y="244" width="26" height="20" rx="6"/><rect x="128" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.89s" x="156" y="244" width="26" height="20" rx="6"/><rect x="164" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.07s" x="192" y="244" width="26" height="20" rx="6"/><rect x="200" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.25s" x="228" y="244" width="26" height="20" rx="6"/><rect x="236" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.43s" x="264" y="244" width="26" height="20" rx="6"/><rect x="272" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.61s" x="300" y="244" width="26" height="20" rx="6"/><rect x="308" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.79s" x="336" y="244" width="26" height="20" rx="6"/><rect x="344" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.97s" x="372" y="244" width="26" height="20" rx="6"/><rect x="380" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.15s" x="408" y="244" width="26" height="20" rx="6"/><rect x="416" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.33s" x="444" y="244" width="26" height="20" rx="6"/><rect x="452" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.40s" x="48" y="274" width="26" height="20" rx="6"/><rect x="56" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.58s" x="84" y="274" width="26" height="20" rx="6"/><rect x="92" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.76s" x="120" y="274" width="26" height="20" rx="6"/><rect x="128" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.94s" x="156" y="274" width="26" height="20" rx="6"/><rect x="164" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.12s" x="192" y="274" width="26" height="20" rx="6"/><rect x="200" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.30s" x="228" y="274" width="26" height="20" rx="6"/><rect x="236" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.48s" x="264" y="274" width="26" height="20" rx="6"/><rect x="272" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.66s" x="300" y="274" width="26" height="20" rx="6"/><rect x="308" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.84s" x="336" y="274" width="26" height="20" rx="6"/><rect x="344" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.02s" x="372" y="274" width="26" height="20" rx="6"/><rect x="380" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.20s" x="408" y="274" width="26" height="20" rx="6"/><rect x="416" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.38s" x="444" y="274" width="26" height="20" rx="6"/><rect x="452" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+            </g>
+            <text x="260" y="322" text-anchor="middle" class="s-text">100+ robots · zero disruption · zero defects</text>
+          </svg></div>
+      </div>
+    </section>
+
+    <section class="panel flip t-flow" id="small-teams" aria-labelledby="small-h">
+      <div class="wrap">
+        <div class="text reveal">
+          <p class="kicker">More work than people to do it?</p>
+          <span class="eyebrow">For non-profits &amp; small teams</span>
+          <h2 id="small-h" class="caps">Automate the <i>boring</i> bits</h2>
+          <p>Copy-paste between spreadsheets, forms and inboxes is where good people's weeks disappear. I replace it with automations, AI agents and apps that quietly run in the background.</p>
+          <ul class="feats">
+            <li><span class="n">01</span><div><b>n8n pipelines</b><span>50+ self-hosted workflows: syncing systems, loading PostgreSQL, sending reports, alerting when anything breaks.</span></div></li>
+            <li><span class="n">02</span><div><b>AI agents</b><span>Claude-powered steps that research, draft outreach and turn messy free text into clean records.</span></div></li>
+            <li><span class="n">03</span><div><b>Apps &amp; dashboards</b><span>AppSheet apps for the people on the ground, and dashboards for the people deciding.</span></div></li>
+          </ul>
+          <div class="cta"><a class="btn" href="#contact">Automate something</a></div>
+        </div>
+        <div class="art reveal"><svg viewBox="0 0 520 320" aria-hidden="true" focusable="false">
+            <g fill="none" stroke-width="2.5">
+              <path class="flowline s-stroke-tone" d="M106 80 H140"/>
+              <path class="flowline s-stroke-tone" d="M236 80 H270"/>
+              <path class="flowline s-stroke-tone" d="M366 80 H400"/>
+              <path class="flowline s-stroke-tone" d="M318 102 V140 Q318 160 298 160 H210 Q190 160 190 180 V214"/>
+              <path class="flowline s-stroke-tone" d="M238 236 H270"/>
+              <path class="flowline" stroke="var(--muted)" d="M448 102 V214"/>
+            </g>
+            <g>
+              <rect x="10" y="58" width="96" height="44" rx="12" class="s-surface"/><circle cx="32" cy="80" r="9" class="s-tone"/><text x="48" y="84" class="s-text">Trigger</text>
+              <rect x="140" y="58" width="96" height="44" rx="12" class="s-surface"/><rect x="152" y="72" width="16" height="16" rx="4" class="s-tone"/><text x="174" y="84" class="s-text">API pull</text>
+              <rect x="270" y="58" width="96" height="44" rx="12" class="s-surface"/><text x="318" y="84" text-anchor="middle" class="s-text">Transform</text>
+              <rect x="400" y="58" width="96" height="44" rx="12" class="s-surface"/><ellipse cx="420" cy="74" rx="8" ry="4" class="s-tone"/><rect x="412" y="74" width="16" height="12" class="s-tone"/><text x="434" y="84" class="s-text">Postgres</text>
+              <rect x="142" y="214" width="96" height="44" rx="12" fill="var(--tone)"/><text x="190" y="240" text-anchor="middle" class="s-text" style="fill:var(--bg)">✦ AI agent</text>
+              <rect x="270" y="214" width="96" height="44" rx="12" class="s-surface"/><rect x="284" y="228" width="20" height="14" rx="3" fill="none" class="s-stroke-tone" stroke-width="2"/><text x="312" y="240" class="s-text">Email</text>
+              <rect x="400" y="214" width="96" height="44" rx="12" class="s-surface"/><circle cx="420" cy="236" r="8" fill="var(--muted)" opacity=".6"/><text x="434" y="240" class="s-text">Alert</text>
+            </g>
+            <text x="10" y="40" class="s-small">schedule · webhook · form</text>
+            <text x="142" y="282" class="s-small">research · draft · extract</text>
+            <text x="400" y="282" class="s-small">on failure</text>
+            <g class="pulse"><circle cx="58" cy="80" r="0"/></g>
+          </svg></div>
+      </div>
+    </section>
+
+    <section class="panel t-yoga" id="builders" aria-labelledby="build-h">
+      <div class="wrap">
+        <div class="text reveal">
+          <p class="kicker">Got an idea that won't leave you alone?</p>
+          <span class="eyebrow">For founders, creators &amp; teachers</span>
+          <h2 id="build-h" class="caps">From napkin to <i>product</i></h2>
+          <p>I'm building two products of my own right now, so I know the whole path: product thinking, design, architecture, code, launch, and the automation that keeps it growing.</p>
+          <ul class="feats">
+            <li class="t-time"><span class="n">01</span><div><b>Stolen Minutes <span class="badge">In progress</span></b><span>An app I'm designing and building from scratch, end to end.</span></div></li>
+            <li><span class="n">02</span><div><b>A platform for yoga teachers <span class="badge">In progress</span></b><span>Helping teachers run and grow their practice, with automation and AI doing the repetitive work.</span></div></li>
+            <li class="t-apps"><span class="n">03</span><div><b>Built fast, built properly</b><span>Claude Code and Cursor for speed, two decades of architecture for the bits that have to hold up.</span></div></li>
+          </ul>
+          <div class="cta"><a class="btn" href="#contact">Build something together</a></div>
+        </div>
+        <div class="art reveal"><svg viewBox="0 0 520 330" aria-hidden="true" focusable="false">
+            <rect x="0" y="0" width="520" height="330" rx="14" class="s-surface"/>
+            <rect x="0" y="0" width="520" height="30" rx="14" fill="var(--line)"/>
+            <circle cx="18" cy="15" r="5" fill="var(--c-yoga)"/><circle cx="34" cy="15" r="5" fill="var(--c-time)"/><circle cx="50" cy="15" r="5" fill="var(--c-rpa)"/>
+            <rect x="140" y="8" width="240" height="14" rx="7" fill="var(--bg)"/>
+            <rect x="16" y="46" width="150" height="268" rx="12" fill="var(--bg)"/>
+            <circle cx="91" cy="96" r="30" class="s-tone-soft"/>
+            <circle cx="91" cy="84" r="7" class="s-tone"/><path d="M73 110 Q91 88 109 110 M91 92 L91 104" class="s-stroke-tone" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <rect x="46" y="140" width="90" height="9" rx="4.5" class="s-muted" opacity=".55"/><rect x="58" y="156" width="66" height="7" rx="3.5" class="s-muted" opacity=".35"/>
+            <rect x="32" y="262" width="118" height="34" rx="10" class="s-tone"/><text x="91" y="284" text-anchor="middle" class="s-text" style="fill:var(--bg)">Book a class</text>
+            <g class="s-muted" opacity=".35"><rect x="32" y="182" width="118" height="7" rx="3.5"/><rect x="32" y="196" width="100" height="7" rx="3.5"/><rect x="32" y="210" width="110" height="7" rx="3.5"/></g>
+            <g>
+              <text x="186" y="62" class="s-small">Mon</text><text x="252" y="62" class="s-small">Tue</text><text x="318" y="62" class="s-small">Wed</text><text x="384" y="62" class="s-small">Thu</text><text x="450" y="62" class="s-small">Fri</text>
+              <rect x="182" y="74" width="58" height="56" rx="8" class="s-tone"/><rect x="248" y="104" width="58" height="44" rx="8" class="s-tone-soft"/><rect x="314" y="74" width="58" height="70" rx="8" class="s-tone-soft"/><rect x="380" y="90" width="58" height="50" rx="8" class="s-tone"/><rect x="446" y="74" width="58" height="40" rx="8" class="s-tone-soft"/>
+              <rect x="182" y="150" width="58" height="40" rx="8" class="s-tone-soft"/><rect x="248" y="170" width="58" height="60" rx="8" class="s-tone"/><rect x="314" y="164" width="58" height="44" rx="8" class="s-tone-soft"/><rect x="446" y="132" width="58" height="66" rx="8" class="s-tone"/>
+              <rect x="182" y="244" width="322" height="70" rx="10" fill="var(--bg)"/>
+              <path d="M198 296 C230 286 250 270 280 276 S340 258 370 262 S440 240 488 252" fill="none" class="s-stroke-tone" stroke-width="3"/>
+            </g>
+          </svg></div>
+      </div>
+    </section>
+
+    <section class="served" aria-labelledby="served-h">
+      <div class="wrap">
+        <span class="eyebrow">Happily served</span>
+        <h2 id="served-h">Industries, teams &amp; tools</h2>
+      </div>
+      <div class="marquee">
+        <ul><li>Banking</li><li>Telecommunications</li><li>Telstra</li><li>Retail</li><li>Non-profit</li><li>n8n</li><li>AWS</li><li>Claude</li><li>Google AppSheet</li><li>PostgreSQL</li><li>Kafka</li><li>Spring Boot</li><li>Oracle OSM</li><li>Looker Studio</li><li>Docker</li></ul>
+        <ul aria-hidden="true"><li>Banking</li><li>Telecommunications</li><li>Telstra</li><li>Retail</li><li>Non-profit</li><li>n8n</li><li>AWS</li><li>Claude</li><li>Google AppSheet</li><li>PostgreSQL</li><li>Kafka</li><li>Spring Boot</li><li>Oracle OSM</li><li>Looker Studio</li><li>Docker</li></ul>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Selected work</span>
+            <h2 id="work-h">Six very different builds</h2>
+          </div>
+          <p>Details stay general out of respect for the organisations involved. The skills and the outcomes are real.</p>
+        </div>
+        <ul class="works">
+          <li id="work-analytics"><a class="work t-data reveal" href="/data-viz/">
+            <div class="pic"><svg viewBox="0 0 520 340" aria-hidden="true" focusable="false">
+            <rect x="0" y="0" width="520" height="34" rx="10" class="s-surface"/>
+            <circle cx="18" cy="17" r="5" class="s-tone"/><rect x="32" y="12" width="90" height="10" rx="5" class="s-muted" opacity=".4"/>
+            <rect x="380" y="10" width="60" height="14" rx="7" class="s-tone-soft"/><rect x="446" y="10" width="60" height="14" rx="7" class="s-tone-soft"/>
+            <g>
+              <rect x="0" y="48" width="160" height="70" rx="12" class="s-surface"/><rect x="14" y="62" width="60" height="8" rx="4" class="s-muted" opacity=".4"/><rect x="14" y="80" width="90" height="20" rx="6" class="s-tone"/>
+              <rect x="180" y="48" width="160" height="70" rx="12" class="s-surface"/><rect x="194" y="62" width="70" height="8" rx="4" class="s-muted" opacity=".4"/><rect x="194" y="80" width="70" height="20" rx="6" class="s-tone"/>
+              <rect x="360" y="48" width="160" height="70" rx="12" class="s-surface"/><rect x="374" y="62" width="50" height="8" rx="4" class="s-muted" opacity=".4"/><rect x="374" y="80" width="100" height="20" rx="6" class="s-tone"/>
+            </g>
+            <rect x="0" y="132" width="320" height="200" rx="12" class="s-surface"/>
+            <path d="M20 300 C60 280 80 290 110 250 S170 230 200 210 S260 200 300 160" fill="none" class="s-stroke-tone" stroke-width="3"/>
+            <path d="M20 300 C60 280 80 290 110 250 S170 230 200 210 S260 200 300 160 L300 316 L20 316 Z" class="s-tone-soft"/>
+            <g class="s-muted" opacity=".25"><rect x="20" y="180" width="280" height="1"/><rect x="20" y="230" width="280" height="1"/><rect x="20" y="280" width="280" height="1"/></g>
+            <rect x="336" y="132" width="184" height="96" rx="12" class="s-surface"/>
+            <g class="s-tone">
+              <rect class="grow" x="352" y="186" width="16" height="30" rx="3"/><rect class="grow" style="animation-delay:.1s" x="376" y="166" width="16" height="50" rx="3"/><rect class="grow" style="animation-delay:.2s" x="400" y="176" width="16" height="40" rx="3"/><rect class="grow" style="animation-delay:.3s" x="424" y="150" width="16" height="66" rx="3"/><rect class="grow" style="animation-delay:.4s" x="448" y="160" width="16" height="56" rx="3"/><rect class="grow" style="animation-delay:.5s" x="472" y="146" width="16" height="70" rx="3"/>
+            </g>
+            <rect x="336" y="240" width="184" height="92" rx="12" class="s-surface"/>
+            <circle cx="380" cy="286" r="28" fill="none" class="s-tone-soft" stroke="currentColor" stroke-width="0"/>
+            <circle cx="380" cy="286" r="28" fill="none" stroke="var(--line)" stroke-width="10"/>
+            <circle cx="380" cy="286" r="28" fill="none" class="s-stroke-tone" stroke-width="10" stroke-dasharray="120 176" transform="rotate(-90 380 286)"/>
+            <rect x="424" y="268" width="80" height="8" rx="4" class="s-muted" opacity=".4"/><rect x="424" y="284" width="60" height="8" rx="4" class="s-muted" opacity=".3"/><rect x="424" y="300" width="70" height="8" rx="4" class="s-muted" opacity=".3"/>
+          </svg></div>
+            <div class="body">
+              <div class="meta mono"><span>Dashboards</span><span>Regional programme</span></div>
+              <h3>Data analytics</h3>
+              <p>An analytics web app that pulls operational data from many systems into one interactive view.</p>
+            </div>
+          </a></li>
+          <li id="work-automation"><a class="work t-flow reveal" href="/work/#n8n-workflows">
+            <div class="pic"><svg viewBox="0 0 520 320" aria-hidden="true" focusable="false">
+            <g fill="none" stroke-width="2.5">
+              <path class="flowline s-stroke-tone" d="M106 80 H140"/>
+              <path class="flowline s-stroke-tone" d="M236 80 H270"/>
+              <path class="flowline s-stroke-tone" d="M366 80 H400"/>
+              <path class="flowline s-stroke-tone" d="M318 102 V140 Q318 160 298 160 H210 Q190 160 190 180 V214"/>
+              <path class="flowline s-stroke-tone" d="M238 236 H270"/>
+              <path class="flowline" stroke="var(--muted)" d="M448 102 V214"/>
+            </g>
+            <g>
+              <rect x="10" y="58" width="96" height="44" rx="12" class="s-surface"/><circle cx="32" cy="80" r="9" class="s-tone"/><text x="48" y="84" class="s-text">Trigger</text>
+              <rect x="140" y="58" width="96" height="44" rx="12" class="s-surface"/><rect x="152" y="72" width="16" height="16" rx="4" class="s-tone"/><text x="174" y="84" class="s-text">API pull</text>
+              <rect x="270" y="58" width="96" height="44" rx="12" class="s-surface"/><text x="318" y="84" text-anchor="middle" class="s-text">Transform</text>
+              <rect x="400" y="58" width="96" height="44" rx="12" class="s-surface"/><ellipse cx="420" cy="74" rx="8" ry="4" class="s-tone"/><rect x="412" y="74" width="16" height="12" class="s-tone"/><text x="434" y="84" class="s-text">Postgres</text>
+              <rect x="142" y="214" width="96" height="44" rx="12" fill="var(--tone)"/><text x="190" y="240" text-anchor="middle" class="s-text" style="fill:var(--bg)">✦ AI agent</text>
+              <rect x="270" y="214" width="96" height="44" rx="12" class="s-surface"/><rect x="284" y="228" width="20" height="14" rx="3" fill="none" class="s-stroke-tone" stroke-width="2"/><text x="312" y="240" class="s-text">Email</text>
+              <rect x="400" y="214" width="96" height="44" rx="12" class="s-surface"/><circle cx="420" cy="236" r="8" fill="var(--muted)" opacity=".6"/><text x="434" y="240" class="s-text">Alert</text>
+            </g>
+            <text x="10" y="40" class="s-small">schedule · webhook · form</text>
+            <text x="142" y="282" class="s-small">research · draft · extract</text>
+            <text x="400" y="282" class="s-small">on failure</text>
+            <g class="pulse"><circle cx="58" cy="80" r="0"/></g>
+          </svg></div>
+            <div class="body">
+              <div class="meta mono"><span>Automation</span><span>Self-hosted</span></div>
+              <h3>n8n and AI agents</h3>
+              <p>50+ workflows: ETL into PostgreSQL, automated reporting, CRM sync and Claude-powered agents.</p>
+            </div>
+          </a></li>
+          <li id="work-rpa"><a class="work t-rpa reveal" href="/work/#rpa">
+            <div class="pic"><svg viewBox="0 0 520 330" aria-hidden="true" focusable="false">
+            <text x="0" y="16" class="s-small">Vendor-run</text>
+            <text x="520" y="16" text-anchor="end" class="s-small" style="fill:var(--tone)">In-house team</text>
+            <rect x="80" y="10" width="360" height="4" rx="2" class="s-surface"/>
+            <rect x="80" y="10" width="360" height="4" rx="2" class="s-tone" opacity=".6"/>
+            <g>
+              <g><rect class="bot" style="animation-delay:0.00s" x="48" y="34" width="26" height="20" rx="6"/><rect x="56" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.18s" x="84" y="34" width="26" height="20" rx="6"/><rect x="92" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.36s" x="120" y="34" width="26" height="20" rx="6"/><rect x="128" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.54s" x="156" y="34" width="26" height="20" rx="6"/><rect x="164" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.72s" x="192" y="34" width="26" height="20" rx="6"/><rect x="200" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.90s" x="228" y="34" width="26" height="20" rx="6"/><rect x="236" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.08s" x="264" y="34" width="26" height="20" rx="6"/><rect x="272" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.26s" x="300" y="34" width="26" height="20" rx="6"/><rect x="308" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.44s" x="336" y="34" width="26" height="20" rx="6"/><rect x="344" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.62s" x="372" y="34" width="26" height="20" rx="6"/><rect x="380" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.80s" x="408" y="34" width="26" height="20" rx="6"/><rect x="416" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.98s" x="444" y="34" width="26" height="20" rx="6"/><rect x="452" y="41" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="41" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.05s" x="48" y="64" width="26" height="20" rx="6"/><rect x="56" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.23s" x="84" y="64" width="26" height="20" rx="6"/><rect x="92" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.41s" x="120" y="64" width="26" height="20" rx="6"/><rect x="128" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.59s" x="156" y="64" width="26" height="20" rx="6"/><rect x="164" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.77s" x="192" y="64" width="26" height="20" rx="6"/><rect x="200" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.95s" x="228" y="64" width="26" height="20" rx="6"/><rect x="236" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.13s" x="264" y="64" width="26" height="20" rx="6"/><rect x="272" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.31s" x="300" y="64" width="26" height="20" rx="6"/><rect x="308" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.49s" x="336" y="64" width="26" height="20" rx="6"/><rect x="344" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.67s" x="372" y="64" width="26" height="20" rx="6"/><rect x="380" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.85s" x="408" y="64" width="26" height="20" rx="6"/><rect x="416" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.03s" x="444" y="64" width="26" height="20" rx="6"/><rect x="452" y="71" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="71" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.10s" x="48" y="94" width="26" height="20" rx="6"/><rect x="56" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.28s" x="84" y="94" width="26" height="20" rx="6"/><rect x="92" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.46s" x="120" y="94" width="26" height="20" rx="6"/><rect x="128" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.64s" x="156" y="94" width="26" height="20" rx="6"/><rect x="164" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.82s" x="192" y="94" width="26" height="20" rx="6"/><rect x="200" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.00s" x="228" y="94" width="26" height="20" rx="6"/><rect x="236" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.18s" x="264" y="94" width="26" height="20" rx="6"/><rect x="272" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.36s" x="300" y="94" width="26" height="20" rx="6"/><rect x="308" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.54s" x="336" y="94" width="26" height="20" rx="6"/><rect x="344" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.72s" x="372" y="94" width="26" height="20" rx="6"/><rect x="380" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.90s" x="408" y="94" width="26" height="20" rx="6"/><rect x="416" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.08s" x="444" y="94" width="26" height="20" rx="6"/><rect x="452" y="101" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="101" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.15s" x="48" y="124" width="26" height="20" rx="6"/><rect x="56" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.33s" x="84" y="124" width="26" height="20" rx="6"/><rect x="92" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.51s" x="120" y="124" width="26" height="20" rx="6"/><rect x="128" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.69s" x="156" y="124" width="26" height="20" rx="6"/><rect x="164" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.87s" x="192" y="124" width="26" height="20" rx="6"/><rect x="200" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.05s" x="228" y="124" width="26" height="20" rx="6"/><rect x="236" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.23s" x="264" y="124" width="26" height="20" rx="6"/><rect x="272" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.41s" x="300" y="124" width="26" height="20" rx="6"/><rect x="308" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.59s" x="336" y="124" width="26" height="20" rx="6"/><rect x="344" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.77s" x="372" y="124" width="26" height="20" rx="6"/><rect x="380" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.95s" x="408" y="124" width="26" height="20" rx="6"/><rect x="416" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.13s" x="444" y="124" width="26" height="20" rx="6"/><rect x="452" y="131" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="131" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.20s" x="48" y="154" width="26" height="20" rx="6"/><rect x="56" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.38s" x="84" y="154" width="26" height="20" rx="6"/><rect x="92" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.56s" x="120" y="154" width="26" height="20" rx="6"/><rect x="128" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.74s" x="156" y="154" width="26" height="20" rx="6"/><rect x="164" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.92s" x="192" y="154" width="26" height="20" rx="6"/><rect x="200" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.10s" x="228" y="154" width="26" height="20" rx="6"/><rect x="236" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.28s" x="264" y="154" width="26" height="20" rx="6"/><rect x="272" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.46s" x="300" y="154" width="26" height="20" rx="6"/><rect x="308" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.64s" x="336" y="154" width="26" height="20" rx="6"/><rect x="344" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.82s" x="372" y="154" width="26" height="20" rx="6"/><rect x="380" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.00s" x="408" y="154" width="26" height="20" rx="6"/><rect x="416" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.18s" x="444" y="154" width="26" height="20" rx="6"/><rect x="452" y="161" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="161" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.25s" x="48" y="184" width="26" height="20" rx="6"/><rect x="56" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.43s" x="84" y="184" width="26" height="20" rx="6"/><rect x="92" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.61s" x="120" y="184" width="26" height="20" rx="6"/><rect x="128" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.79s" x="156" y="184" width="26" height="20" rx="6"/><rect x="164" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.97s" x="192" y="184" width="26" height="20" rx="6"/><rect x="200" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.15s" x="228" y="184" width="26" height="20" rx="6"/><rect x="236" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.33s" x="264" y="184" width="26" height="20" rx="6"/><rect x="272" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.51s" x="300" y="184" width="26" height="20" rx="6"/><rect x="308" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.69s" x="336" y="184" width="26" height="20" rx="6"/><rect x="344" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.87s" x="372" y="184" width="26" height="20" rx="6"/><rect x="380" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.05s" x="408" y="184" width="26" height="20" rx="6"/><rect x="416" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.23s" x="444" y="184" width="26" height="20" rx="6"/><rect x="452" y="191" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="191" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.30s" x="48" y="214" width="26" height="20" rx="6"/><rect x="56" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.48s" x="84" y="214" width="26" height="20" rx="6"/><rect x="92" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.66s" x="120" y="214" width="26" height="20" rx="6"/><rect x="128" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.84s" x="156" y="214" width="26" height="20" rx="6"/><rect x="164" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.02s" x="192" y="214" width="26" height="20" rx="6"/><rect x="200" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.20s" x="228" y="214" width="26" height="20" rx="6"/><rect x="236" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.38s" x="264" y="214" width="26" height="20" rx="6"/><rect x="272" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.56s" x="300" y="214" width="26" height="20" rx="6"/><rect x="308" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.74s" x="336" y="214" width="26" height="20" rx="6"/><rect x="344" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.92s" x="372" y="214" width="26" height="20" rx="6"/><rect x="380" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.10s" x="408" y="214" width="26" height="20" rx="6"/><rect x="416" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.28s" x="444" y="214" width="26" height="20" rx="6"/><rect x="452" y="221" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="221" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.35s" x="48" y="244" width="26" height="20" rx="6"/><rect x="56" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.53s" x="84" y="244" width="26" height="20" rx="6"/><rect x="92" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.71s" x="120" y="244" width="26" height="20" rx="6"/><rect x="128" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.89s" x="156" y="244" width="26" height="20" rx="6"/><rect x="164" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.07s" x="192" y="244" width="26" height="20" rx="6"/><rect x="200" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.25s" x="228" y="244" width="26" height="20" rx="6"/><rect x="236" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.43s" x="264" y="244" width="26" height="20" rx="6"/><rect x="272" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.61s" x="300" y="244" width="26" height="20" rx="6"/><rect x="308" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.79s" x="336" y="244" width="26" height="20" rx="6"/><rect x="344" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.97s" x="372" y="244" width="26" height="20" rx="6"/><rect x="380" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.15s" x="408" y="244" width="26" height="20" rx="6"/><rect x="416" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.33s" x="444" y="244" width="26" height="20" rx="6"/><rect x="452" y="251" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="251" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.40s" x="48" y="274" width="26" height="20" rx="6"/><rect x="56" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="63" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.58s" x="84" y="274" width="26" height="20" rx="6"/><rect x="92" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="99" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.76s" x="120" y="274" width="26" height="20" rx="6"/><rect x="128" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="135" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:0.94s" x="156" y="274" width="26" height="20" rx="6"/><rect x="164" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="171" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.12s" x="192" y="274" width="26" height="20" rx="6"/><rect x="200" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="207" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.30s" x="228" y="274" width="26" height="20" rx="6"/><rect x="236" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="243" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.48s" x="264" y="274" width="26" height="20" rx="6"/><rect x="272" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="279" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.66s" x="300" y="274" width="26" height="20" rx="6"/><rect x="308" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="315" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:1.84s" x="336" y="274" width="26" height="20" rx="6"/><rect x="344" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="351" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.02s" x="372" y="274" width="26" height="20" rx="6"/><rect x="380" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="387" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.20s" x="408" y="274" width="26" height="20" rx="6"/><rect x="416" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="423" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+              <g><rect class="bot" style="animation-delay:2.38s" x="444" y="274" width="26" height="20" rx="6"/><rect x="452" y="281" width="3" height="4" rx="1" fill="var(--bg)"/><rect x="459" y="281" width="3" height="4" rx="1" fill="var(--bg)"/></g>
+            </g>
+            <text x="260" y="322" text-anchor="middle" class="s-text">100+ robots · zero disruption · zero defects</text>
+          </svg></div>
+            <div class="body">
+              <div class="meta mono"><span>RPA</span><span>Telstra</span></div>
+              <h3>100+ robots, moved in-house</h3>
+              <p>Took over an enterprise automation estate from a long-standing vendor with zero disruption.</p>
+            </div>
+          </a></li>
+          <li id="work-appsheet"><a class="work t-apps reveal" href="/work/#low-code">
+            <div class="pic"><svg viewBox="0 0 520 330" aria-hidden="true" focusable="false">
+            <g>
+              <rect x="40" y="10" width="150" height="310" rx="24" fill="var(--text)"/><rect x="48" y="18" width="134" height="294" rx="18" fill="var(--bg)"/>
+              <rect x="58" y="32" width="114" height="22" rx="6" class="s-tone"/>
+              <g><rect x="58" y="66" width="114" height="40" rx="8" class="s-surface"/><circle cx="74" cy="86" r="9" class="s-tone-soft"/><rect x="90" y="78" width="60" height="6" rx="3" class="s-muted" opacity=".5"/><rect x="90" y="90" width="40" height="6" rx="3" class="s-muted" opacity=".3"/></g>
+              <g><rect x="58" y="114" width="114" height="40" rx="8" class="s-surface"/><circle cx="74" cy="134" r="9" class="s-tone-soft"/><rect x="90" y="126" width="54" height="6" rx="3" class="s-muted" opacity=".5"/><rect x="90" y="138" width="34" height="6" rx="3" class="s-muted" opacity=".3"/></g>
+              <g><rect x="58" y="162" width="114" height="40" rx="8" class="s-surface"/><circle cx="74" cy="182" r="9" class="s-tone-soft"/><rect x="90" y="174" width="64" height="6" rx="3" class="s-muted" opacity=".5"/><rect x="90" y="186" width="44" height="6" rx="3" class="s-muted" opacity=".3"/></g>
+              <g><rect x="58" y="210" width="114" height="40" rx="8" class="s-surface"/><circle cx="74" cy="230" r="9" class="s-tone-soft"/><rect x="90" y="222" width="50" height="6" rx="3" class="s-muted" opacity=".5"/><rect x="90" y="234" width="30" height="6" rx="3" class="s-muted" opacity=".3"/></g>
+              <circle cx="152" cy="282" r="16" class="s-tone"/><path d="M146 282 H158 M152 276 V288" stroke="var(--bg)" stroke-width="2.5"/>
+            </g>
+            <g>
+              <rect x="220" y="10" width="150" height="310" rx="24" fill="var(--text)"/><rect x="228" y="18" width="134" height="294" rx="18" fill="var(--bg)"/>
+              <rect x="238" y="32" width="70" height="10" rx="5" class="s-muted" opacity=".5"/>
+              <rect x="238" y="56" width="114" height="28" rx="7" fill="none" stroke="var(--line)" stroke-width="2"/>
+              <rect x="238" y="96" width="114" height="28" rx="7" fill="none" stroke="var(--line)" stroke-width="2"/>
+              <rect x="238" y="136" width="114" height="28" rx="7" fill="none" class="s-stroke-tone" stroke-width="2"/>
+              <rect x="238" y="176" width="54" height="28" rx="7" class="s-tone-soft"/><rect x="298" y="176" width="54" height="28" rx="7" class="s-surface"/>
+              <rect x="238" y="262" width="114" height="34" rx="10" class="s-tone"/><text x="295" y="284" text-anchor="middle" class="s-text" style="fill:var(--bg)">Save</text>
+            </g>
+            <path class="flowline s-stroke-tone" d="M372 165 H410" stroke-width="2.5" fill="none"/>
+            <g>
+              <rect x="410" y="110" width="100" height="110" rx="10" class="s-surface"/>
+              <g stroke="var(--line)" stroke-width="1.5"><path d="M410 136 H510 M410 158 H510 M410 180 H510 M410 202 H510 M443 110 V220 M476 110 V220"/></g>
+              <rect x="410" y="110" width="100" height="26" rx="10" class="s-tone-soft"/>
+            </g>
+          </svg></div>
+            <div class="body">
+              <div class="meta mono"><span>Low-code</span><span>Non-profit</span></div>
+              <h3>AppSheet apps</h3>
+              <p>Mobile apps for volunteers, participants and daily operations, in people&#x27;s hands in days.</p>
+            </div>
+          </a></li>
+          <li id="work-stolen-minutes"><a class="work t-time reveal" href="#builders">
+            <div class="pic"><svg viewBox="0 0 520 330" aria-hidden="true" focusable="false">
+            <rect x="185" y="6" width="150" height="318" rx="26" fill="var(--text)"/><rect x="193" y="14" width="134" height="302" rx="20" fill="var(--bg)"/>
+            <rect x="215" y="34" width="90" height="10" rx="5" class="s-muted" opacity=".45"/>
+            <circle cx="260" cy="140" r="54" fill="none" stroke="var(--line)" stroke-width="12"/>
+            <circle cx="260" cy="140" r="54" fill="none" class="s-stroke-tone" stroke-width="12" stroke-linecap="round" stroke-dasharray="230 340" transform="rotate(-90 260 140)"/>
+            <g class="spin"><circle cx="260" cy="86" r="6" class="s-tone"/><circle cx="260" cy="140" r="54" fill="none" stroke="none"/></g>
+            <path d="M260 116 V140 L276 150" class="s-stroke-tone" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <rect x="207" y="216" width="106" height="30" rx="10" class="s-surface"/><rect x="217" y="227" width="50" height="8" rx="4" class="s-muted" opacity=".5"/>
+            <rect x="207" y="254" width="106" height="30" rx="10" class="s-surface"/><rect x="217" y="265" width="64" height="8" rx="4" class="s-muted" opacity=".5"/>
+            <g class="s-tone-soft"><circle cx="90" cy="90" r="34"/><circle cx="430" cy="240" r="44"/><circle cx="440" cy="70" r="18"/><circle cx="70" cy="250" r="20"/></g>
+          </svg></div>
+            <div class="body">
+              <div class="meta mono"><span>Product</span><span>In progress</span></div>
+              <h3>Stolen Minutes</h3>
+              <p>An app I&#x27;m designing and building end to end, from first sketch to working product.</p>
+            </div>
+          </a></li>
+          <li id="work-yoga"><a class="work t-yoga reveal" href="#builders">
+            <div class="pic"><svg viewBox="0 0 520 330" aria-hidden="true" focusable="false">
+            <rect x="0" y="0" width="520" height="330" rx="14" class="s-surface"/>
+            <rect x="0" y="0" width="520" height="30" rx="14" fill="var(--line)"/>
+            <circle cx="18" cy="15" r="5" fill="var(--c-yoga)"/><circle cx="34" cy="15" r="5" fill="var(--c-time)"/><circle cx="50" cy="15" r="5" fill="var(--c-rpa)"/>
+            <rect x="140" y="8" width="240" height="14" rx="7" fill="var(--bg)"/>
+            <rect x="16" y="46" width="150" height="268" rx="12" fill="var(--bg)"/>
+            <circle cx="91" cy="96" r="30" class="s-tone-soft"/>
+            <circle cx="91" cy="84" r="7" class="s-tone"/><path d="M73 110 Q91 88 109 110 M91 92 L91 104" class="s-stroke-tone" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <rect x="46" y="140" width="90" height="9" rx="4.5" class="s-muted" opacity=".55"/><rect x="58" y="156" width="66" height="7" rx="3.5" class="s-muted" opacity=".35"/>
+            <rect x="32" y="262" width="118" height="34" rx="10" class="s-tone"/><text x="91" y="284" text-anchor="middle" class="s-text" style="fill:var(--bg)">Book a class</text>
+            <g class="s-muted" opacity=".35"><rect x="32" y="182" width="118" height="7" rx="3.5"/><rect x="32" y="196" width="100" height="7" rx="3.5"/><rect x="32" y="210" width="110" height="7" rx="3.5"/></g>
+            <g>
+              <text x="186" y="62" class="s-small">Mon</text><text x="252" y="62" class="s-small">Tue</text><text x="318" y="62" class="s-small">Wed</text><text x="384" y="62" class="s-small">Thu</text><text x="450" y="62" class="s-small">Fri</text>
+              <rect x="182" y="74" width="58" height="56" rx="8" class="s-tone"/><rect x="248" y="104" width="58" height="44" rx="8" class="s-tone-soft"/><rect x="314" y="74" width="58" height="70" rx="8" class="s-tone-soft"/><rect x="380" y="90" width="58" height="50" rx="8" class="s-tone"/><rect x="446" y="74" width="58" height="40" rx="8" class="s-tone-soft"/>
+              <rect x="182" y="150" width="58" height="40" rx="8" class="s-tone-soft"/><rect x="248" y="170" width="58" height="60" rx="8" class="s-tone"/><rect x="314" y="164" width="58" height="44" rx="8" class="s-tone-soft"/><rect x="446" y="132" width="58" height="66" rx="8" class="s-tone"/>
+              <rect x="182" y="244" width="322" height="70" rx="10" fill="var(--bg)"/>
+              <path d="M198 296 C230 286 250 270 280 276 S340 258 370 262 S440 240 488 252" fill="none" class="s-stroke-tone" stroke-width="3"/>
+            </g>
+          </svg></div>
+            <div class="body">
+              <div class="meta mono"><span>Platform</span><span>In progress</span></div>
+              <h3>A platform for yoga teachers</h3>
+              <p>A web platform to help yoga teachers run and grow their practice, with automation built in.</p>
+            </div>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" aria-labelledby="how-h">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">How I work</span>
+            <h2 id="how-h">The brief, the mess, the deadline. Bring it.</h2>
+          </div>
+        </div>
+        <ol class="steps">
+          <li class="reveal"><span class="n">01</span><h3>Understand</h3><p>Map the process, the people and where the time goes.</p></li>
+          <li class="reveal"><span class="n">02</span><h3>Design</h3><p>Architecture and data model, and the simplest path that works.</p></li>
+          <li class="reveal"><span class="n">03</span><h3>Build</h3><p>Apps, integrations and agents, using AI to move fast.</p></li>
+          <li class="reveal"><span class="n">04</span><h3>Automate</h3><p>Take people out of the copy-paste.</p></li>
+          <li class="reveal"><span class="n">05</span><h3>Measure</h3><p>Dashboards that show whether it's working.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq" aria-labelledby="faq-h">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Questions</span>
+          <h2 id="faq-h">The quick answers</h2>
+        </div>
+        <div>
+        <details open>
+          <summary>Who is Pranav Gore?</summary>
+          <p>Pranav Gore is a Melbourne-based Solution Designer and Architect with 19 years of experience designing enterprise applications, system integrations, data analytics solutions and workflow automation across banking, telecommunications, retail and non-profit organisations.</p>
+        </details>
+        <details>
+          <summary>What does Pranav Gore specialise in?</summary>
+          <p>Solution architecture for complex enterprise systems: integration and microservices design, data migration and master data, analytics dashboards, and end-to-end workflow automation using n8n, AI agents built on large language models, AppSheet and AI-assisted development.</p>
+        </details>
+        <details>
+          <summary>What has Pranav Gore built end to end?</summary>
+          <p>A data analytics web app, more than 50 n8n automations and AI agents, low-code AppSheet apps, the migration of more than 100 RPA robots in-house at Telstra, and two products in progress: the Stolen Minutes app and a platform for yoga teachers.</p>
+        </details>
+        <details>
+          <summary>Which industries has Pranav Gore worked in?</summary>
+          <p>Banking and financial services, telecommunications, retail and the non-profit sector, in client-facing roles on large transformation programmes with multiple vendors and geographies.</p>
+        </details>
+        <details>
+          <summary>Can Pranav Gore build automation and analytics for a small team or non-profit?</summary>
+          <p>Yes. Pranav designs and ships practical, low-maintenance solutions: self-hosted n8n data pipelines, AI agents that research and draft outreach, low-code operational apps and dashboards that turn scattered operational data into decisions.</p>
+        </details>
+        <details>
+          <summary>Is Pranav Gore available for roles or projects?</summary>
+          <p>Yes. Pranav is open to Solution Architect and Solution Designer roles and to automation, data and integration projects, based in Melbourne and open to remote work.</p>
+        </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <div>
+          <h2 id="contact-h">Ready to fix something? Tell me about it.</h2>
+          <p>A role, a project, or a process that's driving your team mad. I'm in Melbourne and happy to work remotely.</p>
+          <div class="direct">
+            <span>Email: <a href="mailto:pranavugore@gmail.com">pranavugore@gmail.com</a></span>
+            <span>LinkedIn: <a href="https://www.linkedin.com/in/pranavugore" rel="me">linkedin.com/in/pranavugore</a></span>
+          </div>
+        </div>
+        <form id="contact-form" novalidate>
+          <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
+          <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+          <fieldset>
+            <legend>What do you need?</legend>
+            <label><input type="checkbox" name="need" value="A solution architect"> An architect</label>
+            <label><input type="checkbox" name="need" value="Automation or AI agents"> Automation or AI</label>
+            <label><input type="checkbox" name="need" value="A dashboard"> A dashboard</label>
+            <label><input type="checkbox" name="need" value="An app or platform"> An app</label>
+          </fieldset>
+          <label for="f-msg">Tell me about it<textarea id="f-msg" name="message" required></textarea></label>
+          <button class="btn" type="submit">Send via email</button>
+          <p class="form-note" id="form-note">This opens your email app with your message filled in.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+<script is:inline slot="scripts">
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.classList.add('js');
+
+    // Hero slider
+    var slides = [].slice.call(document.querySelectorAll('.slide'));
+    var dots = [].slice.call(document.querySelectorAll('.dots button'));
+    var i = 0, timer = null;
+    function show(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) { s.classList.toggle('on', k === i); s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+      dots.forEach(function (d, k) { if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+    }
+    function play() { if (!reduce) { stop(); timer = setInterval(function () { show(i + 1); }, 4500); } }
+    function stop() { if (timer) clearInterval(timer); timer = null; }
+    dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); play(); }); });
+    document.querySelectorAll('.arrows button').forEach(function (b) { b.addEventListener('click', function () { show(i + Number(b.dataset.dir)); play(); }); });
+    var slider = document.querySelector('.slider');
+    if (slider) { slider.addEventListener('mouseenter', stop); slider.addEventListener('mouseleave', play); }
+    play();
+
+    // Reveal: only elements below the fold start hidden
+    if ('IntersectionObserver' in window && !reduce) {
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pending'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('pending'); io.observe(el); } });
+    }
+
+    // Contact form opens a prefilled email
+    var form = document.getElementById('contact-form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var note = document.getElementById('form-note');
+      if (!form.checkValidity()) { note.textContent = 'Please add your name, a valid email and a short message.'; return; }
+      var needs = [].slice.call(form.querySelectorAll('input[name=need]:checked')).map(function (c) { return c.value; }).join(', ');
+      var body = form.message.value + '\n\n' + (needs ? 'Looking for: ' + needs + '\n' : '') + 'From: ' + form.name.value + ' <' + form.email.value + '>';
+      window.location.href = 'mailto:pranavugore@gmail.com?subject=' + encodeURIComponent('Enquiry from ' + form.name.value) + '&body=' + encodeURIComponent(body);
+      note.textContent = 'Your email app should open with the message ready to send. If it doesn’t, email pranavugore@gmail.com directly.';
+    });
+  })();
+  </script>
+</Base>

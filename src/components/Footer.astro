@@ -1,0 +1,19 @@
+---
+import { SITE } from "../data/site.js";
+const updated = new Date(SITE.updated + "T00:00:00");
+const nice = updated.toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="/"><span class="mark" aria-hidden="true">PG</span>{SITE.name}</a>
+        <p style="margin-top:1rem;max-width:22rem">Solution architect in Melbourne. Designs and builds data, automation and app solutions end to end.</p>
+      </div>
+      <div><h4>Work</h4><ul><li><a href="/data-viz/">Data visualisation</a></li><li><a href="/#work-automation">n8n and AI agents</a></li><li><a href="/#work-rpa">RPA</a></li><li><a href="/#work-appsheet">AppSheet apps</a></li></ul></div>
+      <div><h4>Who I help</h4><ul><li><a href="/#enterprise">Enterprise teams</a></li><li><a href="/#small-teams">Non-profits &amp; small teams</a></li><li><a href="/#builders">Founders &amp; creators</a></li></ul></div>
+      <div><h4>More</h4><ul><li><a href="/work/">Case studies</a></li><li><a href="/about/">About &amp; career</a></li><li><a href={SITE.linkedin} rel="me">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© {updated.getFullYear()} {SITE.name}</span><span>Last updated <time datetime={SITE.updated}>{nice}</time></span></div>
+  </div>
+</footer>

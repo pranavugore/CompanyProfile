@@ -1,0 +1,25 @@
+---
+import { SITE } from "../data/site.js";
+const { current = "" } = Astro.props;
+const links = [
+  { href: "/#work", label: "Work", key: "home" },
+  { href: "/data-viz/", label: "Data viz", key: "data-viz" },
+  { href: "/work/", label: "Case studies", key: "work" },
+  { href: "/about/", label: "About", key: "about" },
+];
+---
+<div class="utility">
+  <div class="wrap">
+    <a href={"mailto:" + SITE.email}>{SITE.email}</a>
+    <span><a href={SITE.linkedin} rel="me">LinkedIn</a> · {SITE.city}, Australia</span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="mark" aria-hidden="true">PG</span>{SITE.name}</a>
+    <nav aria-label="Main">
+      {links.map((l) => <a href={l.href} aria-current={current === l.key ? "page" : undefined}>{l.label}</a>)}
+      <a class="btn small" href="/#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
