@@ -3,6 +3,18 @@
   var css = getComputedStyle(document.documentElement);
   function v(n) { return css.getPropertyValue(n).trim(); }
   var S = [v("--s1"), v("--s2"), v("--s3"), v("--s4"), v("--s5"), v("--s6"), v("--s7"), v("--s8")];
+  // Gallery palettes: each chart takes one combination from Sanzo Wada's "A Dictionary of Color Combinations"
+  // (number in brackets), with lightness and chroma nudged so it reads on the dark card and passes CVD checks.
+  var P = {
+    radial: ["#a6902f", "#379fbd", "#cd7080"],                       // [287] Pyrite Yellow, Pale King's Blue, Eosine Pink
+    chord: ["#bb8531", "#286fab", "#58a375", "#a85731", "#9b9533", "#b4638f"], // [215 + 333]
+    swarm: ["#a84f51", "#9b9533", "#286fab"],                         // [154] Carmine, Yellow, Blue
+    stream: ["#26a4a8", "#ce755d", "#5282bc", "#928331", "#9c70ae"],   // [41 + 274]
+    network: ["#a29140", "#417840", "#6593cf"],                       // [135] Sulpher Yellow, Cossack Green, Salvia Blue
+    unit: ["#00978d", "#bb8531", "#a84f51"],                          // [122] Benzol Green, Cream Yellow, Carmine
+    sankey: ["#b85e55", "#00978d", "#ae8b3f", "#a36aa5", "#839b52"],   // [266 + 301]
+    bubble: ["#a85731", "#58a375", "#286fab"]                         // [333] Burnt Sienna, Cobalt Green, Blue
+  };
   var INK = v("--ink"), INK2 = v("--ink-2"), MUTED = v("--muted"), GRID = v("--grid"), BG = v("--bg"), CARD = v("--card"), ACCENT = v("--accent");
   var SEQ = d3.interpolateRgb("#1f2d47", "#b7d3f6");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -215,14 +227,14 @@
       days.forEach(function (d, i) {
         var a = ang(i) - Math.PI / 2, acc = 0;
         var spoke = g.append("g").attr("class", "spoke");
-        d.v.forEach(function (val, k) { var r0 = rr(acc), r1 = rr(acc + val); acc += val; spoke.append("line").attr("x1", Math.cos(a) * r0).attr("y1", Math.sin(a) * r0).attr("x2", Math.cos(a) * r0).attr("y2", Math.sin(a) * r0).attr("stroke", S[k]).attr("stroke-width", 2.2).attr("stroke-linecap", "round").transition().delay(reduce ? 0 : i * 3).duration(DUR).attr("x2", Math.cos(a) * r1).attr("y2", Math.sin(a) * r1); });
+        d.v.forEach(function (val, k) { var r0 = rr(acc), r1 = rr(acc + val); acc += val; spoke.append("line").attr("x1", Math.cos(a) * r0).attr("y1", Math.sin(a) * r0).attr("x2", Math.cos(a) * r0).attr("y2", Math.sin(a) * r0).attr("stroke", P.radial[k]).attr("stroke-width", 2.2).attr("stroke-linecap", "round").transition().delay(reduce ? 0 : i * 3).duration(DUR).attr("x2", Math.cos(a) * r1).attr("y2", Math.sin(a) * r1); });
         spoke.append("line").attr("x1", Math.cos(a) * inner).attr("y1", Math.sin(a) * inner).attr("x2", Math.cos(a) * (outer + 4)).attr("y2", Math.sin(a) * (outer + 4)).attr("stroke", "transparent").attr("stroke-width", 6)
-          .on("pointermove", function (e) { spoke.attr("opacity", 1); g.selectAll(".spoke").attr("opacity", function () { return this === spoke.node() ? 1 : 0.35; }); showTip(e, "<b>" + fmtD(d.date) + "</b><br>" + types.map(function (t, k) { return sw(S[k]) + t + " " + Math.round(d.v[k]); }).join("<br>")); })
+          .on("pointermove", function (e) { spoke.attr("opacity", 1); g.selectAll(".spoke").attr("opacity", function () { return this === spoke.node() ? 1 : 0.35; }); showTip(e, "<b>" + fmtD(d.date) + "</b><br>" + types.map(function (t, k) { return sw(P.radial[k]) + t + " " + Math.round(d.v[k]); }).join("<br>")); })
           .on("pointerleave", function () { g.selectAll(".spoke").attr("opacity", 1); hideTip(); });
       });
       g.append("text").attr("text-anchor", "middle").attr("dy", "-0.1em").attr("fill", INK).style("font", "800 26px var(--f-display)").text(fmtN(d3.sum(days, function (d) { return d3.sum(d.v); })));
       g.append("text").attr("text-anchor", "middle").attr("dy", "1.4em").attr("class", "lbl").text("sightings in 2025");
-      legendRow(svg, types.map(function (t, k) { return { name: t, c: S[k] }; }), 16, 24);
+      legendRow(svg, types.map(function (t, k) { return { name: t, c: P.radial[k] }; }), 16, 24);
     } });
 
   // 10. Chord diagram
@@ -238,11 +250,11 @@
       var chords = d3.chord().padAngle(0.04).sortSubgroups(d3.descending)(M);
       var arc = d3.arc().innerRadius(ir).outerRadius(or).cornerRadius(3);
       var rib = d3.ribbon().radius(ir - 2);
-      var ribbons = g.append("g").selectAll("path").data(chords).join("path").attr("d", rib).attr("fill", function (d) { return S[d.source.index]; }).attr("fill-opacity", 0.55).attr("stroke", BG).attr("stroke-width", 0.8);
+      var ribbons = g.append("g").selectAll("path").data(chords).join("path").attr("d", rib).attr("fill", function (d) { return P.chord[d.source.index]; }).attr("fill-opacity", 0.55).attr("stroke", BG).attr("stroke-width", 0.8);
       var groups = g.append("g").selectAll("g").data(chords.groups).join("g");
-      groups.append("path").attr("d", arc).attr("fill", function (d) { return S[d.index]; });
+      groups.append("path").attr("d", arc).attr("fill", function (d) { return P.chord[d.index]; });
       groups.append("text").attr("class", "lbl-strong").attr("dy", "0.35em").attr("transform", function (d) { var a = (d.startAngle + d.endAngle) / 2; return "rotate(" + (a * 180 / Math.PI - 90) + ") translate(" + (or + 12) + ")" + (a > Math.PI ? " rotate(180)" : ""); }).attr("text-anchor", function (d) { return (d.startAngle + d.endAngle) / 2 > Math.PI ? "end" : "start"; }).text(function (d) { return regions[d.index]; });
-      groups.on("pointermove", function (e, d) { ribbons.attr("fill-opacity", function (r) { return r.source.index === d.index || r.target.index === d.index ? 0.8 : 0.05; }); showTip(e, sw(S[d.index]) + "<b>" + regions[d.index] + "</b><br>" + fmtN(d3.sum(M[d.index])) + " customers moved out"); }).on("pointerleave", function () { ribbons.attr("fill-opacity", 0.55); hideTip(); });
+      groups.on("pointermove", function (e, d) { ribbons.attr("fill-opacity", function (r) { return r.source.index === d.index || r.target.index === d.index ? 0.8 : 0.05; }); showTip(e, sw(P.chord[d.index]) + "<b>" + regions[d.index] + "</b><br>" + fmtN(d3.sum(P.chord[d.index])) + " customers moved out"); }).on("pointerleave", function () { ribbons.attr("fill-opacity", 0.55); hideTip(); });
       ribbons.on("pointermove", function (e, d) { showTip(e, "<b>" + regions[d.source.index] + " ⇄ " + regions[d.target.index] + "</b><br>" + fmtN(M[d.source.index][d.target.index]) + " → · " + fmtN(M[d.target.index][d.source.index]) + " ←"); }).on("pointerleave", hideTip);
     } });
   // 2. Beeswarm of releases
@@ -261,11 +273,11 @@
       for (var i = 0; i < 220; i++) sim.tick();
       var svg = svgIn(stage, W, H, "Beeswarm chart of product releases over two years, sized by change size and coloured by type");
       svg.append("g").attr("class", "ax").attr("transform", "translate(0," + (H - m.b) + ")").call(d3.axisBottom(x).ticks(d3.timeMonth.every(3)).tickFormat(d3.timeFormat("%b %y")).tickSizeOuter(0));
-      svg.selectAll("circle").data(data).join("circle").attr("cx", function (d) { return d.x; }).attr("cy", function (d) { return d.y; }).attr("r", 0).attr("fill", function (d) { return S[d.type]; }).attr("stroke", BG).attr("stroke-width", 1.5)
-        .on("pointermove", function (e, d) { d3.select(this).attr("stroke", INK); showTip(e, sw(S[d.type]) + "<b>Release #" + d.id + "</b><br>" + types[d.type] + " · " + fmtN(d.size) + " lines changed<br>" + fmtD(d.date)); })
+      svg.selectAll("circle").data(data).join("circle").attr("cx", function (d) { return d.x; }).attr("cy", function (d) { return d.y; }).attr("r", 0).attr("fill", function (d) { return P.swarm[d.type]; }).attr("stroke", BG).attr("stroke-width", 1.5)
+        .on("pointermove", function (e, d) { d3.select(this).attr("stroke", INK); showTip(e, sw(P.swarm[d.type]) + "<b>Release #" + d.id + "</b><br>" + types[d.type] + " · " + fmtN(d.size) + " lines changed<br>" + fmtD(d.date)); })
         .on("pointerleave", function () { d3.select(this).attr("stroke", BG); hideTip(); })
         .transition().delay(function (d) { return reduce ? 0 : (d.x / W) * 900; }).duration(DUR / 2).attr("r", function (d) { return d.r; });
-      legendRow(svg, types.map(function (t, k) { return { name: t, c: S[k] }; }), 16, 22);
+      legendRow(svg, types.map(function (t, k) { return { name: t, c: P.swarm[k] }; }), 16, 22);
     } });
 
   // 7. Streamgraph
@@ -283,9 +295,9 @@
       var svg = svgIn(stage, W, H, "Streamgraph of weekly topic mentions over a year");
       var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       months.forEach(function (mn, i) { var xx = x(i * 52 / 12); svg.append("line").attr("x1", xx).attr("x2", xx).attr("y1", m.t).attr("y2", H - m.b).attr("stroke", GRID); svg.append("text").attr("class", "lbl").attr("x", xx + 3).attr("y", H - 10).text(mn); });
-      var paths = svg.append("g").selectAll("path").data(stack).join("path").attr("d", area).attr("fill", function (d, i) { return S[i]; }).attr("stroke", BG).attr("stroke-width", 1.5);
-      paths.on("pointermove", function (e, d) { var wk = Math.max(0, Math.min(51, Math.round(x.invert(d3.pointer(e, svg.node())[0])))); paths.attr("opacity", function (o) { return o === d ? 1 : 0.25; }); showTip(e, sw(S[d.index]) + "<b>" + d.key + "</b><br>Week " + (wk + 1) + ": " + Math.round(weeks[wk][d.key]) + " mentions"); }).on("pointerleave", function () { paths.attr("opacity", 1); hideTip(); });
-      legendRow(svg, keys.map(function (k, i) { return { name: k, c: S[i] }; }), 12, 20);
+      var paths = svg.append("g").selectAll("path").data(stack).join("path").attr("d", area).attr("fill", function (d, i) { return P.stream[i]; }).attr("stroke", BG).attr("stroke-width", 1.5);
+      paths.on("pointermove", function (e, d) { var wk = Math.max(0, Math.min(51, Math.round(x.invert(d3.pointer(e, svg.node())[0])))); paths.attr("opacity", function (o) { return o === d ? 1 : 0.25; }); showTip(e, sw(P.stream[d.index]) + "<b>" + d.key + "</b><br>Week " + (wk + 1) + ": " + Math.round(weeks[wk][d.key]) + " mentions"); }).on("pointerleave", function () { paths.attr("opacity", 1); hideTip(); });
+      legendRow(svg, keys.map(function (k, i) { return { name: k, c: P.stream[i] }; }), 12, 20);
     } });
 
   // 3. Constellation network
@@ -306,15 +318,15 @@
       var sim = d3.forceSimulation(nodes).force("link", d3.forceLink(links).id(function (d) { return d.id; }).distance(46).strength(0.4)).force("charge", d3.forceManyBody().strength(-120)).force("center", d3.forceCenter(W / 2, H / 2 + 10)).force("x", d3.forceX(function (d) { return W / 2 + (d.g - 1) * 170; }).strength(0.08)).force("y", d3.forceY(H / 2).strength(0.06)).force("col", d3.forceCollide(16));
       var link = svg.append("g").selectAll("line").data(links).join("line").attr("stroke", INK2).attr("stroke-opacity", 0.18).attr("stroke-width", 1);
       var node = svg.append("g").selectAll("g").data(nodes).join("g").style("cursor", "grab");
-      node.append("circle").attr("r", function (d) { return 3 + d.deg * 0.9; }).attr("fill", function (d) { return S[d.g]; }).attr("stroke", BG).attr("stroke-width", 2);
-      node.append("circle").attr("r", function (d) { return 7 + d.deg * 1.4; }).attr("fill", function (d) { return S[d.g]; }).attr("opacity", 0.14);
+      node.append("circle").attr("r", function (d) { return 3 + d.deg * 0.9; }).attr("fill", function (d) { return P.network[d.g]; }).attr("stroke", BG).attr("stroke-width", 2);
+      node.append("circle").attr("r", function (d) { return 7 + d.deg * 1.4; }).attr("fill", function (d) { return P.network[d.g]; }).attr("opacity", 0.14);
       var lab = node.append("text").attr("class", "lbl").attr("dy", function (d) { return -(7 + d.deg); }).attr("text-anchor", "middle").text(function (d) { return d.id; }).attr("opacity", function (d) { return d.deg >= 5 ? 1 : 0; });
       function nb(a, b) { return links.some(function (l) { return (l.source === a && l.target === b) || (l.source === b && l.target === a); }); }
       node.on("pointerenter", function (e, d) {
         node.attr("opacity", function (o) { return o === d || nb(o, d) ? 1 : 0.2; }); lab.attr("opacity", function (o) { return o === d || nb(o, d) ? 1 : 0; });
-        link.attr("stroke-opacity", function (l) { return l.source === d || l.target === d ? 0.8 : 0.05; }).attr("stroke", function (l) { return l.source === d || l.target === d ? S[d.g] : INK2; });
-        showTip(e, sw(S[d.g]) + "<b>" + d.id + "</b><br>" + groups[d.g] + " · " + d.deg + " connections");
-      }).on("pointermove", function (e, d) { showTip(e, sw(S[d.g]) + "<b>" + d.id + "</b><br>" + groups[d.g] + " · " + d.deg + " connections"); })
+        link.attr("stroke-opacity", function (l) { return l.source === d || l.target === d ? 0.8 : 0.05; }).attr("stroke", function (l) { return l.source === d || l.target === d ? P.network[d.g] : INK2; });
+        showTip(e, sw(P.network[d.g]) + "<b>" + d.id + "</b><br>" + groups[d.g] + " · " + d.deg + " connections");
+      }).on("pointermove", function (e, d) { showTip(e, sw(P.network[d.g]) + "<b>" + d.id + "</b><br>" + groups[d.g] + " · " + d.deg + " connections"); })
         .on("pointerleave", function () { node.attr("opacity", 1); lab.attr("opacity", function (d) { return d.deg >= 5 ? 1 : 0; }); link.attr("stroke-opacity", 0.18).attr("stroke", INK2); hideTip(); });
       node.call(d3.drag().on("start", function (e, d) { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; }).on("drag", function (e, d) { d.fx = e.x; d.fy = e.y; }).on("end", function (e, d) { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
       sim.on("tick", function () {
@@ -323,7 +335,7 @@
         node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
       });
       if (reduce) { sim.stop(); for (var i = 0; i < 300; i++) sim.tick(); sim.on("tick")(); }
-      legendRow(svg, groups.map(function (t, k) { return { name: t, c: S[k] }; }), 16, 24);
+      legendRow(svg, groups.map(function (t, k) { return { name: t, c: P.network[k] }; }), 16, 24);
     } });
 
   // 4. Unit chart regrouping
@@ -336,7 +348,7 @@
       var people = d3.range(N).map(function (i) { var rec = R(); var freq = R(); return { i: i, a: [0, rec < 0.62 ? 0 : rec < 0.84 ? 1 : 2, freq < 0.3 ? 0 : freq < 0.75 ? 1 : 2] }; });
       var Q = [{ g: ["Everyone"] }, { g: ["Yes", "Not sure", "No"] }, { g: ["Weekly", "Monthly", "Rarely"] }];
       var svg = svgIn(stage, W, H, "Unit chart: 600 dots representing survey responses, grouped by answer");
-      var dots = svg.append("g").selectAll("circle").data(people).join("circle").attr("r", 4.2).attr("cx", W / 2).attr("cy", H / 2).attr("fill", S[0]);
+      var dots = svg.append("g").selectAll("circle").data(people).join("circle").attr("r", 4.2).attr("cx", W / 2).attr("cy", H / 2).attr("fill", P.unit[0]);
       var labels = svg.append("g");
       function layout(qi) {
         var groups = Q[qi].g, cols = groups.length, colW = (W - 40) / cols;
@@ -346,7 +358,7 @@
         dots.transition().duration(reduce ? 0 : 900).delay(function (d) { return reduce ? 0 : (d.i % 60) * 6; })
           .attr("cx", function (d) { var cx = 20 + colW * d.k + colW / 2; return cx - (per - 1) * gap / 2 + (d.n % per) * gap; })
           .attr("cy", function (d) { return H - 30 - Math.floor(d.n / per) * gap; })
-          .attr("fill", function (d) { return qi === 0 ? S[0] : S[d.k]; });
+          .attr("fill", function (d) { return qi === 0 ? P.unit[0] : P.unit[d.k]; });
         labels.selectAll("*").remove();
         groups.forEach(function (gname, k) {
           var cx = 20 + colW * k + colW / 2, rows = Math.ceil(counts[k] / per), top = H - 30 - rows * gap;
@@ -371,7 +383,7 @@
       var sk = d3.sankey().nodeWidth(12).nodePadding(16).extent([[10, 30], [W - 10, H - 10]]).nodeAlign(d3.sankeyLeft);
       var graph = sk({ nodes: names.map(function (n, i) { return { name: n, i: i }; }), links: L.map(function (l) { return { source: l[0], target: l[1], value: l[2] }; }) });
       var svg = svgIn(stage, W, H, "Sankey diagram of records flowing from sources through cleaning to destinations");
-      function nodeColor(n) { return n.name === "Rejected" ? v("--s8") : S[[0, 0, 0, 0, 2, 7, 6, 1, 1, 1][n.i] % 8]; }
+      function nodeColor(n) { return n.name === "Rejected" ? P.sankey[0] : P.sankey[[1, 1, 1, 1, 2, 0, 3, 4, 4, 4][n.i]]; }
       var link = svg.append("g").attr("fill", "none").selectAll("path").data(graph.links).join("path").attr("d", d3.sankeyLinkHorizontal()).attr("stroke", function (d) { return nodeColor(d.source); }).attr("stroke-opacity", 0.35).attr("stroke-width", function (d) { return Math.max(1, d.width); });
       var node = svg.append("g").selectAll("rect").data(graph.nodes).join("rect").attr("x", function (d) { return d.x0; }).attr("y", function (d) { return d.y0; }).attr("height", function (d) { return d.y1 - d.y0; }).attr("width", function (d) { return d.x1 - d.x0; }).attr("rx", 3).attr("fill", nodeColor);
       svg.append("g").selectAll("text").data(graph.nodes).join("text").attr("class", "lbl").attr("x", function (d) { return d.x0 < W / 2 ? d.x1 + 6 : d.x0 - 6; }).attr("y", function (d) { return (d.y0 + d.y1) / 2; }).attr("dy", "0.35em").attr("text-anchor", function (d) { return d.x0 < W / 2 ? "start" : "end"; }).text(function (d) { return d.name; });
@@ -393,9 +405,9 @@
       var svg = svgIn(stage, W, H, "Circle packing chart of product sales grouped by category");
       var g = svg.append("g").attr("transform", "translate(10,40)");
       var total = h.value;
-      g.selectAll("circle.cat").data(h.children).join("circle").attr("class", "cat").attr("cx", function (d) { return d.x; }).attr("cy", function (d) { return d.y; }).attr("r", function (d) { return d.r; }).attr("fill", function (d) { return S[d.data.ci]; }).attr("fill-opacity", 0.08).attr("stroke", function (d) { return S[d.data.ci]; }).attr("stroke-opacity", 0.5);
-      g.selectAll("circle.leaf").data(h.leaves()).join("circle").attr("class", "leaf").attr("cx", function (d) { return d.x; }).attr("cy", function (d) { return d.y; }).attr("r", 0).attr("fill", function (d) { return S[d.data.ci]; }).attr("stroke", BG).attr("stroke-width", 1.5)
-        .on("pointermove", function (e, d) { d3.select(this).attr("stroke", INK); showTip(e, sw(S[d.data.ci]) + "<b>" + d.data.name + "</b><br>" + fmt$(d.value) + " · " + d3.format(".1%")(d.value / total) + " of all sales"); })
+      g.selectAll("circle.cat").data(h.children).join("circle").attr("class", "cat").attr("cx", function (d) { return d.x; }).attr("cy", function (d) { return d.y; }).attr("r", function (d) { return d.r; }).attr("fill", function (d) { return P.bubble[d.data.ci]; }).attr("fill-opacity", 0.08).attr("stroke", function (d) { return P.bubble[d.data.ci]; }).attr("stroke-opacity", 0.5);
+      g.selectAll("circle.leaf").data(h.leaves()).join("circle").attr("class", "leaf").attr("cx", function (d) { return d.x; }).attr("cy", function (d) { return d.y; }).attr("r", 0).attr("fill", function (d) { return P.bubble[d.data.ci]; }).attr("stroke", BG).attr("stroke-width", 1.5)
+        .on("pointermove", function (e, d) { d3.select(this).attr("stroke", INK); showTip(e, sw(P.bubble[d.data.ci]) + "<b>" + d.data.name + "</b><br>" + fmt$(d.value) + " · " + d3.format(".1%")(d.value / total) + " of all sales"); })
         .on("pointerleave", function () { d3.select(this).attr("stroke", BG); hideTip(); })
         .transition().delay(function (d, i) { return reduce ? 0 : i * 12; }).duration(DUR).attr("r", function (d) { return d.r; });
       g.selectAll("text.cl").data(h.children).join("text").attr("class", "lbl-strong").attr("text-anchor", "middle").attr("x", function (d) { return d.x; }).attr("y", function (d) { return d.y - d.r - 6; }).text(function (d) { return d.data.name + " · " + d3.format(".0%")(d.value / total); });
