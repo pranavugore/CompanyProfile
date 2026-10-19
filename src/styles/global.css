@@ -378,8 +378,6 @@ fieldset input { width: auto; accent-color: var(--accent); }
   .panel .caps, .svc-hero .caps { line-height: 1.04; }
 }
 
-/* Pointer depth: the frame moves a little, its picture a little more, the glow most of all */
-.depth .art, .depth .slider { translate: calc(var(--px, 0) * -10px) calc(var(--py, 0) * -8px); }
-.depth .art > svg, .depth .slide > svg { translate: calc(var(--px, 0) * 14px) calc(var(--py, 0) * 12px); }
-.depth .hero::before, .depth .svc-hero::before { translate: calc(var(--px, 0) * 80px) calc(var(--py, 0) * 60px); }
-.depth .thumbs svg { translate: calc(var(--px, 0) * 3px) calc(var(--py, 0) * 3px); }
+/* Particle network behind the home header (public/assets/particle-network.js) */
+.hero { isolation: isolate; }
+.hero .net { position: absolute; inset: 0; z-index: -1; pointer-events: none; display: block; }
