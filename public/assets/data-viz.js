@@ -7,7 +7,7 @@
   // (number in brackets), with lightness and chroma nudged so it reads on the dark card and passes CVD checks.
   var P = {
     radial: ["#a6902f", "#379fbd", "#cd7080"],                       // [287] Pyrite Yellow, Pale King's Blue, Eosine Pink
-    chord: ["#bb8531", "#286fab", "#58a375", "#a85731", "#9b9533", "#b4638f"], // [215 + 333]
+    chord: ["#9b9533", "#27a4a8", "#b85e55", "#286fab", "#239267", "#a36aa5", "#b8872e", "#00978d"], // [257 + 306], one per state in ring order
     swarm: ["#a84f51", "#9b9533", "#286fab"],                         // [154] Carmine, Yellow, Blue
     stream: ["#26a4a8", "#ce755d", "#5282bc", "#928331", "#9c70ae"],   // [41 + 274]
     network: ["#a29140", "#417840", "#6593cf"],                       // [135] Sulpher Yellow, Cossack Green, Salvia Blue
@@ -196,7 +196,7 @@
   function card(o) {
     var el = document.createElement("article");
     el.className = "viz" + (o.wide ? " wide" : "");
-    el.innerHTML = '<div class="meta mono"><span>' + o.n + " · " + o.kind + '</span><a href="' + o.href + '" rel="noopener" target="_blank">Style: ' + o.ref + "</a></div><h3>" + o.title + '</h3><p class="desc">' + o.desc + "</p>" + (o.chips ? '<div class="chips" role="group" aria-label="' + o.title + ' options">' + o.chips.map(function (c, i) { return '<button type="button" class="chip" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + c + "</button>"; }).join("") + "</div>" : "") + '<div class="stage"></div><p class="hint">' + o.hint + "</p>";
+    el.innerHTML = '<div class="meta mono"><span>' + o.n + " · " + o.kind + '</span><a href="' + o.href + '" rel="noopener" target="_blank">Style: ' + o.ref + "</a></div><h3>" + o.title + '</h3><p class="desc">' + o.desc + "</p>" + (o.chips ? '<div class="chips" role="group" aria-label="' + o.title + ' options">' + o.chips.map(function (c, i) { return '<button type="button" class="chip" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + c + "</button>"; }).join("") + "</div>" : "") + '<div class="stage"></div><p class="hint">' + o.hint + "</p>" + (o.note ? '<p class="hint src">' + o.note + "</p>" : "");
     gallery.appendChild(el);
     var stage = el.querySelector(".stage");
     var api = o.draw(stage);
@@ -210,15 +210,29 @@
     return g;
   }
 
-  // 1. Radial year of sightings
-  card({ n: NUM(), kind: "Radial timeline", title: "A year of sightings, wrapped into a circle", ref: "Searching for Birds", href: "https://searchingforbirds.visualcinnamon.com/",
-    desc: "365 days of activity as spokes around a clock face. Seasonal rhythms that hide in a line chart jump out when the year wraps around.",
+  // 1. Radial year of automation runs
+  card({ n: NUM(), kind: "Radial timeline", title: "A year of automation runs, wrapped into a circle", ref: "Searching for Birds", href: "https://searchingforbirds.visualcinnamon.com/",
+    desc: "Every day's workflow runs as one spoke around a clock face. Quiet weekends, month-end reporting peaks, the end-of-financial-year rush and the Christmas shutdown all show up once the year wraps around.",
     hint: "Hover a spoke to see that day.",
     draw: function (stage) {
-      var types = ["Morning", "Afternoon", "Evening"];
-      var days = d3.range(365).map(function (i) { var date = d3.timeDay.offset(new Date(2025, 0, 1), i); var season = 0.55 + 0.45 * Math.cos(2 * Math.PI * (i - 300) / 365); return { date: date, v: types.map(function (t, k) { return Math.max(0, (12 - k * 3) * season + normal(R) * 2.2 + (k === 2 && i > 150 && i < 240 ? 4 : 0)); }) }; });
+      var types = ["Scheduled", "Event-triggered", "Manual"];
+      var days = d3.range(365).map(function (i) {
+        var date = d3.timeDay.offset(new Date(2025, 0, 1), i), dow = date.getDay(), dom = date.getDate();
+        var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+        var growth = 0.6 + 0.4 * i / 364;                                          // more workflows go live through the year
+        var weekend = dow === 0 || dow === 6 ? 0.35 : 1;
+        var monthEnd = dom >= lastDay - 1 || dom === 1 ? 1.7 : 1;                   // month-end reporting
+        var eofy = date.getMonth() === 5 && dom >= 20 ? 1.6 : 1;                    // end of financial year (June)
+        var shutdown = (date.getMonth() === 11 && dom >= 23) || (date.getMonth() === 0 && dom <= 5) ? 0.3 : 1;
+        var base = [60, 34, 10], k0 = growth * shutdown;
+        return { date: date, v: [
+          Math.max(0, base[0] * k0 * (dow === 0 || dow === 6 ? 0.7 : 1) * monthEnd * eofy + normal(R) * 4),
+          Math.max(0, base[1] * k0 * weekend * (1 + 0.15 * Math.sin(2 * Math.PI * i / 91)) + normal(R) * 5),
+          Math.max(0, base[2] * k0 * weekend * eofy + normal(R) * 2.5)
+        ] };
+      });
       var W = 560, H = 560, inner = 84, outer = 236;
-      var svg = svgIn(stage, W, H, "Radial chart of daily sightings over a year, split by time of day");
+      var svg = svgIn(stage, W, H, "Radial chart of daily automation runs over a year, split by how each run was started");
       var g = svg.append("g").attr("transform", "translate(" + W / 2 + "," + H / 2 + ")");
       var ang = d3.scaleLinear([0, 365], [0, 2 * Math.PI]);
       var rr = d3.scaleLinear([0, d3.max(days, function (d) { return d3.sum(d.v); })], [inner, outer]);
@@ -229,33 +243,38 @@
         var spoke = g.append("g").attr("class", "spoke");
         d.v.forEach(function (val, k) { var r0 = rr(acc), r1 = rr(acc + val); acc += val; spoke.append("line").attr("x1", Math.cos(a) * r0).attr("y1", Math.sin(a) * r0).attr("x2", Math.cos(a) * r0).attr("y2", Math.sin(a) * r0).attr("stroke", P.radial[k]).attr("stroke-width", 2.2).attr("stroke-linecap", "round").transition().delay(reduce ? 0 : i * 3).duration(DUR).attr("x2", Math.cos(a) * r1).attr("y2", Math.sin(a) * r1); });
         spoke.append("line").attr("x1", Math.cos(a) * inner).attr("y1", Math.sin(a) * inner).attr("x2", Math.cos(a) * (outer + 4)).attr("y2", Math.sin(a) * (outer + 4)).attr("stroke", "transparent").attr("stroke-width", 6)
-          .on("pointermove", function (e) { spoke.attr("opacity", 1); g.selectAll(".spoke").attr("opacity", function () { return this === spoke.node() ? 1 : 0.35; }); showTip(e, "<b>" + fmtD(d.date) + "</b><br>" + types.map(function (t, k) { return sw(P.radial[k]) + t + " " + Math.round(d.v[k]); }).join("<br>")); })
+          .on("pointermove", function (e) { spoke.attr("opacity", 1); g.selectAll(".spoke").attr("opacity", function () { return this === spoke.node() ? 1 : 0.35; }); showTip(e, "<b>" + d3.timeFormat("%a %-d %b")(d.date) + "</b><br>" + types.map(function (t, k) { return sw(P.radial[k]) + t + " " + Math.round(d.v[k]); }).join("<br>") + "<br>" + fmtN(d3.sum(d.v)) + " runs in total"); })
           .on("pointerleave", function () { g.selectAll(".spoke").attr("opacity", 1); hideTip(); });
       });
       g.append("text").attr("text-anchor", "middle").attr("dy", "-0.1em").attr("fill", INK).style("font", "800 26px var(--f-display)").text(fmtN(d3.sum(days, function (d) { return d3.sum(d.v); })));
-      g.append("text").attr("text-anchor", "middle").attr("dy", "1.4em").attr("class", "lbl").text("sightings in 2025");
+      g.append("text").attr("text-anchor", "middle").attr("dy", "1.4em").attr("class", "lbl").text("workflow runs in 2025");
       legendRow(svg, types.map(function (t, k) { return { name: t, c: P.radial[k] }; }), 16, 24);
     } });
 
   // 10. Chord diagram
-  card({ n: NUM(), kind: "Chord diagram", title: "Who moves between which regions", ref: "UNESCO Dive", href: "https://ich.unesco.org/en/dive?display=constellation#tabs",
-    desc: "Customers moving between six regions over a year. Each ribbon is a two-way flow, so the busiest corridors stand out at once.",
-    hint: "Hover a region to show only its flows.",
+  card({ n: NUM(), kind: "Chord diagram", title: "Where Australians move when they change states", ref: "UNESCO Dive", href: "https://ich.unesco.org/en/dive?display=constellation#tabs",
+    desc: "Interstate moves over a year. Each ribbon is a two-way flow between two states or territories, so the New South Wales to Queensland corridor stands out at once.",
+    hint: "Hover a state to show only its flows.",
+    note: "Arrival and departure totals for each state: ABS National, state and territory population, year to March 2026. Flows between each pair are modelled to match those totals.",
     draw: function (stage) {
-      var regions = ["North", "East", "South", "West", "Central", "Coast"];
-      var M = regions.map(function (a, i) { return regions.map(function (b, j) { return i === j ? 0 : Math.round(20 + R() * 140 * (Math.abs(i - j) === 1 || Math.abs(i - j) === 5 ? 1.6 : 0.6)); }); });
+      var regions = ["NSW", "ACT", "VIC", "TAS", "SA", "WA", "NT", "QLD"];
+      var names = { NSW: "New South Wales", ACT: "Australian Capital Territory", VIC: "Victoria", TAS: "Tasmania", SA: "South Australia", WA: "Western Australia", NT: "Northern Territory", QLD: "Queensland" };
+      // Rows = from, columns = to. Row sums match ABS departures and column sums match ABS arrivals (year to March 2026).
+      var M = [[0, 8978, 28468, 3778, 5922, 9314, 3219, 47020], [8493, 0, 4822, 538, 834, 1182, 390, 4630], [24355, 4361, 0, 4820, 7600, 8776, 2608, 22979], [3229, 486, 4814, 0, 870, 1466, 412, 3380],
+               [5198, 773, 7797, 894, 0, 3372, 955, 6412], [5876, 788, 6472, 1082, 2424, 0, 2461, 8711], [2884, 369, 2732, 432, 975, 3495, 0, 4991], [35844, 3731, 20475, 3015, 5568, 10524, 4245, 0]];
+      var out = M.map(function (r) { return d3.sum(r); }), inn = regions.map(function (_, j) { return d3.sum(M, function (r) { return r[j]; }); });
       var W = 520, H = 520, or = 210, ir = 196;
-      var svg = svgIn(stage, W, H, "Chord diagram of customer movement between six regions");
+      var svg = svgIn(stage, W, H, "Chord diagram of interstate migration between Australian states and territories");
       var g = svg.append("g").attr("transform", "translate(" + W / 2 + "," + H / 2 + ")");
-      var chords = d3.chord().padAngle(0.04).sortSubgroups(d3.descending)(M);
+      var chords = d3.chord().padAngle(0.035).sortSubgroups(d3.descending)(M);
       var arc = d3.arc().innerRadius(ir).outerRadius(or).cornerRadius(3);
       var rib = d3.ribbon().radius(ir - 2);
-      var ribbons = g.append("g").selectAll("path").data(chords).join("path").attr("d", rib).attr("fill", function (d) { return P.chord[d.source.index]; }).attr("fill-opacity", 0.55).attr("stroke", BG).attr("stroke-width", 0.8);
+      var ribbons = g.append("g").selectAll("path").data(chords).join("path").attr("d", rib).attr("fill", function (d) { return P.chord[d.source.value >= d.target.value ? d.source.index : d.target.index]; }).attr("fill-opacity", 0.55).attr("stroke", BG).attr("stroke-width", 0.8);
       var groups = g.append("g").selectAll("g").data(chords.groups).join("g");
       groups.append("path").attr("d", arc).attr("fill", function (d) { return P.chord[d.index]; });
       groups.append("text").attr("class", "lbl-strong").attr("dy", "0.35em").attr("transform", function (d) { var a = (d.startAngle + d.endAngle) / 2; return "rotate(" + (a * 180 / Math.PI - 90) + ") translate(" + (or + 12) + ")" + (a > Math.PI ? " rotate(180)" : ""); }).attr("text-anchor", function (d) { return (d.startAngle + d.endAngle) / 2 > Math.PI ? "end" : "start"; }).text(function (d) { return regions[d.index]; });
-      groups.on("pointermove", function (e, d) { ribbons.attr("fill-opacity", function (r) { return r.source.index === d.index || r.target.index === d.index ? 0.8 : 0.05; }); showTip(e, sw(P.chord[d.index]) + "<b>" + regions[d.index] + "</b><br>" + fmtN(d3.sum(P.chord[d.index])) + " customers moved out"); }).on("pointerleave", function () { ribbons.attr("fill-opacity", 0.55); hideTip(); });
-      ribbons.on("pointermove", function (e, d) { showTip(e, "<b>" + regions[d.source.index] + " ⇄ " + regions[d.target.index] + "</b><br>" + fmtN(M[d.source.index][d.target.index]) + " → · " + fmtN(M[d.target.index][d.source.index]) + " ←"); }).on("pointerleave", hideTip);
+      groups.on("pointermove", function (e, d) { ribbons.attr("fill-opacity", function (r) { return r.source.index === d.index || r.target.index === d.index ? 0.8 : 0.05; }); var i = d.index, net = inn[i] - out[i]; showTip(e, sw(P.chord[i]) + "<b>" + names[regions[i]] + "</b><br>" + fmtN(inn[i]) + " arrived · " + fmtN(out[i]) + " left<br>Net " + (net >= 0 ? "+" : "−") + fmtN(Math.abs(net))); }).on("pointerleave", function () { ribbons.attr("fill-opacity", 0.55); hideTip(); });
+      ribbons.on("pointermove", function (e, d) { var a = regions[d.source.index], b = regions[d.target.index]; showTip(e, "<b>" + a + " ⇄ " + b + "</b><br>" + a + " → " + b + ": " + fmtN(M[d.source.index][d.target.index]) + "<br>" + b + " → " + a + ": " + fmtN(M[d.target.index][d.source.index])); }).on("pointerleave", hideTip);
     } });
   // 2. Beeswarm of releases
   card({ n: NUM(), kind: "Beeswarm timeline", title: "Every change to a product, as a swarm", ref: "ORCA commit history", href: "https://nbremer.github.io/ORCA/commit-history/",
