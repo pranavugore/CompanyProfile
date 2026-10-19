@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   var css = getComputedStyle(document.documentElement);
-  function v(n) { return css.getPropertyValue(n).trim(); }
+  function v(n, fb) { return css.getPropertyValue(n).trim() || fb; }
   var S = [v("--s1"), v("--s2"), v("--s3"), v("--s4"), v("--s5"), v("--s6"), v("--s7"), v("--s8")];
   // Gallery palettes: each chart takes one combination from Sanzo Wada's "A Dictionary of Color Combinations"
   // (number in brackets), with lightness and chroma nudged so it reads on the dark card and passes CVD checks.
@@ -16,7 +16,10 @@
     bubble: ["#a85731", "#58a375", "#286fab"]                         // [333] Burnt Sienna, Cobalt Green, Blue
   };
   var INK = v("--ink"), INK2 = v("--ink-2"), MUTED = v("--muted"), GRID = v("--grid"), BG = v("--bg"), CARD = v("--card"), ACCENT = v("--accent");
-  var SEQ = d3.interpolateRgb("#1f2d47", "#b7d3f6");
+  var SEQ = d3.interpolateRgb(v("--seq-0", "#1f2d47"), v("--seq-1", "#b7d3f6"));
+  var SEQ_LOW = v("--seq-low", "#33507a"), DIV = [v("--div-neg", "#e66767"), v("--div-mid", "#383835"), v("--div-pos", "#3987e5")];
+  // Colours are read once, so redraw when the device switches between light and dark
+  if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { location.reload(); });
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var DUR = reduce ? 0 : 700;
 
@@ -170,7 +173,7 @@
     var y = d3.scaleLinear([0, d3.max(rows, function (d) { return d.val; })], [H - m.b, m.t]);
     var svg = d3.select("#d-week").html("").append("svg").attr("viewBox", "0 0 " + W + " " + H).attr("role", "img").attr("aria-label", "Column chart of average orders per weekday");
     var peak = d3.max(rows, function (d) { return d.val; });
-    svg.selectAll("path.c").data(rows).join("path").attr("class", "c").attr("fill", function (d) { return d.val === peak ? S[0] : "#33507a"; })
+    svg.selectAll("path.c").data(rows).join("path").attr("class", "c").attr("fill", function (d) { return d.val === peak ? S[0] : SEQ_LOW; })
       .attr("d", function (d) { return roundedBarV(x(d.name), H - m.b, x.bandwidth(), H - m.b - y(d.val)); })
       .on("pointermove", function (e, d) { showTip(e, "<b>" + d.name + "</b><br>" + fmtN(d.val) + " orders on an average day"); }).on("pointerleave", hideTip);
     svg.selectAll("text.n").data(rows).join("text").attr("class", "lbl").attr("text-anchor", "middle").attr("x", function (d) { return x(d.name) + x.bandwidth() / 2; }).attr("y", H - 6).text(function (d) { return d.name; });
@@ -450,7 +453,7 @@
       var svg = svgIn(stage, W, H, "Hexagon map of regional demand with scenario toggle");
       var maxV = d3.max(cells, function (c) { return Math.max(c.now, c.fut); });
       var seq = d3.scaleSequential([0, maxV], SEQ);
-      var div = d3.scaleDiverging([-0.5, 0, 0.5], function (t) { return t < 0.5 ? d3.interpolateRgb("#e66767", "#383835")(t * 2) : d3.interpolateRgb("#383835", "#3987e5")((t - 0.5) * 2); }).clamp(true);
+      var div = d3.scaleDiverging([-0.5, 0, 0.5], function (t) { return t < 0.5 ? d3.interpolateRgb(DIV[0], DIV[1])(t * 2) : d3.interpolateRgb(DIV[1], DIV[2])((t - 0.5) * 2); }).clamp(true);
       var hexes = svg.append("g").selectAll("path").data(cells).join("path").attr("transform", function (c) { return "translate(" + c.cx + "," + c.cy + ")"; }).attr("d", "M" + hex.join("L") + "Z").attr("stroke", BG).attr("stroke-width", 1.5);
       var mode = 0;
       var leg = svg.append("g").attr("transform", "translate(20," + (H - 22) + ")");

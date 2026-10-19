@@ -1,19 +1,23 @@
 
-/* Layout: dark gallery page; a standard dashboard first, then a 2-column grid of ten creative chart cards. Single dark look by design, matching the profile site. */
+/* Apple surfaces in light and dark; charts keep their own Wada palettes, validated on both cards */
 :root {
-color-scheme: dark;
-  --bg: #0e0f13;
-  --card: #1b1e25;
-  --card-2: #232731;
-  --ink: #f3efe6;
-  --ink-2: #c3c2b7;
-  --muted: #898781;
-  --grid: #2c2f37;
-  --axis: #3a3e48;
-  --accent: #ffcf3f;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
-  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
-  --good: #0ca30c; --critical: #d03b3b;
+  color-scheme: light;
+  --bg: #f5f5f7;
+  --card: #ffffff;
+  --card-2: #f5f5f7;
+  --ink: #1d1d1f;
+  --ink-2: #424245;
+  --muted: #6e6e73;
+  --grid: #e3e3e8;
+  --axis: #c7c7cc;
+  --accent: #0071e3;
+  --accent-text: #0066cc;
+  --tip: #ffffff;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --s5: #e87ba4; --s6: #008300; --s7: #6250d6; --s8: #e34948;
+  --good: #0a8f0a; --critical: #d03b3b;
+  --seq-0: #dce8fa; --seq-1: #1d5bb0; --seq-low: #a9c4ea;
+  --div-neg: #e34948; --div-mid: #e5e5ea; --div-pos: #2a78d6;
   --f-display: "Bricolage Grotesque",
 "Arial Black",
 system-ui,
@@ -28,6 +32,46 @@ ui-monospace,
 Menlo,
 monospace;
 }
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    --bg: #000000;
+    --card: #1c1c1e;
+    --card-2: #2c2c2e;
+    --ink: #f5f5f7;
+    --ink-2: #c7c7cc;
+    --muted: #8e8e93;
+    --grid: #2c2c2e;
+    --axis: #3a3a3c;
+    --accent: #0071e3;
+    --accent-text: #2997ff;
+    --tip: #2c2c2e;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    --good: #0ca30c; --critical: #d03b3b;
+    --seq-0: #1f2d47; --seq-1: #b7d3f6; --seq-low: #33507a;
+    --div-neg: #e66767; --div-mid: #383835; --div-pos: #3987e5;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --card: #1c1c1e;
+  --card-2: #2c2c2e;
+  --ink: #f5f5f7;
+  --ink-2: #c7c7cc;
+  --muted: #8e8e93;
+  --grid: #2c2c2e;
+  --axis: #3a3a3c;
+  --accent: #0071e3;
+  --accent-text: #2997ff;
+  --tip: #2c2c2e;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  --good: #0ca30c; --critical: #d03b3b;
+  --seq-0: #1f2d47; --seq-1: #b7d3f6; --seq-low: #33507a;
+  --div-neg: #e66767; --div-mid: #383835; --div-pos: #3987e5;
+  color-scheme: dark;
+}
 * { box-sizing: border-box; }
 .dv { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--f-body); overflow-x: hidden; }
 .dv a { color: inherit; }
@@ -41,7 +85,7 @@ monospace;
 .dv p { margin: 0; text-wrap: pretty; }
 .dv .eyebrow,
 .mono { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.dv .eyebrow { color: var(--accent); display: block; margin-bottom: 0.9rem; }
+.dv .eyebrow { color: var(--accent-text); display: block; margin-bottom: 0.9rem; }
 
 
 
@@ -104,13 +148,13 @@ svg text { font-family: var(--f-body); }
 .lbl { fill: var(--ink-2); font-size: 11px; }
 .lbl-strong { fill: var(--ink); font-size: 12px; font-weight: 600; }
 
-#tip { position: fixed; pointer-events: none; z-index: 50; background: #0b0c10; color: var(--ink); border: 1px solid var(--axis); border-radius: 0.6rem; padding: 0.5rem 0.7rem; font-size: 0.82rem; line-height: 1.4; max-width: 16rem; box-shadow: 0 10px 30px rgba(0,0,0,.4); opacity: 0; transition: opacity .12s; }
+#tip { position: fixed; pointer-events: none; z-index: 50; background: var(--tip); color: var(--ink); border: 1px solid var(--axis); border-radius: 0.6rem; padding: 0.5rem 0.7rem; font-size: 0.82rem; line-height: 1.4; max-width: 16rem; box-shadow: 0 10px 30px rgba(0,0,0,.18); opacity: 0; transition: opacity .12s; }
 #tip b { font-weight: 650; }
 #tip .sw { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 2px; margin-right: 0.35rem; }
 
 .cta-end { text-align: center; padding-block: 4rem; }
 .cta-end p { color: var(--ink-2); margin: 1rem auto 1.6rem; max-width: 34rem; }
-.dv .btn { display: inline-block; padding: 0.85rem 1.4rem; border-radius: 999px; background: var(--accent); color: #14120a; font-weight: 700; text-decoration: none; }
+.dv .btn { display: inline-block; padding: 0.85rem 1.4rem; border-radius: 999px; background: var(--accent); color: #ffffff; font-weight: 700; text-decoration: none; }
 
 @media (max-width: 60rem) {
 .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
