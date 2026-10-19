@@ -63,5 +63,26 @@ const base = {
     <slot />
     <Footer />
     <slot name="scripts" />
+    <script is:inline>
+      // Pointer depth: pictures drift gently with the mouse, eased so they glide rather than jump
+      (function () {
+        var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+        var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!fine.matches || still.matches) return;
+        var root = document.documentElement, tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+        function step() {
+          x += (tx - x) * 0.12; y += (ty - y) * 0.12;
+          root.style.setProperty('--px', x.toFixed(4)); root.style.setProperty('--py', y.toFixed(4));
+          raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.001 ? requestAnimationFrame(step) : 0;
+        }
+        function aim(nx, ny) { tx = nx; ty = ny; if (!raf) raf = requestAnimationFrame(step); }
+        window.addEventListener('pointermove', function (e) {
+          if (e.pointerType !== 'mouse') return;
+          aim(e.clientX / innerWidth * 2 - 1, e.clientY / innerHeight * 2 - 1);
+        }, { passive: true });
+        document.addEventListener('pointerleave', function () { aim(0, 0); });
+        root.classList.add('depth');
+      })();
+    </script>
   </body>
 </html>
