@@ -1,0 +1,23 @@
+---
+import ServiceArt from "./ServiceArt.astro";
+const { s, i } = Astro.props;
+const flip = i % 2 === 1;
+---
+<section class={`panel ${flip ? "flip " : ""}${s.tone}`} id={s.slug} aria-labelledby={`${s.slug}-h`}>
+  <div class="wrap">
+    <div class="text reveal">
+      <p class="kicker">{s.kicker}</p>
+      <span class="eyebrow"><span class="svc-n">{String(i + 1).padStart(2, "0")}</span> {s.eyebrow}</span>
+      <h2 id={`${s.slug}-h`} class="caps" set:html={s.title} />
+      <p>{s.summary}</p>
+      <ul class="feats">
+        {s.feats.map(([b, t], k) => <li><span class="n">{String(k + 1).padStart(2, "0")}</span><div><b>{b}</b><span>{t}</span></div></li>)}
+      </ul>
+      <div class="cta">
+        <a class="btn tone" href={s.href}>Know more <span aria-hidden="true">→</span><span class="sr"> about {s.eyebrow}</span></a>
+        <a class="btn ghost" href="/#contact">Talk to me</a>
+      </div>
+    </div>
+    <ServiceArt name={s.art} cls="reveal" />
+  </div>
+</section>

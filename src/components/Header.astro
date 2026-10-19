@@ -1,9 +1,10 @@
 ---
 import { SITE } from "../data/site.js";
 const { current = "" } = Astro.props;
+import { SERVICES } from "../data/services.js";
+const isService = SERVICES.some((x) => x.slug === current);
 const links = [
-  { href: "/#work", label: "Work", key: "home" },
-  { href: "/data-viz/", label: "Data viz", key: "data-viz" },
+  { href: "/#services", label: "Services", key: isService ? current : "home" },
   { href: "/work/", label: "Case studies", key: "work" },
   { href: "/about/", label: "About", key: "about" },
 ];

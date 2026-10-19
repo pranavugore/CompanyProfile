@@ -1,0 +1,12 @@
+---
+import data from "./art/data.svg.txt?raw";
+import flow from "./art/flow.svg.txt?raw";
+import robots from "./art/robots.svg.txt?raw";
+import apps from "./art/apps.svg.txt?raw";
+import agents from "./art/agents.svg.txt?raw";
+import video from "./art/video.svg.txt?raw";
+import marketing from "./art/marketing.svg.txt?raw";
+const ART = { data, flow, robots, apps, agents, video, marketing };
+const { name, tone = "", cls = "" } = Astro.props;
+---
+<div class={`art ${tone} ${cls}`.trim()}><Fragment set:html={ART[name]} /></div>
