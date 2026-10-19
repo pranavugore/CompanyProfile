@@ -61,9 +61,19 @@ const steps = [
         <ul class="offer">
           {s.page.offer.map(([n, d], k) => <li class="reveal"><span class="n mono">{String(k + 1).padStart(2, "0")}</span><h3>{n}</h3><p>{d}</p></li>)}
         </ul>
-        {s.page.products && <p class="note">{s.page.products}</p>}
       </div>
     </section>
+
+    {s.page.examples && (
+      <section class="section examples" aria-labelledby="ex-h">
+        <div class="wrap">
+          <div class="section-head"><div><span class="eyebrow">Examples</span><h2 id="ex-h">From my own work</h2></div></div>
+          <ul class="ex">
+            {s.page.examples.map(([t, tag, d]) => <li class="reveal"><span class="mono tag">{tag}</span><h3>{t}</h3><p>{d}</p></li>)}
+          </ul>
+        </div>
+      </section>
+    )}
 
     {s.page.second && (
       <section class="section svc-second" aria-label="Example">

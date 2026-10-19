@@ -26,19 +26,23 @@ export const SERVICES = [
     title: "Automate the <i>boring</i> bits",
     summary: "Copy and paste between inboxes, spreadsheets and systems is where good people's weeks disappear. I replace it with workflows and robots that run quietly in the background and tell you when something needs a human.",
     feats: [
-      ["Workflow automation", "n8n and similar tools connecting your apps, syncing records and sending reports on schedule."],
-      ["Robotic process automation", "Bots for systems without APIs. I've moved a fleet of 100+ robots in-house at Telstra."],
-      ["Monitoring built in", "Alerts, retries and logs, so automations fail loudly instead of silently."],
+      ["n8n automations", "Self-hosted workflows that connect your apps, sync records, load databases and send reports on schedule."],
+      ["AI agents in the flow", "Claude-powered steps that research, draft and turn messy free text into clean records, with a human check."],
+      ["RPA at scale", "Bots for systems without APIs. At Telstra I moved a fleet of 100+ robots in-house without disruption."],
     ],
     page: {
       lead: "If someone on your team does the same steps every day or every week, there is a good chance a workflow can do it for them. I design automations that are simple to understand, cheap to run and easy to hand over.",
       offer: [
         ["System-to-system sync", "Keep your CRM, accounting, forms and spreadsheets in step without anyone retyping data."],
         ["Scheduled reporting", "Weekly and monthly reports that build and send themselves."],
-        ["Document and email handling", "Read incoming emails, forms and files, pull out what matters and file it in the right place."],
+        ["AI agents inside workflows", "Agents that read emails, forms and documents, pull out what matters and draft the next step."],
         ["RPA for older systems", "Software robots that work through screens when a system has no API."],
         ["Migrating existing automations", "Move bots or scripts from a vendor or an old platform to something you own and control."],
-        ["Hand-over and training", "Documentation and a walkthrough so your team can run and change it."],
+        ["Monitoring and hand-over", "Alerts, retries and logs so failures are loud, plus documentation your team can run with."],
+      ],
+      examples: [
+        ["n8n automations and AI agents", "Self-hosted · In production", "A portfolio of 50+ n8n workflows: incremental data loads from APIs into PostgreSQL, bulk migrations into a CRM, scheduled reports and funnels, and AI agents that research and draft outreach. Every workflow alerts on failure and is backed up to Git."],
+        ["RPA at Telstra", "Enterprise · 100+ robots", "Took a fleet of more than 100 software robots from a vendor-run service to an in-house team, with no disruption to the business processes they support, then kept delivering new ones."],
       ],
       second: "robots",
       secondCaption: "Moving a fleet of 100+ robots from a vendor to an in-house team, without disruption.",
@@ -80,8 +84,8 @@ export const SERVICES = [
     title: "Apps built for <i>your</i> way of working",
     summary: "From a quick AppSheet app for the team in the field to a full web platform, I design and build software around how your people actually work, and ship it quickly with AI-assisted development.",
     feats: [
-      ["Low-code apps", "AppSheet apps on top of your existing spreadsheets, in people's hands in days."],
-      ["Web and mobile apps", "Custom platforms with logins, payments and dashboards, like the products I'm building myself."],
+      ["Quick start with AppSheet", "When speed matters, an AppSheet app on top of your existing spreadsheets can be in people's hands in days."],
+      ["Full custom builds", "Web and mobile apps with logins, payments and dashboards, like Stolen Minutes, an app I'm building myself."],
       ["Integration first", "Apps that talk to your existing systems instead of becoming one more silo."],
     ],
     page: {
@@ -94,7 +98,10 @@ export const SERVICES = [
         ["Integrations", "Connect the app to your CRM, payments, email and data platform."],
         ["Support and iteration", "Small, regular improvements after launch, based on how it's used."],
       ],
-      products: "I'm also building two products of my own: Stolen Minutes, and a platform for yoga teachers to run their classes and students.",
+      examples: [
+        ["Stolen Minutes", "Product · In progress", "An app I'm designing and building myself, from idea to launch: product design, the app itself, the back end and the data behind it."],
+        ["AppSheet apps", "Quick implementation", "Mobile apps for field teams, volunteers and daily operations, built on top of existing spreadsheets and backed by dashboards. The fastest way to get a working tool in people's hands."],
+      ],
     },
   },
   {

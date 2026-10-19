@@ -7,6 +7,6 @@ import agents from "./art/agents.svg.txt?raw";
 import video from "./art/video.svg.txt?raw";
 import marketing from "./art/marketing.svg.txt?raw";
 const ART = { data, flow, robots, apps, agents, video, marketing };
-const { name, tone = "", cls = "" } = Astro.props;
+const { name, tone = "", cls = "", bare = false } = Astro.props;
 ---
-<div class={`art ${tone} ${cls}`.trim()}><Fragment set:html={ART[name]} /></div>
+{bare ? <Fragment set:html={ART[name]} /> : <div class={`art ${tone} ${cls}`.trim()}><Fragment set:html={ART[name]} /></div>}

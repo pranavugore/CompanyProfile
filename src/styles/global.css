@@ -306,3 +306,11 @@ fieldset input { width: auto; accent-color: var(--accent); }
 @media (max-width: 560px) {
   .offer, .steps.four, .others ul { grid-template-columns: 1fr; }
 }
+.slide figcaption b a { color: inherit; text-decoration: none; }
+.examples { padding-top: 0; }
+.ex { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0; margin: 0; list-style: none; }
+.ex li { background: color-mix(in srgb, var(--tone) 10%, var(--surface)); border: 1px solid color-mix(in srgb, var(--tone) 40%, var(--line)); border-radius: var(--r); padding: 1.8rem; }
+.ex .tag { color: var(--tone); font-size: 0.78rem; }
+.ex h3 { font-size: 1.5rem; margin: 0.6rem 0 0.6rem; }
+.ex p { color: var(--muted); }
+@media (max-width: 760px) { .ex { grid-template-columns: 1fr; } }
