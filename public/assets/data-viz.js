@@ -199,7 +199,7 @@
   function card(o) {
     var el = document.createElement("article");
     el.className = "viz" + (o.wide ? " wide" : "");
-    el.innerHTML = '<div class="meta mono"><span>' + o.n + " · " + o.kind + '</span><a href="' + o.href + '" rel="noopener" target="_blank">Style: ' + o.ref + "</a></div><h3>" + o.title + '</h3><p class="desc">' + o.desc + "</p>" + (o.chips ? '<div class="chips" role="group" aria-label="' + o.title + ' options">' + o.chips.map(function (c, i) { return '<button type="button" class="chip" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + c + "</button>"; }).join("") + "</div>" : "") + '<div class="stage"></div><p class="hint">' + o.hint + "</p>" + (o.note ? '<p class="hint src">' + o.note + "</p>" : "");
+    el.innerHTML = '<div class="meta mono"><span>' + o.n + " · " + o.kind + "</span></div><h3>" + o.title + '</h3><p class="desc">' + o.desc + "</p>" + (o.chips ? '<div class="chips" role="group" aria-label="' + o.title + ' options">' + o.chips.map(function (c, i) { return '<button type="button" class="chip" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + c + "</button>"; }).join("") + "</div>" : "") + '<div class="stage"></div><p class="hint">' + o.hint + "</p>" + (o.note ? '<p class="hint src">' + o.note + "</p>" : "");
     gallery.appendChild(el);
     var stage = el.querySelector(".stage");
     var api = o.draw(stage);
