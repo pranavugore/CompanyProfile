@@ -99,7 +99,7 @@ strong { color: var(--text); font-weight: 650; }
 .logo { display: inline-flex; align-items: center; gap: 0.55rem; }
 .logo svg { display: block; height: auto; }
 .logo-mark { width: 2.35rem; }
-.logo-word { width: 10rem; margin-top: 0.12rem; }
+.logo-word { font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.02em; line-height: 1; padding-top: 0.12em; white-space: nowrap; }
 .site-header nav { display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
 .site-header nav a { text-decoration: none; color: var(--muted); font-weight: 550; font-size: 0.95rem; }
 .site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--text); }
