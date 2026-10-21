@@ -179,6 +179,8 @@ jsonld.push({
   name: "Services",
   itemListElement: SERVICES.map((sv, i) => ({ "@type": "ListItem", position: i + 1, name: sv.eyebrow, url: origin + sv.href })),
 });
+// "Who are you?" section is hidden for now; set to true to bring it back.
+const SHOW_WHO = false;
 const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA · AI agents", "agent-ready": "AEO · GEO · MCP", "custom-apps": "AppSheet · Web · Mobile", "video-ads": "Script · Edit · Every format", "marketing-outreach": "Research · Outreach · Follow-up" };
 ---
 <Base title={title} description={description} jsonld={jsonld} current="home" includeBase={false}>
@@ -234,7 +236,7 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
       </div>
     </section>
 
-    <section class="who" id="who" aria-labelledby="who-h">
+    {SHOW_WHO && <section class="who" id="who" aria-labelledby="who-h">
       <div class="wrap">
         <span class="eyebrow">Who are you?</span>
         <h2 id="who-h">See yourself <em>as…</em></h2>
@@ -247,7 +249,7 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
           <li><a class="t-yoga" href={isShown("video-ads") ? "#video-ads" : "#custom-apps"}>A teacher or coach</a></li>
         </ul>
       </div>
-    </section>
+    </section>}
 
     <section class="services-head" id="services" aria-labelledby="services-h">
       <div class="wrap">
@@ -331,10 +333,6 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
         <div>
           <h2 id="contact-h">Ready to fix something? Tell us about it.</h2>
           <p>A project, or a process that's driving your team mad. We're in Melbourne and happy to work remotely.</p>
-          <div class="direct">
-            <span>Email: <a href="mailto:pranavugore@gmail.com">pranavugore@gmail.com</a></span>
-            <span>LinkedIn: <a href="https://www.linkedin.com/in/pranavugore" rel="me">linkedin.com/in/pranavugore</a></span>
-          </div>
         </div>
         <form id="contact-form" novalidate>
           <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
@@ -391,7 +389,7 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
       var needs = [].slice.call(form.querySelectorAll('input[name=need]:checked')).map(function (c) { return c.value; }).join(', ');
       var body = form.message.value + '\n\n' + (needs ? 'Looking for: ' + needs + '\n' : '') + 'From: ' + form.name.value + ' <' + form.email.value + '>';
       window.location.href = 'mailto:pranavugore@gmail.com?subject=' + encodeURIComponent('Enquiry from ' + form.name.value) + '&body=' + encodeURIComponent(body);
-      note.textContent = 'Your email app should open with the message ready to send. If it doesn’t, email pranavugore@gmail.com directly.';
+      note.textContent = 'Your email app should open with the message ready to send. If nothing opens, set up an email app on this device and try again.';
     });
   })();
   </script>
