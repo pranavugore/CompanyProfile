@@ -6,8 +6,8 @@ import { SERVICES, isShown } from "../data/services.js";
 import { org } from "../data/site.js";
 const NUM = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"][SERVICES.length] || String(SERVICES.length);
 const origin = Astro.site.href.replace(/\/$/, "");
-const title = "studionarrm | Data, Automation & AI Agents, Melbourne";
-const description = "studionarrm is a Melbourne studio for data dashboards, n8n workflow automation, AI agents and custom apps, founded by Pranav Gore, a solution architect with 19 years in banking, telecom and non-profits.";
+const title = "Studio Narrm | Data, Automation & AI Agents, Melbourne";
+const description = "Studio Narrm is a Melbourne studio for data dashboards, n8n workflow automation, AI agents and custom apps, founded by Pranav Gore, a solution architect with 19 years in banking, telecom and non-profits.";
 const jsonld = [{
   "@context": "https://schema.org",
   "@graph": [
@@ -15,7 +15,7 @@ const jsonld = [{
       "@type": "WebSite",
       "@id": `${origin}/#website`,
       "url": `${origin}/`,
-      "name": "studionarrm",
+      "name": "Studio Narrm",
       "publisher": {
         "@id": `${origin}/#org`
       },
@@ -123,15 +123,15 @@ const jsonld = [{
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Who is Pranav Gore?",
+          "name": "Who is behind Studio Narrm?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pranav Gore is a Melbourne-based Solution Designer and Architect with 19 years of experience designing enterprise applications, system integrations, data analytics solutions and workflow automation across banking, telecommunications, retail and non-profit organisations."
+            "text": "Studio Narrm was founded by Pranav Gore, a Melbourne-based Solution Designer and Architect with 19 years of experience designing enterprise applications, system integrations, data analytics solutions and workflow automation across banking, telecommunications, retail and non-profit organisations."
           }
         },
         {
           "@type": "Question",
-          "name": "What does Pranav Gore specialise in?",
+          "name": "What does Studio Narrm specialise in?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Solution architecture for complex enterprise systems: integration and microservices design, data migration and master data, analytics dashboards, and end-to-end workflow automation using n8n, AI agents built on large language models, AppSheet and AI-assisted development."
@@ -139,7 +139,7 @@ const jsonld = [{
         },
         {
           "@type": "Question",
-          "name": "What has Pranav Gore built end to end?",
+          "name": "What has Studio Narrm's founder built end to end?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "A data analytics web app, more than 50 n8n automations and AI agents, low-code AppSheet apps, the migration of more than 100 RPA robots in-house at Telstra, and two products in progress: the Stolen Minutes app and a platform for yoga teachers."
@@ -147,26 +147,26 @@ const jsonld = [{
         },
         {
           "@type": "Question",
-          "name": "Which industries has Pranav Gore worked in?",
+          "name": "Which industries does Studio Narrm know?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Banking and financial services, telecommunications, retail and the non-profit sector, in client-facing roles on large transformation programmes with multiple vendors and geographies."
+            "text": "Banking and financial services, telecommunications, retail and the non-profit sector. Pranav worked in client-facing roles on large transformation programmes with multiple vendors and geographies."
           }
         },
         {
           "@type": "Question",
-          "name": "Can Pranav Gore build automation and analytics for a small team or non-profit?",
+          "name": "Can Studio Narrm build automation and analytics for a small team or non-profit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Pranav designs and ships practical, low-maintenance solutions: self-hosted n8n data pipelines, AI agents that research and draft outreach, low-code operational apps and dashboards that turn scattered operational data into decisions."
+            "text": "Yes. We design and ship practical, low-maintenance solutions: self-hosted n8n data pipelines, AI agents that research and draft outreach, low-code operational apps and dashboards that turn scattered operational data into decisions."
           }
         },
         {
           "@type": "Question",
-          "name": "Is Pranav Gore available for roles or projects?",
+          "name": "Is Studio Narrm taking on projects?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Pranav is open to Solution Architect and Solution Designer roles and to automation, data and integration projects, based in Melbourne and open to remote work."
+            "text": "Yes. We take on automation, data, AI agent, app and integration projects, including solution architecture and design engagements. We're based in Melbourne and happy to work remotely."
           }
         }
       ]
@@ -190,9 +190,9 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
           <span class="eyebrow">Systems, Data &amp; Automation</span>
           <p class="kicker">Calmly fixing chaos since 2007…</p>
           <h1 id="hero-h"><span class="line">Messy process in.</span> <span class="line"><span class="hl">Working system</span> out.</span></h1>
-          <p class="lead">I'm Pranav Gore, a Melbourne solution architect who designs <strong>and</strong> builds. Enterprise integrations for banks and telcos, <strong>n8n automations and AI agents</strong>, <strong>dashboards</strong>, <strong>apps</strong>, and a couple of products of my own.</p>
+          <p class="lead">Studio Narrm is a Melbourne studio that designs <strong>and</strong> builds: <strong>n8n automations and AI agents</strong>, <strong>dashboards</strong>, <strong>apps</strong>, and a couple of products of our own. Founded by solution architect Pranav Gore, after 19 years of enterprise integration for banks and telcos.</p>
           <div class="cta">
-            <a class="btn" href="#contact">Tell me about your problem</a>
+            <a class="btn" href="#contact">Tell us about your problem</a>
             <a class="btn ghost" href="#services">See the work</a>
           </div>
         </div>
@@ -217,11 +217,11 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
       <div class="wrap">
         <div>
           <span class="eyebrow">Welcome</span>
-          <h2 id="intro-h">An architect who still builds the thing.</h2>
+          <h2 id="intro-h">Architecture first. Then we build the thing.</h2>
         </div>
         <div>
-          <p>For <strong>19 years</strong> I've designed systems that big organisations depend on: <strong>core banking integration</strong>, <strong>telecom order fulfilment</strong>, and a fleet of <strong>100+ automation robots</strong> at Telstra.</p>
-          <p>These days I also build the whole thing myself, fast, with <strong>AI-assisted development</strong>. Data pipelines, AI agents, dashboards, mobile apps and full platforms. Different problems, same habit: understand it properly, keep it simple, ship it.</p>
+          <p>Our founder, Pranav Gore, has spent <strong>19 years</strong> designing systems that big organisations depend on: <strong>core banking integration</strong>, <strong>telecom order fulfilment</strong>, and a fleet of <strong>100+ automation robots</strong> at Telstra.</p>
+          <p>At Studio Narrm we build the whole thing, fast, with <strong>AI-assisted development</strong>. Data pipelines, AI agents, dashboards, mobile apps and full platforms. Different problems, same habit: understand it properly, keep it simple, ship it.</p>
           <ul class="thumbs" aria-label="Jump to a service" style={`--cols:${SERVICES.length};--cols-sm:${SERVICES.length > 4 ? 3 : SERVICES.length}`}>
             {isShown("data-viz") && <li><a class="t-data" href="#data-viz" title="Data analytics &amp; visualisation"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="7" y="20" width="7" height="20" rx="2" class="s-tone"/><rect x="18" y="12" width="7" height="28" rx="2" class="s-tone"/><rect x="29" y="26" width="7" height="14" rx="2" class="s-tone"/><rect x="40" y="16" width="7" height="24" rx="2" class="s-tone"/></svg><span class="sr">Data analytics &amp; visualisation</span></a></li>}
             {isShown("automation") && <li><a class="t-rpa" href="#automation" title="Automation"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="12" y="18" width="28" height="22" rx="6" class="s-tone"/><circle cx="20" cy="29" r="3" fill="var(--bg)"/><circle cx="32" cy="29" r="3" fill="var(--bg)"/><rect x="24" y="12" width="4" height="6" class="s-tone"/></svg><span class="sr">Automation</span></a></li>}
@@ -251,8 +251,8 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
 
     <section class="services-head" id="services" aria-labelledby="services-h">
       <div class="wrap">
-        <span class="eyebrow">What I do</span>
-        <h2 id="services-h">{NUM} ways I can help, one way of working</h2>
+        <span class="eyebrow">What we do</span>
+        <h2 id="services-h">{NUM} ways we can help, one way of working</h2>
         <p>{isShown("video-ads") ? "Data, automation, AI agents, apps, video and outreach." : "Data, automation, AI agents and apps."} Different tools, same habit: understand the problem properly, build the simplest thing that works, and make sure it keeps working.</p>
         <ul class="services-nav">
           {SERVICES.map((sv) => <li><a class={sv.tone} href={"#" + sv.slug}>{sv.eyebrow}</a></li>)}
@@ -277,7 +277,7 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
       <div class="wrap">
         <div class="section-head">
           <div>
-            <span class="eyebrow">How I work</span>
+            <span class="eyebrow">How we work</span>
             <h2 id="how-h">The brief, the mess, the deadline. Bring it.</h2>
           </div>
         </div>
@@ -299,28 +299,28 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
         </div>
         <div>
         <details open>
-          <summary>Who is Pranav Gore?</summary>
-          <p>Pranav Gore is a Melbourne-based Solution Designer and Architect with 19 years of experience designing enterprise applications, system integrations, data analytics solutions and workflow automation across banking, telecommunications, retail and non-profit organisations.</p>
+          <summary>Who is behind Studio Narrm?</summary>
+          <p>Studio Narrm was founded by Pranav Gore, a Melbourne-based Solution Designer and Architect with 19 years of experience designing enterprise applications, system integrations, data analytics solutions and workflow automation across banking, telecommunications, retail and non-profit organisations.</p>
         </details>
         <details>
-          <summary>What does Pranav Gore specialise in?</summary>
+          <summary>What does Studio Narrm specialise in?</summary>
           <p>Solution architecture for complex enterprise systems: integration and microservices design, data migration and master data, analytics dashboards, and end-to-end workflow automation using n8n, AI agents built on large language models, AppSheet and AI-assisted development.</p>
         </details>
         <details>
-          <summary>What has Pranav Gore built end to end?</summary>
+          <summary>What has Studio Narrm's founder built end to end?</summary>
           <p>A data analytics web app, more than 50 n8n automations and AI agents, low-code AppSheet apps, the migration of more than 100 RPA robots in-house at Telstra, and two products in progress: the Stolen Minutes app and a platform for yoga teachers.</p>
         </details>
         <details>
-          <summary>Which industries has Pranav Gore worked in?</summary>
-          <p>Banking and financial services, telecommunications, retail and the non-profit sector, in client-facing roles on large transformation programmes with multiple vendors and geographies.</p>
+          <summary>Which industries does Studio Narrm know?</summary>
+          <p>Banking and financial services, telecommunications, retail and the non-profit sector. Pranav worked in client-facing roles on large transformation programmes with multiple vendors and geographies.</p>
         </details>
         <details>
-          <summary>Can Pranav Gore build automation and analytics for a small team or non-profit?</summary>
-          <p>Yes. Pranav designs and ships practical, low-maintenance solutions: self-hosted n8n data pipelines, AI agents that research and draft outreach, low-code operational apps and dashboards that turn scattered operational data into decisions.</p>
+          <summary>Can Studio Narrm build automation and analytics for a small team or non-profit?</summary>
+          <p>Yes. We design and ship practical, low-maintenance solutions: self-hosted n8n data pipelines, AI agents that research and draft outreach, low-code operational apps and dashboards that turn scattered operational data into decisions.</p>
         </details>
         <details>
-          <summary>Is Pranav Gore available for roles or projects?</summary>
-          <p>Yes. Pranav is open to Solution Architect and Solution Designer roles and to automation, data and integration projects, based in Melbourne and open to remote work.</p>
+          <summary>Is Studio Narrm taking on projects?</summary>
+          <p>Yes. We take on automation, data, AI agent, app and integration projects, including solution architecture and design engagements. We're based in Melbourne and happy to work remotely.</p>
         </details>
         </div>
       </div>
@@ -329,8 +329,8 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
     <section class="contact" id="contact" aria-labelledby="contact-h">
       <div class="wrap">
         <div>
-          <h2 id="contact-h">Ready to fix something? Tell me about it.</h2>
-          <p>A role, a project, or a process that's driving your team mad. I'm in Melbourne and happy to work remotely.</p>
+          <h2 id="contact-h">Ready to fix something? Tell us about it.</h2>
+          <p>A project, or a process that's driving your team mad. We're in Melbourne and happy to work remotely.</p>
           <div class="direct">
             <span>Email: <a href="mailto:pranavugore@gmail.com">pranavugore@gmail.com</a></span>
             <span>LinkedIn: <a href="https://www.linkedin.com/in/pranavugore" rel="me">linkedin.com/in/pranavugore</a></span>
@@ -346,7 +346,7 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
             <label><input type="checkbox" name="need" value="A dashboard"> A dashboard</label>
             <label><input type="checkbox" name="need" value="An app or platform"> An app</label>
           </fieldset>
-          <label for="f-msg">Tell me about it<textarea id="f-msg" name="message" required></textarea></label>
+          <label for="f-msg">Tell us about it<textarea id="f-msg" name="message" required></textarea></label>
           <button class="btn" type="submit">Send via email</button>
           <p class="form-note" id="form-note">This opens your email app with your message filled in.</p>
         </form>

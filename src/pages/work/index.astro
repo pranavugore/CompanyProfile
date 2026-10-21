@@ -1,8 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 const origin = Astro.site.href.replace(/\/$/, "");
-const title = "Work and Case Studies | studionarrm, Melbourne";
-const description = "Case studies from Pranav Gore: AI agents, n8n data pipelines, analytics dashboards, banking integration and migration, RPA and telecom fulfilment architecture.";
+const title = "Work and Case Studies | Studio Narrm, Melbourne";
+const description = "Case studies from Studio Narrm founder Pranav Gore: AI agents, n8n data pipelines, analytics dashboards, banking integration and migration, RPA and telecom fulfilment architecture.";
 const jsonld = [{
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -40,7 +40,7 @@ const jsonld = [{
       <div class="wrap">
         <span class="eyebrow">Case studies</span>
         <h1>Work: integration, analytics and automation</h1>
-        <p class="lead">Each case study describes the type of problem, the approach and the skills involved. Organisations, data and internal details are deliberately left out.</p>
+        <p class="lead">These case studies come from founder Pranav Gore's work, before and since starting Studio Narrm. Each one describes the type of problem, the approach and the skills involved. Organisations, data and internal details are deliberately left out.</p>
       </div>
     </section>
 
@@ -50,7 +50,7 @@ const jsonld = [{
 
         <article class="case t-data" id="analytics-platform">
           <h3>Operational analytics platform for a regional programme</h3>
-          <p class="answer">I designed and built a cloud-hosted analytics web application that gives programme teams across a region one place to see how operations are performing.</p>
+          <p class="answer">Pranav designed and built a cloud-hosted analytics web application that gives programme teams across a region one place to see how operations are performing.</p>
           <dl>
             <dt>Problem</dt><dd>Operational data lived in many forms, apps and spreadsheets, so answering simple questions took manual effort and reports went stale.</dd>
             <dt>Approach</dt><dd>Consolidated sources into a clean data model, built interactive dashboards with filtering and drill-down, and deployed the app to a managed cloud platform.</dd>
@@ -61,7 +61,7 @@ const jsonld = [{
 
         <article class="case t-flow" id="n8n-workflows">
           <h3>Production data pipelines and automation in n8n</h3>
-          <p class="answer">I built and run a portfolio of more than 50 n8n workflows on self-hosted infrastructure, several of them in production on schedules and webhooks, that sync, migrate and report on an organisation's operational data.</p>
+          <p class="answer">Pranav built and runs a portfolio of more than 50 n8n workflows on self-hosted infrastructure, several of them in production on schedules and webhooks, that sync, migrate and report on an organisation's operational data.</p>
           <dl>
             <dt>Problem</dt><dd>Data was spread across a CRM, an ERP, event platforms, forms and spreadsheets, so reporting and day-to-day operations relied on people copying data between tools.</dd>
             <dt>Approach</dt><dd>Incremental ETL from paginated REST APIs into PostgreSQL using date-windowed delta loads, staging tables, de-duplication and upserts, with batching and rate-limit handling. Bulk migrations routed records by type into the CRM. Reporting pipelines aggregate many endpoints into regional, programme and campaign reports and funnels. Failures alert to Slack, scheduled jobs flag data-quality issues, and every workflow is backed up to Git automatically.</dd>
@@ -72,7 +72,7 @@ const jsonld = [{
 
         <article class="case t-flow" id="ai-agents">
           <h3>AI agents for outreach and data extraction</h3>
-          <p class="answer">I build automations that call large language models (Claude) inside business workflows to research prospects, draft personalised outreach and turn unstructured data into structured records.</p>
+          <p class="answer">Pranav builds automations that call large language models (Claude) inside business workflows to research prospects, draft personalised outreach and turn unstructured data into structured records.</p>
           <dl>
             <dt>Problem</dt><dd>Finding and contacting the right partners, and making sense of free-text registration data, took hours of manual research and reading.</dd>
             <dt>Approach</dt><dd>Webhook-triggered agents that research and draft outreach with an LLM, a scheduled email sequence with filtering, throttling and timed follow-ups, and LLM-based structured information extraction and profiling, all with a human-friendly review path.</dd>
@@ -83,7 +83,7 @@ const jsonld = [{
 
         <article class="case t-apps" id="low-code">
           <h3>Low-code operational apps</h3>
-          <p class="answer">I designed and deployed AppSheet applications to manage participant and volunteer workflows, backed by dashboards in Looker Studio.</p>
+          <p class="answer">Pranav designed and deployed AppSheet applications to manage participant and volunteer workflows, backed by dashboards in Looker Studio.</p>
           <dl>
             <dt>Skills</dt><dd><ul class="tags"><li>Google AppSheet</li><li>Looker Studio</li><li>Schema design</li><li>Rapid prototyping</li></ul></dd>
             <dt>Outcome</dt><dd>Working tools in users' hands quickly, with data captured cleanly at the source.</dd>
@@ -98,7 +98,7 @@ const jsonld = [{
 
         <article class="case t-data" id="customer-master">
           <h3>Customer master migration after a bank acquisition</h3>
-          <p class="answer">As lead solution designer, I designed how customer profiles from an acquired financial institution would move into a major bank's ecosystem.</p>
+          <p class="answer">As lead solution designer, Pranav designed how customer profiles from an acquired financial institution would move into a major bank's ecosystem.</p>
           <dl>
             <dt>Approach</dt><dd>Mapped master data across both organisations, designed the migration and streamlined how downstream banking systems consume customer data.</dd>
             <dt>Skills</dt><dd><ul class="tags"><li>Master data management</li><li>Data migration</li><li>Solution design</li><li>Stakeholder management</li></ul></dd>
@@ -108,7 +108,7 @@ const jsonld = [{
 
         <article class="case t-data" id="open-banking">
           <h3>Open Banking and microservices integration</h3>
-          <p class="answer">I designed integration solutions that let modern services securely reuse mainframe capability for Open Banking.</p>
+          <p class="answer">Pranav designed integration solutions that let modern services securely reuse mainframe capability for Open Banking.</p>
           <dl>
             <dt>Skills</dt><dd><ul class="tags"><li>Spring Boot</li><li>Kafka</li><li>MQ</li><li>Microservices</li><li>API design</li><li>Security</li></ul></dd>
             <dt>Outcome</dt><dd>Legacy capability exposed at scale without rewriting core systems, while the team grew to deliver several initiatives in parallel.</dd>
@@ -117,7 +117,7 @@ const jsonld = [{
 
         <article class="case t-rpa" id="rpa">
           <h3>Taking over a large enterprise automation estate</h3>
-          <p class="answer">I led the transition of development and operations for a fleet of enterprise automation robots from a long-standing incumbent vendor to an in-house team.</p>
+          <p class="answer">Pranav led the transition of development and operations for a fleet of enterprise automation robots from a long-standing incumbent vendor to an in-house team.</p>
           <dl>
             <dt>Skills</dt><dd><ul class="tags"><li>Robotic process automation</li><li>Vendor transition</li><li>Knowledge transfer</li><li>Solution architecture</li></ul></dd>
             <dt>Outcome</dt><dd>No service disruption during handover, and new robots delivered within budget with no production defects.</dd>
@@ -126,7 +126,7 @@ const jsonld = [{
 
         <article class="case t-rpa" id="telecom">
           <h3>Telecom order management and fulfilment</h3>
-          <p class="answer">I designed and delivered order management and fulfilment architectures for telecom carriers on Oracle OSM, UIM and AIA.</p>
+          <p class="answer">Pranav designed and delivered order management and fulfilment architectures for telecom carriers on Oracle OSM, UIM and AIA.</p>
           <dl>
             <dt>Skills</dt><dd><ul class="tags"><li>Oracle OSM</li><li>Oracle UIM</li><li>webMethods</li><li>Process optimisation</li></ul></dd>
             <dt>Outcome</dt><dd>Automated reconciliation and outage mitigation significantly reduced support effort and operating cost, recovered lost revenue and lifted customer satisfaction.</dd>

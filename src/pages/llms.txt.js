@@ -12,13 +12,13 @@ const BLURBS = {
 export function GET({ site }) {
   const origin = site.href.replace(/\/$/, "");
   const services = SERVICES.map((sv) => `- [${sv.eyebrow}](${origin}${sv.href}): ${BLURBS[sv.slug]}\n`).join("");
-  return new Response(`# studionarrm
+  return new Response(`# Studio Narrm
 
-> studionarrm (${origin}) is a Melbourne studio that designs and builds data dashboards, workflow automation, AI agents and custom apps. It was founded by Pranav Gore, a Melbourne-based Solution Designer and Architect with 19 years of experience in enterprise integration, data analytics dashboards and AI agents and workflow automation (50+ production n8n workflows, ETL into PostgreSQL, LLM agents with Claude, RPA, low-code), across banking, telecommunications, retail and non-profit organisations. AWS Certified Solutions Architect – Associate.
+> Studio Narrm (${origin}) is a Melbourne studio that designs and builds data dashboards, workflow automation, AI agents and custom apps. It was founded by Pranav Gore, a Melbourne-based Solution Designer and Architect with 19 years of experience in enterprise integration, data analytics dashboards and AI agents and workflow automation (50+ production n8n workflows, ETL into PostgreSQL, LLM agents with Claude, RPA, low-code), across banking, telecommunications, retail and non-profit organisations. AWS Certified Solutions Architect – Associate.
 
 Recent and current work: an operational analytics web app, n8n data pipelines and AI agents, Google AppSheet apps, migrating 100+ RPA robots in-house at Telstra, and two products in progress: the Stolen Minutes app and a platform for yoga teachers.
 
-Open to Solution Architect and Solution Designer roles, and to automation, data and integration projects. Contact: pranavugore@gmail.com, https://www.linkedin.com/in/pranavugore
+Studio Narrm takes on automation, data, AI agent, app and integration projects, including solution architecture and design engagements. Contact: pranavugore@gmail.com, https://www.linkedin.com/in/pranavugore
 
 ## Services
 ${services}

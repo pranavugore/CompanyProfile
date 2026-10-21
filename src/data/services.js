@@ -11,7 +11,7 @@ export const ALL_SERVICES = [
     eyebrow: "Data analytics & visualisation",
     kicker: "Drowning in spreadsheets?",
     title: "See your numbers <i>clearly</i>",
-    summary: "I pull your data out of forms, CRMs and spreadsheets into one clean model, then build the views people actually use: an everyday dashboard, or something more memorable when the story matters.",
+    summary: "We pull your data out of forms, CRMs and spreadsheets into one clean model, then build the views people actually use: an everyday dashboard, or something more memorable when the story matters.",
     feats: [
       ["Dashboards", "Trends, comparisons and shares at a glance, refreshed automatically so nobody updates them by hand."],
       ["Data pipelines", "Scheduled loads from your systems into a proper database, with checks that catch bad data early."],
@@ -26,14 +26,14 @@ export const ALL_SERVICES = [
     eyebrow: "Automation",
     kicker: "Same task, every day, by hand?",
     title: "Automate the <i>boring</i> bits",
-    summary: "Copy and paste between inboxes, spreadsheets and systems is where good people's weeks disappear. I replace it with workflows and robots that run quietly in the background and tell you when something needs a human.",
+    summary: "Copy and paste between inboxes, spreadsheets and systems is where good people's weeks disappear. We replace it with workflows and robots that run quietly in the background and tell you when something needs a human.",
     feats: [
       ["n8n automations", "Self-hosted workflows that connect your apps, sync records, load databases and send reports on schedule."],
       ["AI agents in the flow", "Claude-powered steps that research, draft and turn messy free text into clean records, with a human check."],
-      ["RPA at scale", "Bots for systems without APIs. At Telstra I moved a fleet of 100+ robots in-house without disruption."],
+      ["RPA at scale", "Bots for systems without APIs. Our founder moved a fleet of 100+ telecom robots in-house without disruption."],
     ],
     page: {
-      lead: "If someone on your team does the same steps every day or every week, there is a good chance a workflow can do it for them. I design automations that are simple to understand, cheap to run and easy to hand over.",
+      lead: "If someone on your team does the same steps every day or every week, there is a good chance a workflow can do it for them. We design automations that are simple to understand, cheap to run and easy to hand over.",
       offer: [
         ["System-to-system sync", "Keep your CRM, accounting, forms and spreadsheets in step without anyone retyping data."],
         ["Scheduled reporting", "Weekly and monthly reports that build and send themselves."],
@@ -58,7 +58,7 @@ export const ALL_SERVICES = [
     eyebrow: "Prepare your business for agents",
     kicker: "Will AI assistants recommend you?",
     title: "Get <i>agent-ready</i>",
-    summary: "People now ask ChatGPT, Claude, Gemini and Perplexity what to buy and who to call, and AI agents are starting to book and order on their behalf. I make your business easy for them to find, understand and act on.",
+    summary: "People now ask ChatGPT, Claude, Gemini and Perplexity what to buy and who to call, and AI agents are starting to book and order on their behalf. We make your business easy for them to find, understand and act on.",
     feats: [
       ["Be found by AI", "Structured data, llms.txt and content shaped for answer engines (AEO and GEO), not just Google."],
       ["Be usable by agents", "Clean APIs or an MCP server so agents can check stock, prices or availability and take actions safely."],
@@ -84,14 +84,14 @@ export const ALL_SERVICES = [
     eyebrow: "Custom apps",
     kicker: "Off-the-shelf doesn't quite fit?",
     title: "Apps built for <i>your</i> way of working",
-    summary: "From a quick AppSheet app for the team in the field to a full web platform, I design and build software around how your people actually work, and ship it quickly with AI-assisted development.",
+    summary: "From a quick AppSheet app for the team in the field to a full web platform, we design and build software around how your people actually work, and ship it quickly with AI-assisted development.",
     feats: [
       ["Quick start with AppSheet", "When speed matters, an AppSheet app on top of your existing spreadsheets can be in people's hands in days."],
-      ["Full custom builds", "Web and mobile apps with logins, payments and dashboards, like Stolen Minutes, an app I'm building myself."],
+      ["Full custom builds", "Web and mobile apps with logins, payments and dashboards, like Stolen Minutes, an app we're building ourselves."],
       ["Integration first", "Apps that talk to your existing systems instead of becoming one more silo."],
     ],
     page: {
-      lead: "Sometimes the right answer is a simple app on top of a spreadsheet. Sometimes it's a proper platform. I help you pick the smallest thing that works, build it, and grow it as you learn what people really need.",
+      lead: "Sometimes the right answer is a simple app on top of a spreadsheet. Sometimes it's a proper platform. We help you pick the smallest thing that works, build it, and grow it as you learn what people really need.",
       offer: [
         ["AppSheet and low-code apps", "Forms, checklists, approvals and records for teams on phones and tablets."],
         ["Customer and member portals", "Bookings, sign-ups, payments and self-service in one place."],
@@ -101,7 +101,7 @@ export const ALL_SERVICES = [
         ["Support and iteration", "Small, regular improvements after launch, based on how it's used."],
       ],
       examples: [
-        ["Stolen Minutes", "Product · In progress", "An app I'm designing and building myself, from idea to launch: product design, the app itself, the back end and the data behind it."],
+        ["Stolen Minutes", "Product · In progress", "An app we're designing and building ourselves, from idea to launch: product design, the app itself, the back end and the data behind it."],
         ["AppSheet apps", "Quick implementation", "Mobile apps for field teams, volunteers and daily operations, built on top of existing spreadsheets and backed by dashboards. The fastest way to get a working tool in people's hands."],
       ],
     },
@@ -122,7 +122,7 @@ export const ALL_SERVICES = [
       ["Test and learn", "Several variations, so you can see what works and put budget behind it."],
     ],
     page: {
-      lead: "Most ads get scrolled past in a moment. A good short video earns attention fast, says one thing clearly and tells people what to do next. I plan, produce and edit short-form video ads, using AI tools where they make it faster and cheaper.",
+      lead: "Most ads get scrolled past in a moment. A good short video earns attention fast, says one thing clearly and tells people what to do next. We plan, produce and edit short-form video ads, using AI tools where they make it faster and cheaper.",
       offer: [
         ["Concept and script", "The hook, the message and the call to action, written for your audience."],
         ["Storyboard", "A frame-by-frame plan you approve before production starts."],
@@ -142,14 +142,14 @@ export const ALL_SERVICES = [
     eyebrow: "Marketing & outreach",
     kicker: "Great offer, too few people know?",
     title: "Reach the <i>right</i> people",
-    summary: "Finding the right partners and customers, writing to them personally, and following up on time is hard to do by hand. I build outreach systems that research, draft and schedule, with you approving what goes out.",
+    summary: "Finding the right partners and customers, writing to them personally, and following up on time is hard to do by hand. We build outreach systems that research, draft and schedule, with you approving what goes out.",
     feats: [
       ["Prospect research", "AI agents that find and qualify organisations and people who fit what you offer."],
       ["Personal outreach at scale", "Drafted emails that read like you wrote them, with sensible sending limits."],
       ["Follow-ups and reporting", "Timed follow-ups, reply tracking and a simple view of what's working."],
     ],
     page: {
-      lead: "Good outreach is personal, well timed and persistent, which is exactly what's hard to keep up by hand. I set up the research, writing, sending and follow-up as a system you control, so it keeps going while you focus on the conversations that come back.",
+      lead: "Good outreach is personal, well timed and persistent, which is exactly what's hard to keep up by hand. We set up the research, writing, sending and follow-up as a system you control, so it keeps going while you focus on the conversations that come back.",
       offer: [
         ["Audience and list building", "Define who you want to reach and build a clean, qualified list."],
         ["AI-assisted research", "Agents that gather the context needed to make each message relevant."],

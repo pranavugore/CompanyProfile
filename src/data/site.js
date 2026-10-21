@@ -1,7 +1,8 @@
 export const SITE = {
-  brand: "studionarrm",
+  brand: "Studio Narrm",
+  domain: "studionarrm.com",
   brandDescription:
-    "studionarrm is a Melbourne studio that designs and builds data dashboards, workflow automation, AI agents and custom apps, founded by solution architect Pranav Gore.",
+    "Studio Narrm is a Melbourne studio that designs and builds data dashboards, workflow automation, AI agents and custom apps, founded by solution architect Pranav Gore.",
   name: "Pranav Gore",
   givenName: "Pranav",
   familyName: "Gore",
@@ -22,6 +23,7 @@ export function org(origin) {
     "@type": "ProfessionalService",
     "@id": origin + "/#org",
     name: SITE.brand,
+    alternateName: ["studionarrm", SITE.domain],
     url: origin + "/",
     logo: origin + "/logo.png",
     image: origin + "/og.png",

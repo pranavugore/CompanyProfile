@@ -49,7 +49,7 @@ const steps = [
           <span class="eyebrow">{s.eyebrow}</span>
           <h1 class="caps" set:html={s.title} />
           <p class="lead">{s.page.lead}</p>
-          <div class="cta"><a class="btn tone" href="/#contact">Start a conversation</a><a class="btn ghost" href="#what">What I can do</a></div>
+          <div class="cta"><a class="btn tone" href="/#contact">Start a conversation</a><a class="btn ghost" href="#what">What we can do</a></div>
         </div>
         <ServiceArt name={s.art} />
       </div>
@@ -57,7 +57,7 @@ const steps = [
 
     <section class="section" id="what" aria-labelledby="what-h">
       <div class="wrap">
-        <div class="section-head"><div><span class="eyebrow">What I can do</span><h2 id="what-h">{plain(s.title)}, end to end</h2></div></div>
+        <div class="section-head"><div><span class="eyebrow">What we can do</span><h2 id="what-h">{plain(s.title)}, end to end</h2></div></div>
         <ul class="offer">
           {s.page.offer.map(([n, d], k) => <li class="reveal"><span class="n mono">{String(k + 1).padStart(2, "0")}</span><h3>{n}</h3><p>{d}</p></li>)}
         </ul>
@@ -67,7 +67,7 @@ const steps = [
     {s.page.examples && (
       <section class="section examples" aria-labelledby="ex-h">
         <div class="wrap">
-          <div class="section-head"><div><span class="eyebrow">Examples</span><h2 id="ex-h">From my own work</h2></div></div>
+          <div class="section-head"><div><span class="eyebrow">Examples</span><h2 id="ex-h">From our own work</h2></div></div>
           <ul class="ex">
             {s.page.examples.map(([t, tag, d]) => <li class="reveal"><span class="mono tag">{tag}</span><h3>{t}</h3><p>{d}</p></li>)}
           </ul>
@@ -95,7 +95,7 @@ const steps = [
 
     <section class="section others" aria-labelledby="others-h">
       <div class="wrap">
-        <h2 id="others-h">Other ways I can help</h2>
+        <h2 id="others-h">Other ways we can help</h2>
         <ul>
           {others.map((o) => <li><a class={o.tone} href={o.href}><span>{o.eyebrow}</span><span aria-hidden="true">→</span></a></li>)}
         </ul>
@@ -105,8 +105,8 @@ const steps = [
     <section class="svc-cta">
       <div class="wrap">
         <h2>Have something in mind?</h2>
-        <p>Tell me what you're trying to do. I'll reply with a straight answer on whether I can help and what it would take.</p>
-        <a class="btn" href={"mailto:" + SITE.email + "?subject=" + encodeURIComponent(s.eyebrow)}>Email me</a>
+        <p>Tell us what you're trying to do. We'll reply with a straight answer on whether we can help and what it would take.</p>
+        <a class="btn" href={"mailto:" + SITE.email + "?subject=" + encodeURIComponent(s.eyebrow)}>Email us</a>
       </div>
     </section>
   </main>

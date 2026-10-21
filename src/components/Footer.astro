@@ -13,7 +13,7 @@ const nice = updated.toLocaleDateString("en-AU", { day: "numeric", month: "long"
         <p style="margin-top:1rem;max-width:22rem">A Melbourne studio founded by solution architect Pranav Gore. Data, automation, AI agents and apps, designed and built end to end.</p>
       </div>
       <div><h4>Services</h4><ul>{SERVICES.map((sv) => <li><a href={sv.href}>{sv.eyebrow}</a></li>)}</ul></div>
-      <div><h4>More</h4><ul><li><a href="/work/">Case studies</a></li><li><a href="/about/">About &amp; career</a></li><li><a href={SITE.linkedin} rel="me">LinkedIn</a></li></ul></div>
+      <div><h4>More</h4><ul><li><a href="/work/">Case studies</a></li><li><a href="/about/">About</a></li><li><a href={SITE.linkedin} rel="me">LinkedIn</a></li></ul></div>
     </div>
     <div class="legal"><span>© {updated.getFullYear()} {SITE.brand}</span><span>Last updated <time datetime={SITE.updated}>{nice}</time></span></div>
   </div>
