@@ -3,10 +3,11 @@ import Base from "../layouts/Base.astro";
 import ServicePanel from "../components/ServicePanel.astro";
 import ServiceArt from "../components/ServiceArt.astro";
 import { SERVICES, isShown } from "../data/services.js";
+import { org } from "../data/site.js";
 const NUM = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"][SERVICES.length] || String(SERVICES.length);
 const origin = Astro.site.href.replace(/\/$/, "");
-const title = "Pranav Gore | Solution Architect, Data & Automation, Melbourne";
-const description = "Pranav Gore is a Melbourne-based Solution Architect with 19 years in enterprise integration, data analytics dashboards AI agents and n8n workflow automation for banking, telecom and non-profits.";
+const title = "studionarrm | Data, Automation & AI Agents, Melbourne";
+const description = "studionarrm is a Melbourne studio for data dashboards, n8n workflow automation, AI agents and custom apps, founded by Pranav Gore, a solution architect with 19 years in banking, telecom and non-profits.";
 const jsonld = [{
   "@context": "https://schema.org",
   "@graph": [
@@ -14,9 +15,13 @@ const jsonld = [{
       "@type": "WebSite",
       "@id": `${origin}/#website`,
       "url": `${origin}/`,
-      "name": "Pranav Gore",
+      "name": "studionarrm",
+      "publisher": {
+        "@id": `${origin}/#org`
+      },
       "inLanguage": "en-AU"
     },
+    org(origin),
     {
       "@type": "ProfilePage",
       "@id": `${origin}/#profile`,
@@ -24,7 +29,7 @@ const jsonld = [{
       "isPartOf": {
         "@id": `${origin}/#website`
       },
-      "dateModified": "2026-10-11",
+      "dateModified": "2026-10-21",
       "mainEntity": {
         "@id": `${origin}/#person`
       }
@@ -36,6 +41,9 @@ const jsonld = [{
       "givenName": "Pranav",
       "familyName": "Gore",
       "jobTitle": "Solution Architect",
+      "worksFor": {
+        "@id": `${origin}/#org`
+      },
       "description": "Solution Designer and Architect with 19 years of experience building enterprise applications, integrations, data analytics solutions and workflow automation.",
       "url": `${origin}/`,
       "email": "mailto:pranavugore@gmail.com",

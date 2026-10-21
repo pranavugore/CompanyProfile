@@ -1,8 +1,8 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
-// Set SITE_URL in Cloudflare Pages (Settings > Environment variables) to your real domain.
-const site = process.env.SITE_URL || "https://pranavgore.pages.dev";
+// Override with SITE_URL (e.g. a *.pages.dev preview URL) if you need to.
+const site = process.env.SITE_URL || "https://studionarrm.com";
 
 export default defineConfig({
   site,

@@ -8,7 +8,7 @@ const s = SERVICES.find((x) => x.slug === slug);
 const plain = (h) => h.replace(/<[^>]+>/g, "");
 const origin = Astro.site.href.replace(/\/$/, "");
 const url = origin + s.href;
-const title = `${s.eyebrow} | ${SITE.name}, ${SITE.city}`;
+const title = `${s.eyebrow} | ${SITE.brand}, ${SITE.city}`;
 const description = s.summary;
 const jsonld = [
   {
@@ -18,7 +18,7 @@ const jsonld = [
     serviceType: s.eyebrow,
     description: s.page.lead,
     url,
-    provider: { "@id": origin + "/#person" },
+    provider: { "@id": origin + "/#org" },
     areaServed: [{ "@type": "Country", name: "Australia" }, "Remote worldwide"],
     hasOfferCatalog: { "@type": "OfferCatalog", name: s.eyebrow, itemListElement: s.page.offer.map(([n, d]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n, description: d } })) },
   },

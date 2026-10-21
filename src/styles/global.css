@@ -95,7 +95,11 @@ strong { color: var(--text); font-weight: 650; }
 .site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: color-mix(in srgb, var(--bg) 72%, transparent); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--line); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; font-family: var(--f-display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.015em; }
-.brand .mark { width: 2.2rem; height: 2.2rem; border-radius: 50%; background: conic-gradient(from 210deg, var(--c-data), var(--c-flow), var(--c-rpa), var(--c-apps), var(--c-time), var(--c-yoga), var(--c-data)); display: grid; place-items: center; font-size: 0.78rem; color: var(--bg); }
+.brand { color: var(--text); }
+.logo { display: inline-flex; align-items: center; gap: 0.55rem; }
+.logo svg { display: block; height: auto; }
+.logo-mark { width: 2.35rem; }
+.logo-word { width: 7.6rem; margin-top: 0.12rem; }
 .site-header nav { display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
 .site-header nav a { text-decoration: none; color: var(--muted); font-weight: 550; font-size: 0.95rem; }
 .site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--text); }
