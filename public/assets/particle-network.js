@@ -1,7 +1,8 @@
 /*
  * Particle network background
- * Dots drift slowly; nearby dots are joined by thin lines. Over the header the
- * cursor becomes a node too: it links to nearby dots and gently pulls them in.
+ * Dots drift slowly and stay hidden. Over the header the cursor becomes a node:
+ * dots within reach of it fade in, link to it and to each other, and feel a
+ * gentle pull; once the cursor moves away they fade out again.
  * Plain <canvas>, no library. Usage: <canvas data-particle-network></canvas>
  * inside a positioned element; the canvas fills that element.
  */
@@ -30,7 +31,12 @@
     // Interaction distance: how far from the cursor dots link to it and feel its pull
     cursorDistance: 180,
     cursorPull: 0.012,     // 0 = links only, no pull; around 0.02 is a strong pull
-    cursorLineOpacity: 0.55
+    cursorLineOpacity: 0.55,
+
+    // Fading: how much of the way to fully visible / hidden a dot moves each frame
+    // (at 60fps). Higher = faster. 0.08 is about a quarter second, 0.03 about a second.
+    fadeIn: 0.08,
+    fadeOut: 0.03
   };
   // -------------------------------------------------------------------------------
 
@@ -78,21 +84,33 @@
     function make() {
       var a = Math.random() * Math.PI * 2, s = SETTINGS.speed * (0.4 + Math.random() * 0.6);
       var r = SETTINGS.dotRadius;
-      return { x: Math.random() * w, y: Math.random() * h, vx: Math.cos(a) * s, vy: Math.sin(a) * s, r: r[0] + Math.random() * (r[1] - r[0]) };
+      return { x: Math.random() * w, y: Math.random() * h, vx: Math.cos(a) * s, vy: Math.sin(a) * s, r: r[0] + Math.random() * (r[1] - r[0]), a: 0 };
     }
 
     function step(dt) {
       var cd = SETTINGS.cursorDistance;
       nodes.forEach(function (n) {
-        if (mouse.on && SETTINGS.cursorPull) {
+        var near = false;
+        if (mouse.on) {
           var dx = mouse.x - n.x, dy = mouse.y - n.y, d = Math.hypot(dx, dy);
-          if (d < cd && d > 1) { var f = SETTINGS.cursorPull * (1 - d / cd); n.x += dx * f * dt; n.y += dy * f * dt; }
+          near = d < cd;
+          if (near && d > 1 && SETTINGS.cursorPull) { var f = SETTINGS.cursorPull * (1 - d / cd); n.x += dx * f * dt; n.y += dy * f * dt; }
         }
+        // Ease towards visible while linked to the cursor, towards hidden otherwise
+        var rate = Math.min(1, (near ? SETTINGS.fadeIn : SETTINGS.fadeOut) * dt);
+        n.a += ((near ? 1 : 0) - n.a) * rate;
+        if (n.a < 0.005) n.a = 0;
         n.x += n.vx * dt; n.y += n.vy * dt;
         // Wrap around the edges so the field never empties out
         if (n.x < -10) n.x = w + 10; else if (n.x > w + 10) n.x = -10;
         if (n.y < -10) n.y = h + 10; else if (n.y > h + 10) n.y = -10;
       });
+    }
+
+    // With reduced motion there is no animation loop, so dots appear and disappear at once
+    function snap() {
+      var cd = SETTINGS.cursorDistance;
+      nodes.forEach(function (n) { n.a = mouse.on && Math.hypot(n.x - mouse.x, n.y - mouse.y) < cd ? 1 : 0; });
     }
 
     function draw() {
@@ -101,10 +119,13 @@
       ctx.lineWidth = SETTINGS.lineWidth;
       for (i = 0; i < nodes.length; i++) {
         a = nodes[i];
+        if (!a.a) continue;
         for (j = i + 1; j < nodes.length; j++) {
-          b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d2 = dx * dx + dy * dy;
+          b = nodes[j];
+          if (!b.a) continue;
+          dx = a.x - b.x; dy = a.y - b.y; d2 = dx * dx + dy * dy;
           if (d2 < ld2) {
-            ctx.strokeStyle = "rgba(" + colors.line + "," + (SETTINGS.lineOpacity * (1 - Math.sqrt(d2) / ld)).toFixed(3) + ")";
+            ctx.strokeStyle = "rgba(" + colors.line + "," + (SETTINGS.lineOpacity * (1 - Math.sqrt(d2) / ld) * Math.min(a.a, b.a)).toFixed(3) + ")";
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
         }
@@ -113,14 +134,19 @@
         var cd = SETTINGS.cursorDistance;
         nodes.forEach(function (n) {
           var d = Math.hypot(n.x - mouse.x, n.y - mouse.y);
-          if (d < cd) {
-            ctx.strokeStyle = "rgba(" + colors.cursor + "," + (SETTINGS.cursorLineOpacity * (1 - d / cd)).toFixed(3) + ")";
+          if (d < cd && n.a) {
+            ctx.strokeStyle = "rgba(" + colors.cursor + "," + (SETTINGS.cursorLineOpacity * (1 - d / cd) * n.a).toFixed(3) + ")";
             ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y); ctx.lineTo(n.x, n.y); ctx.stroke();
           }
         });
       }
       ctx.fillStyle = colors.dot;
-      nodes.forEach(function (n) { ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill(); });
+      nodes.forEach(function (n) {
+        if (!n.a) return;
+        ctx.globalAlpha = n.a;
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+      });
+      ctx.globalAlpha = 1;
     }
 
     var last = 0;
@@ -135,9 +161,9 @@
     host.addEventListener("pointermove", function (e) {
       var r = host.getBoundingClientRect();
       mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.on = true;
-      if (still.matches) draw();
+      if (still.matches) { snap(); draw(); }
     });
-    host.addEventListener("pointerleave", function () { mouse.on = false; if (still.matches) draw(); });
+    host.addEventListener("pointerleave", function () { mouse.on = false; if (still.matches) { snap(); draw(); } });
 
     // Pause when the header is off screen or the tab is hidden
     if ("IntersectionObserver" in window) {
