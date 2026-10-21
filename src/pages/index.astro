@@ -2,7 +2,8 @@
 import Base from "../layouts/Base.astro";
 import ServicePanel from "../components/ServicePanel.astro";
 import ServiceArt from "../components/ServiceArt.astro";
-import { SERVICES } from "../data/services.js";
+import { SERVICES, isShown } from "../data/services.js";
+const NUM = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"][SERVICES.length] || String(SERVICES.length);
 const origin = Astro.site.href.replace(/\/$/, "");
 const title = "Pranav Gore | Solution Architect, Data & Automation, Melbourne";
 const description = "Pranav Gore is a Melbourne-based Solution Architect with 19 years in enterprise integration, data analytics dashboards AI agents and n8n workflow automation for banking, telecom and non-profits.";
@@ -187,7 +188,7 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
             <a class="btn ghost" href="#services">See the work</a>
           </div>
         </div>
-        <div class="slider" aria-roledescription="carousel" aria-label="Six services">
+        <div class="slider" aria-roledescription="carousel" aria-label={NUM + " services"}>
           <div class="slides">
           {SERVICES.map((sv, i) => (
             <figure class={`slide ${sv.tone}${i === 0 ? " on" : ""}`} aria-hidden={i === 0 ? "false" : "true"}>
@@ -213,13 +214,13 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
         <div>
           <p>For <strong>19 years</strong> I've designed systems that big organisations depend on: <strong>core banking integration</strong>, <strong>telecom order fulfilment</strong>, and a fleet of <strong>100+ automation robots</strong> at Telstra.</p>
           <p>These days I also build the whole thing myself, fast, with <strong>AI-assisted development</strong>. Data pipelines, AI agents, dashboards, mobile apps and full platforms. Different problems, same habit: understand it properly, keep it simple, ship it.</p>
-          <ul class="thumbs" aria-label="Jump to a service">
-            <li><a class="t-data" href="#data-viz" title="Data analytics &amp; visualisation"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="7" y="20" width="7" height="20" rx="2" class="s-tone"/><rect x="18" y="12" width="7" height="28" rx="2" class="s-tone"/><rect x="29" y="26" width="7" height="14" rx="2" class="s-tone"/><rect x="40" y="16" width="7" height="24" rx="2" class="s-tone"/></svg><span class="sr">Data analytics &amp; visualisation</span></a></li>
-            <li><a class="t-rpa" href="#automation" title="Automation"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="12" y="18" width="28" height="22" rx="6" class="s-tone"/><circle cx="20" cy="29" r="3" fill="var(--bg)"/><circle cx="32" cy="29" r="3" fill="var(--bg)"/><rect x="24" y="12" width="4" height="6" class="s-tone"/></svg><span class="sr">Automation</span></a></li>
-            <li><a class="t-flow" href="#agent-ready" title="Prepare your business for agents"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><circle cx="8" cy="26" r="6" class="s-tone"/><circle cx="26" cy="16" r="6" class="s-tone"/><circle cx="44" cy="26" r="6" class="s-tone"/><circle cx="26" cy="38" r="6" class="s-tone"/><path d="M8 26 L26 16 L44 26 L26 38 Z" class="s-stroke-tone" stroke-width="2" fill="none"/></svg><span class="sr">Prepare your business for agents</span></a></li>
-            <li><a class="t-apps" href="#custom-apps" title="Custom apps"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="14" y="7" width="24" height="38" rx="5" class="s-tone"/><rect x="18" y="13" width="16" height="3" rx="1.5" fill="var(--bg)"/><rect x="18" y="20" width="16" height="3" rx="1.5" fill="var(--bg)"/><rect x="18" y="27" width="10" height="3" rx="1.5" fill="var(--bg)"/></svg><span class="sr">Custom apps</span></a></li>
-            <li><a class="t-time" href="#video-ads" title="Video ads"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="8" y="12" width="36" height="28" rx="6" class="s-tone"/><path d="M22 19 L32 26 L22 33 Z" fill="var(--bg)"/></svg><span class="sr">Video ads</span></a></li>
-            <li><a class="t-yoga" href="#marketing-outreach" title="Marketing &amp; outreach"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><path d="M10 22 H18 L36 12 V40 L18 30 H10 Z" class="s-tone"/><path d="M40 20 Q45 26 40 32" class="s-stroke-tone" stroke-width="3" fill="none" stroke-linecap="round"/></svg><span class="sr">Marketing &amp; outreach</span></a></li>
+          <ul class="thumbs" aria-label="Jump to a service" style={`--cols:${SERVICES.length};--cols-sm:${SERVICES.length > 4 ? 3 : SERVICES.length}`}>
+            {isShown("data-viz") && <li><a class="t-data" href="#data-viz" title="Data analytics &amp; visualisation"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="7" y="20" width="7" height="20" rx="2" class="s-tone"/><rect x="18" y="12" width="7" height="28" rx="2" class="s-tone"/><rect x="29" y="26" width="7" height="14" rx="2" class="s-tone"/><rect x="40" y="16" width="7" height="24" rx="2" class="s-tone"/></svg><span class="sr">Data analytics &amp; visualisation</span></a></li>}
+            {isShown("automation") && <li><a class="t-rpa" href="#automation" title="Automation"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="12" y="18" width="28" height="22" rx="6" class="s-tone"/><circle cx="20" cy="29" r="3" fill="var(--bg)"/><circle cx="32" cy="29" r="3" fill="var(--bg)"/><rect x="24" y="12" width="4" height="6" class="s-tone"/></svg><span class="sr">Automation</span></a></li>}
+            {isShown("agent-ready") && <li><a class="t-flow" href="#agent-ready" title="Prepare your business for agents"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><circle cx="8" cy="26" r="6" class="s-tone"/><circle cx="26" cy="16" r="6" class="s-tone"/><circle cx="44" cy="26" r="6" class="s-tone"/><circle cx="26" cy="38" r="6" class="s-tone"/><path d="M8 26 L26 16 L44 26 L26 38 Z" class="s-stroke-tone" stroke-width="2" fill="none"/></svg><span class="sr">Prepare your business for agents</span></a></li>}
+            {isShown("custom-apps") && <li><a class="t-apps" href="#custom-apps" title="Custom apps"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="14" y="7" width="24" height="38" rx="5" class="s-tone"/><rect x="18" y="13" width="16" height="3" rx="1.5" fill="var(--bg)"/><rect x="18" y="20" width="16" height="3" rx="1.5" fill="var(--bg)"/><rect x="18" y="27" width="10" height="3" rx="1.5" fill="var(--bg)"/></svg><span class="sr">Custom apps</span></a></li>}
+            {isShown("video-ads") && <li><a class="t-time" href="#video-ads" title="Video ads"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><rect x="8" y="12" width="36" height="28" rx="6" class="s-tone"/><path d="M22 19 L32 26 L22 33 Z" fill="var(--bg)"/></svg><span class="sr">Video ads</span></a></li>}
+            {isShown("marketing-outreach") && <li><a class="t-yoga" href="#marketing-outreach" title="Marketing &amp; outreach"><svg viewBox="0 0 52 52" aria-hidden="true" focusable="false"><path d="M10 22 H18 L36 12 V40 L18 30 H10 Z" class="s-tone"/><path d="M40 20 Q45 26 40 32" class="s-stroke-tone" stroke-width="3" fill="none" stroke-linecap="round"/></svg><span class="sr">Marketing &amp; outreach</span></a></li>}
           </ul>
         </div>
       </div>
@@ -232,10 +233,10 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
         <ul>
           <li><a class="t-data" href="/about/">A hiring manager</a></li>
           <li><a class="t-rpa" href="#automation">A bank or telco team</a></li>
-          <li><a class="t-flow" href="#marketing-outreach">A non-profit</a></li>
+          <li><a class="t-flow" href={isShown("marketing-outreach") ? "#marketing-outreach" : "#data-viz"}>A non-profit</a></li>
           <li><a class="t-apps" href="#agent-ready">A small business</a></li>
           <li><a class="t-time" href="#custom-apps">A founder with an idea</a></li>
-          <li><a class="t-yoga" href="#video-ads">A teacher or coach</a></li>
+          <li><a class="t-yoga" href={isShown("video-ads") ? "#video-ads" : "#custom-apps"}>A teacher or coach</a></li>
         </ul>
       </div>
     </section>
@@ -243,8 +244,8 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
     <section class="services-head" id="services" aria-labelledby="services-h">
       <div class="wrap">
         <span class="eyebrow">What I do</span>
-        <h2 id="services-h">Six ways I can help, one way of working</h2>
-        <p>Data, automation, AI agents, apps, video and outreach. Different tools, same habit: understand the problem properly, build the simplest thing that works, and make sure it keeps working.</p>
+        <h2 id="services-h">{NUM} ways I can help, one way of working</h2>
+        <p>{isShown("video-ads") ? "Data, automation, AI agents, apps, video and outreach." : "Data, automation, AI agents and apps."} Different tools, same habit: understand the problem properly, build the simplest thing that works, and make sure it keeps working.</p>
         <ul class="services-nav">
           {SERVICES.map((sv) => <li><a class={sv.tone} href={"#" + sv.slug}>{sv.eyebrow}</a></li>)}
         </ul>

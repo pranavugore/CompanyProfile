@@ -1,6 +1,8 @@
-// The six services shown on the home page. Each one links to its own page.
+// All services. Each one links to its own page.
 // Keep copy at capability level: no client names, figures or internal details.
-export const SERVICES = [
+// To hide a service, set `hidden: true` here and rename its page folder in src/pages
+// with a leading underscore (e.g. _video-ads) so Astro skips it. Reverse both to bring it back.
+export const ALL_SERVICES = [
   {
     slug: "data-viz",
     href: "/data-viz/",
@@ -106,6 +108,7 @@ export const SERVICES = [
   },
   {
     slug: "video-ads",
+    hidden: true,
     href: "/video-ads/",
     tone: "t-time",
     art: "video",
@@ -132,6 +135,7 @@ export const SERVICES = [
   },
   {
     slug: "marketing-outreach",
+    hidden: true,
     href: "/marketing-outreach/",
     tone: "t-yoga",
     art: "marketing",
@@ -157,3 +161,7 @@ export const SERVICES = [
     },
   },
 ];
+
+// The services shown on the site: home page, nav, footer, llms.txt and JSON-LD.
+export const SERVICES = ALL_SERVICES.filter((s) => !s.hidden);
+export const isShown = (slug) => SERVICES.some((s) => s.slug === slug);
