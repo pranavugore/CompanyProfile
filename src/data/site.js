@@ -2,7 +2,7 @@ export const SITE = {
   brand: "Studio Narrm",
   domain: "studionarrm.com",
   brandDescription:
-    "Studio Narrm is a Melbourne studio that designs and builds data dashboards, workflow automation, AI agents and custom apps, founded by solution architect Pranav Gore.",
+    "Studio Narrm is a Melbourne studio that designs and builds data dashboards, workflow automation, AI agents, custom apps and websites, founded by solution architect Pranav Gore.",
   name: "Pranav Gore",
   givenName: "Pranav",
   familyName: "Gore",

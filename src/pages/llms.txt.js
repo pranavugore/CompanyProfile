@@ -4,7 +4,7 @@ const BLURBS = {
   "data-viz": "dashboards, data pipelines and interactive data stories, with live examples",
   automation: "workflow automation (n8n), robotic process automation, system sync and scheduled reporting",
   "agent-ready": "AI visibility (AEO/GEO), structured data, llms.txt, APIs and MCP servers for AI agents, internal AI agents",
-  "custom-apps": "AppSheet and low-code apps, web and mobile apps, portals and product MVPs",
+  "custom-apps": "custom websites, AppSheet and low-code apps, web and mobile apps, portals and product MVPs",
   "video-ads": "short-form video ads, script to edit, cut for every platform",
   "marketing-outreach": "AI-assisted prospect research, personalised email outreach, follow-ups and reporting",
 };
@@ -14,7 +14,7 @@ export function GET({ site }) {
   const services = SERVICES.map((sv) => `- [${sv.eyebrow}](${origin}${sv.href}): ${BLURBS[sv.slug]}\n`).join("");
   return new Response(`# Studio Narrm
 
-> Studio Narrm (${origin}) is a Melbourne studio that designs and builds data dashboards, workflow automation, AI agents and custom apps. It was founded by Pranav Gore, a Melbourne-based Solution Designer and Architect with 19 years of experience in enterprise integration, data analytics dashboards and AI agents and workflow automation (50+ production n8n workflows, ETL into PostgreSQL, LLM agents with Claude, RPA, low-code), across banking, telecommunications, retail and non-profit organisations. AWS Certified Solutions Architect – Associate.
+> Studio Narrm (${origin}) is a Melbourne studio that designs and builds data dashboards, workflow automation, AI agents, custom apps and websites. It was founded by Pranav Gore, a Melbourne-based Solution Designer and Architect with 19 years of experience in enterprise integration, data analytics dashboards and AI agents and workflow automation (50+ production n8n workflows, ETL into PostgreSQL, LLM agents with Claude, RPA, low-code), across banking, telecommunications, retail and non-profit organisations. AWS Certified Solutions Architect – Associate.
 
 Recent and current work: an operational analytics web app, n8n data pipelines and AI agents, Google AppSheet apps, migrating 100+ RPA robots in-house at Telstra, and two products in progress: the Stolen Minutes app and a platform for yoga teachers.
 
