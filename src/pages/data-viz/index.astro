@@ -37,6 +37,8 @@ const jsonld = [{
   }
 }];
 import "../../styles/data-viz.css";
+import { VIZ } from "../../data/viz.js";
+const two = (k) => String(k + 1).padStart(2, "0");
 ---
 <Base title={title} description={description} jsonld={jsonld} current="data-viz" includeBase={true}>
 <main class="dv">
@@ -68,6 +70,7 @@ import "../../styles/data-viz.css";
             <button type="button" data-days="365" aria-pressed="false">12 months</button>
           </div>
         </div>
+        <p class="sr-only">A sample sales dashboard with illustrative data. Four headline numbers (revenue, orders, conversion rate and active members) are each compared with the previous period and shown with a small trend line. Below them: daily revenue over time, revenue split by customer segment (members, new customers, business), revenue by sales channel (online store, marketplace, retail stores, wholesale, social), and average orders by day of the week with the busiest day highlighted. Buttons switch the period between 30 days, 90 days and 12 months.</p>
         <div class="kpis" id="kpis"></div>
         <div class="dash-grid">
           <div class="panel"><h4>Revenue trend <span>· daily, AUD</span></h4><div id="d-line"></div></div>
@@ -96,7 +99,19 @@ import "../../styles/data-viz.css";
         </div>
         <p>When the goal is to explain, persuade or delight, a different shape often tells the story better.</p>
       </div>
-      <div class="gallery" id="gallery"></div>
+      <div class="gallery" id="gallery">
+        {VIZ.map((v, k) => (
+          <article class={"viz" + (v.wide ? " wide" : "")}>
+            <div class="meta mono"><span>{two(k)} · {v.kind}</span></div>
+            <h3>{v.title}</h3>
+            <p class="desc">{v.desc}</p>
+            {v.chips && <div class="chips" role="group" aria-label={v.title + " options"}>{v.chips.map((c, i) => <button type="button" class="chip" data-i={i} aria-pressed={String(i === 0)}>{c}</button>)}</div>}
+            <div class="stage"></div>
+            <p class="hint">{v.hint}</p>
+            {v.note && <p class="hint src">{v.note}</p>}
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 

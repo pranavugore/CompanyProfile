@@ -4,6 +4,7 @@ import ServicePanel from "../components/ServicePanel.astro";
 import ServiceArt from "../components/ServiceArt.astro";
 import { SERVICES, isShown } from "../data/services.js";
 import { org } from "../data/site.js";
+import { FAQ, faqJsonLd } from "../data/faq.js";
 const NUM = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"][SERVICES.length] || String(SERVICES.length);
 const origin = Astro.site.href.replace(/\/$/, "");
 const title = "Studio Narrm | Data, Automation & AI Agents, Melbourne";
@@ -117,60 +118,7 @@ const jsonld = [{
         "https://www.linkedin.com/in/pranavugore"
       ]
     },
-    {
-      "@type": "FAQPage",
-      "@id": `${origin}/#faq`,
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Who is behind Studio Narrm?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Studio Narrm was founded by Pranav Gore, a Melbourne-based Solution Designer and Architect with 19 years of experience designing enterprise applications, system integrations, data analytics solutions and workflow automation across banking, telecommunications, retail and non-profit organisations."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does Studio Narrm specialise in?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Solution architecture for complex enterprise systems: integration and microservices design, data migration and master data, analytics dashboards, and end-to-end workflow automation using n8n, AI agents built on large language models, AppSheet and AI-assisted development."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What has Studio Narrm's founder built end to end?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A data analytics web app, more than 50 n8n automations and AI agents, low-code AppSheet apps, the migration of more than 100 RPA robots in-house at Telstra, and two products in progress: the Stolen Minutes app and a platform for yoga teachers."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which industries does Studio Narrm know?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Banking and financial services, telecommunications, retail and the non-profit sector. Pranav worked in client-facing roles on large transformation programmes with multiple vendors and geographies."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can Studio Narrm build automation and analytics for a small team or non-profit?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We design and ship practical, low-maintenance solutions: self-hosted n8n data pipelines, AI agents that research and draft outreach, low-code operational apps and dashboards that turn scattered operational data into decisions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Studio Narrm taking on projects?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We take on automation, data, AI agent, app and integration projects, including solution architecture and design engagements. We're based in Melbourne and happy to work remotely."
-          }
-        }
-      ]
-    }
+    faqJsonLd(origin)
   ]
 }];
 jsonld.push({
@@ -300,30 +248,7 @@ const TAGS = { "data-viz": "Dashboards · Data stories", automation: "n8n · RPA
           <h2 id="faq-h">The quick answers</h2>
         </div>
         <div>
-        <details open>
-          <summary>Who is behind Studio Narrm?</summary>
-          <p>Studio Narrm was founded by Pranav Gore, a Melbourne-based Solution Designer and Architect with 19 years of experience designing enterprise applications, system integrations, data analytics solutions and workflow automation across banking, telecommunications, retail and non-profit organisations.</p>
-        </details>
-        <details>
-          <summary>What does Studio Narrm specialise in?</summary>
-          <p>Solution architecture for complex enterprise systems: integration and microservices design, data migration and master data, analytics dashboards, and end-to-end workflow automation using n8n, AI agents built on large language models, AppSheet and AI-assisted development.</p>
-        </details>
-        <details>
-          <summary>What has Studio Narrm's founder built end to end?</summary>
-          <p>A data analytics web app, more than 50 n8n automations and AI agents, low-code AppSheet apps, the migration of more than 100 RPA robots in-house at Telstra, and two products in progress: the Stolen Minutes app and a platform for yoga teachers.</p>
-        </details>
-        <details>
-          <summary>Which industries does Studio Narrm know?</summary>
-          <p>Banking and financial services, telecommunications, retail and the non-profit sector. Pranav worked in client-facing roles on large transformation programmes with multiple vendors and geographies.</p>
-        </details>
-        <details>
-          <summary>Can Studio Narrm build automation and analytics for a small team or non-profit?</summary>
-          <p>Yes. We design and ship practical, low-maintenance solutions: self-hosted n8n data pipelines, AI agents that research and draft outreach, low-code operational apps and dashboards that turn scattered operational data into decisions.</p>
-        </details>
-        <details>
-          <summary>Is Studio Narrm taking on projects?</summary>
-          <p>Yes. We take on automation, data, AI agent, app and integration projects, including solution architecture and design engagements. We're based in Melbourne and happy to work remotely.</p>
-        </details>
+        {FAQ.map(([q, a], k) => <details open={k === 0}><summary>{q}</summary><p>{a}</p></details>)}
         </div>
       </div>
     </section>

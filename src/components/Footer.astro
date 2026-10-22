@@ -2,7 +2,8 @@
 import { SITE } from "../data/site.js";
 import Logo from "./Logo.astro";
 import { SERVICES } from "../data/services.js";
-const updated = new Date(SITE.updated + "T00:00:00");
+const { updated: iso = SITE.updated } = Astro.props;
+const updated = new Date(iso + "T00:00:00");
 const nice = updated.toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
 ---
 <footer class="site-footer">
@@ -15,6 +16,6 @@ const nice = updated.toLocaleDateString("en-AU", { day: "numeric", month: "long"
       <div><h4>Services</h4><ul>{SERVICES.map((sv) => <li><a href={sv.href}>{sv.eyebrow}</a></li>)}</ul></div>
       <div><h4>More</h4><ul><li><a href="/work/">Case studies</a></li><li><a href="/about/">About</a></li><li><a href={SITE.linkedin} rel="me">LinkedIn</a></li></ul></div>
     </div>
-    <div class="legal"><span>© {updated.getFullYear()} {SITE.brand}</span><span>Last updated <time datetime={SITE.updated}>{nice}</time></span></div>
+    <div class="legal"><span>© {updated.getFullYear()} {SITE.brand}</span><span>Last updated <time datetime={iso}>{nice}</time></span></div>
   </div>
 </footer>

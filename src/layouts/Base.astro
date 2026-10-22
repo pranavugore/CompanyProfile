@@ -4,10 +4,12 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE, org } from "../data/site.js";
 
-const { title, description, ogType = "website", jsonld = [], current = "", includeBase = true } = Astro.props;
+const { title, description, ogType = "website", jsonld = [], current = "", includeBase = true, updated = SITE.updated } = Astro.props;
 const origin = Astro.site.href.replace(/\/$/, "");
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = origin + "/og.png";
+// Every built page except 404 also gets a Markdown copy at <page>/index.md (see integrations/agent-files.mjs).
+const markdownHref = Astro.url.pathname.startsWith("/404") ? null : canonical + "index.md";
 
 const base = {
   "@context": "https://schema.org",
@@ -30,6 +32,14 @@ const base = {
     },
   ],
 };
+
+// Stamp dateModified on the page's own node (WebPage, ProfilePage, AboutPage...), or add a
+// WebPage node when the page doesn't have one, so answer engines can see how fresh it is.
+const PAGE_TYPES = ["WebPage", "ProfilePage", "AboutPage", "CollectionPage", "FAQPage", "ContactPage"];
+const nodes = [...jsonld, ...(includeBase ? [base] : [])].flatMap((o) => o["@graph"] || [o]);
+const pageNode = nodes.find((n) => PAGE_TYPES.includes(n["@type"]) && n["@type"] !== "FAQPage");
+if (pageNode) pageNode.dateModified = updated;
+else if (includeBase) base["@graph"].push({ "@type": "WebPage", "@id": canonical + "#webpage", url: canonical, name: title, description, isPartOf: { "@id": origin + "/#website" }, about: { "@id": origin + "/#org" }, inLanguage: "en-AU", dateModified: updated });
 ---
 <!doctype html>
 <html lang="en-AU">
@@ -44,6 +54,8 @@ const base = {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {markdownHref && <link rel="alternate" type="text/markdown" href={markdownHref} title="This page as Markdown" />}
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
@@ -57,6 +69,7 @@ const base = {
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={SITE.brand + " (studionarrm.com) logo"} />
     <meta property="og:locale" content="en_AU" />
+    <meta property="og:updated_time" content={updated} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,7 +81,7 @@ const base = {
   <body>
     <Header current={current} />
     <slot />
-    <Footer />
+    <Footer updated={updated} />
     <slot name="scripts" />
   </body>
 </html>

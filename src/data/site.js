@@ -1,3 +1,5 @@
+import { SERVICES } from "./services.js";
+
 export const SITE = {
   brand: "Studio Narrm",
   domain: "studionarrm.com",
@@ -14,8 +16,16 @@ export const SITE = {
   country: "AU",
   description:
     "Solution Designer and Architect with 19 years of experience building enterprise applications, integrations, data analytics solutions and workflow automation.",
-  updated: "2026-10-21",
+  updated: "2026-10-22",
 };
+
+// Topics the studio works in, for knowsAbout. Keep to capabilities, not clients.
+export const KNOWS_ABOUT = [
+  "Solution architecture", "System integration", "Workflow automation", "n8n", "Robotic process automation",
+  "AI agents", "Large language models", "Model Context Protocol", "Answer engine optimisation", "Generative engine optimisation",
+  "Structured data", "Data analytics", "Data visualisation", "Dashboards", "ETL", "PostgreSQL", "Google AppSheet",
+  "Low-code development", "Web development", "My Health Record Security and Access Policy", "Secure messaging for general practice",
+];
 
 // Organization node for JSON-LD, shared by every page's @graph.
 export function org(origin) {
@@ -31,7 +41,28 @@ export function org(origin) {
     email: "mailto:" + SITE.email,
     founder: { "@id": origin + "/#person" },
     address: { "@type": "PostalAddress", addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: SITE.country },
-    areaServed: "AU",
+    areaServed: [
+      { "@type": "City", name: "Melbourne" },
+      { "@type": "State", name: "Victoria" },
+      { "@type": "Country", name: "Australia" },
+    ],
+    knowsAbout: KNOWS_ABOUT,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: SITE.email,
+      url: origin + "/#contact",
+      areaServed: "AU",
+      availableLanguage: ["en-AU"],
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: SITE.brand + " services",
+      itemListElement: SERVICES.map((sv) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: sv.eyebrow, description: sv.summary, url: origin + sv.href },
+      })),
+    },
     sameAs: [SITE.linkedin],
   };
 }

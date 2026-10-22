@@ -194,16 +194,14 @@
 
   /* ---------------- 02 Gallery ---------------- */
   var gallery = document.getElementById("gallery");
-  var counter = 0;
-  function NUM() { counter += 1; return (counter < 10 ? "0" : "") + counter; }
+  // The cards' text is in the page HTML (see src/data/viz.js), so it reads without JavaScript.
+  // Each card() call fills the next card's stage, in order.
+  var cards = gallery.querySelectorAll("article.viz"), counter = 0;
   function card(o) {
-    var el = document.createElement("article");
-    el.className = "viz" + (o.wide ? " wide" : "");
-    el.innerHTML = '<div class="meta mono"><span>' + o.n + " · " + o.kind + "</span></div><h3>" + o.title + '</h3><p class="desc">' + o.desc + "</p>" + (o.chips ? '<div class="chips" role="group" aria-label="' + o.title + ' options">' + o.chips.map(function (c, i) { return '<button type="button" class="chip" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + c + "</button>"; }).join("") + "</div>" : "") + '<div class="stage"></div><p class="hint">' + o.hint + "</p>" + (o.note ? '<p class="hint src">' + o.note + "</p>" : "");
-    gallery.appendChild(el);
+    var el = cards[counter++];
     var stage = el.querySelector(".stage");
     var api = o.draw(stage);
-    if (o.chips) el.querySelectorAll(".chip").forEach(function (b) { b.addEventListener("click", function () { el.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); }); api(+b.dataset.i); }); });
+    el.querySelectorAll(".chip").forEach(function (b) { b.addEventListener("click", function () { el.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); }); api(+b.dataset.i); }); });
     return el;
   }
   function svgIn(stage, W, H, label) { return d3.select(stage).append("svg").attr("viewBox", "0 0 " + W + " " + H).attr("role", "img").attr("aria-label", label); }
@@ -214,9 +212,7 @@
   }
 
   // 1. Radial year of automation runs
-  card({ n: NUM(), kind: "Radial timeline", title: "A year of automation runs, wrapped into a circle", ref: "Searching for Birds", href: "https://searchingforbirds.visualcinnamon.com/",
-    desc: "Every day's workflow runs as one spoke around a clock face. Quiet weekends, month-end reporting peaks, the end-of-financial-year rush and the Christmas shutdown all show up once the year wraps around.",
-    hint: "Hover a spoke to see that day.",
+  card({
     draw: function (stage) {
       var types = ["Scheduled", "Event-triggered", "Manual"];
       var days = d3.range(365).map(function (i) {
@@ -255,10 +251,7 @@
     } });
 
   // 10. Chord diagram
-  card({ n: NUM(), kind: "Chord diagram", title: "Where Australians move when they change states", ref: "UNESCO Dive", href: "https://ich.unesco.org/en/dive?display=constellation#tabs",
-    desc: "Interstate moves over a year. Each ribbon is a two-way flow between two states or territories, so the New South Wales to Queensland corridor stands out at once.",
-    hint: "Hover a state to show only its flows.",
-    note: "Arrival and departure totals for each state: ABS National, state and territory population, year to March 2026. Flows between each pair are modelled to match those totals.",
+  card({
     draw: function (stage) {
       var regions = ["NSW", "ACT", "VIC", "TAS", "SA", "WA", "NT", "QLD"];
       var names = { NSW: "New South Wales", ACT: "Australian Capital Territory", VIC: "Victoria", TAS: "Tasmania", SA: "South Australia", WA: "Western Australia", NT: "Northern Territory", QLD: "Queensland" };
@@ -280,9 +273,7 @@
       ribbons.on("pointermove", function (e, d) { var a = regions[d.source.index], b = regions[d.target.index]; showTip(e, "<b>" + a + " ⇄ " + b + "</b><br>" + a + " → " + b + ": " + fmtN(M[d.source.index][d.target.index]) + "<br>" + b + " → " + a + ": " + fmtN(M[d.target.index][d.source.index])); }).on("pointerleave", hideTip);
     } });
   // 2. Beeswarm of releases
-  card({ n: NUM(), kind: "Beeswarm timeline", title: "Every change to a product, as a swarm", ref: "ORCA commit history", href: "https://nbremer.github.io/ORCA/commit-history/",
-    desc: "Each circle is one release, sized by how much changed and coloured by type. The swarm shows bursts of work and quiet spells across two years.",
-    hint: "Hover a circle for its details.",
+  card({
     draw: function (stage) {
       var types = ["Feature", "Fix", "Docs"];
       var start = new Date(2024, 9, 1), end = new Date(2026, 8, 30), span = end - start;
@@ -303,9 +294,7 @@
     } });
 
   // 7. Streamgraph
-  card({ n: NUM(), kind: "Streamgraph", title: "Topics rising and falling over a year", ref: "Pitch Interactive", href: "https://pitchinteractive.com/",
-    desc: "Weekly mentions of five topics stacked around a centre line. It shows both the total volume and which topic owned each moment.",
-    hint: "Hover a stream to isolate it.",
+  card({
     draw: function (stage) {
       var keys = ["Pricing", "Delivery", "Quality", "Support", "Range"];
       var weeks = d3.range(52).map(function (w) { var o = { w: w }; keys.forEach(function (k, i) { o[k] = Math.max(2, 20 + 14 * Math.sin((w + i * 9) / (6 + i)) + (i === 1 && w > 44 ? 30 : 0) + (i === 3 && w > 10 && w < 18 ? 22 : 0) + normal(R) * 3); }); return o; });
@@ -323,9 +312,7 @@
     } });
 
   // 3. Constellation network
-  card({ n: NUM(), kind: "Network", title: "A constellation of connected ideas", ref: "UNESCO Dive", href: "https://ich.unesco.org/en/dive?display=constellation#tabs",
-    desc: "Topics as stars, links where they appear together. Clusters form on their own, and the brightest stars are the most connected.",
-    hint: "Hover a star to light up its links. Drag to rearrange.",
+  card({
     draw: function (stage) {
       var groups = ["Data", "Automation", "Apps"];
       var names = [["Dashboards","SQL","PostgreSQL","Data models","Looker Studio","KPIs","Forecasting","ETL","Data quality","Reporting","Analytics","Metrics"],["n8n","Webhooks","APIs","AI agents","LLMs","Email","Scheduling","Alerts","RPA","Integrations","Queues","Prompts"],["AppSheet","Forms","Mobile","Low-code","Web apps","UX","Bookings","Payments","Auth","Offline","Notifications","Profiles"]];
@@ -361,10 +348,7 @@
     } });
 
   // 4. Unit chart regrouping
-  card({ n: NUM(), kind: "Unit chart", title: "One dot per person, regrouped by what they said", ref: "NYT Privacy Project", href: "https://www.nytimes.com/interactive/2019/08/23/opinion/data-internet-privacy-tracking.html",
-    desc: "600 survey answers, each a single dot. Switching the question makes every dot move to its new group, so the reader sees the people behind the percentages.",
-    chips: ["All responses", "Would recommend?", "How often do they visit?"],
-    hint: "Pick a question to watch the dots regroup.",
+  card({
     draw: function (stage) {
       var N = 600, W = 640, H = 380;
       var people = d3.range(N).map(function (i) { var rec = R(); var freq = R(); return { i: i, a: [0, rec < 0.62 ? 0 : rec < 0.84 ? 1 : 2, freq < 0.3 ? 0 : freq < 0.75 ? 1 : 2] }; });
@@ -394,9 +378,7 @@
     } });
 
   // 8. Sankey
-  card({ n: NUM(), wide: true, kind: "Sankey flow", title: "Where the data comes from and where it goes", ref: "Pitch Interactive", href: "https://pitchinteractive.com/",
-    desc: "Records flowing from source systems through cleaning and into the places people use them. Band width is volume, so bottlenecks and leaks are easy to spot.",
-    hint: "Hover a band or a box to follow the flow.",
+  card({
     draw: function (stage) {
       var names = ["Web forms", "CRM", "Spreadsheets", "Event platform", "Cleaned", "Rejected", "Warehouse", "Dashboards", "Email campaigns", "Reports"];
       var col = [0, 0, 0, 0, 1, 1, 2, 3, 3, 3];
@@ -415,9 +397,7 @@
     } });
 
   // 5. Circle packing
-  card({ n: NUM(), kind: "Bubble pack", title: "What's inside the total, bubble by bubble", ref: "Unearthed pesticides", href: "https://unearthed.greenpeace.org/2020/02/20/pesticides-croplife-hazardous-bayer-syngenta-health-bees/",
-    desc: "Product categories as clusters and each product as a bubble sized by sales. A sea of small bubbles beside a few giants makes the concentration obvious.",
-    hint: "Hover a bubble to see the product and its share.",
+  card({
     draw: function (stage) {
       var cats = ["Home", "Outdoor", "Kitchen"];
       var root = { name: "all", children: cats.map(function (c, ci) { return { name: c, ci: ci, children: d3.range(14 + ci * 4).map(function (j) { return { name: c + " item " + (j + 1), ci: ci, value: Math.round(Math.pow(R(), 3) * 90000 + 2000) }; }) }; }) };
@@ -436,10 +416,7 @@
     } });
 
   // 6. Hex map with scenario toggle
-  card({ n: NUM(), kind: "Hex map", title: "A map you can flip between today and tomorrow", ref: "VACS crop explorer", href: "https://vacs.theplotline.org/",
-    desc: "Regions as equal hexagons so small areas aren't lost. Switch the scenario to compare today's demand with a 2035 projection.",
-    chips: ["Today", "2035 projection", "Change"],
-    hint: "Hover a hexagon. Switch scenarios to see where demand moves.",
+  card({
     draw: function (stage) {
       var W = 600, H = 470, r = 17, dx = r * Math.sqrt(3), dy = r * 1.5;
       var cells = [];
@@ -475,9 +452,7 @@
     } });
 
   // 9. Calendar heatmap
-  card({ n: NUM(), wide: true, kind: "Calendar heatmap", title: "Every day of the year in one glance", ref: "ORCA commit history", href: "https://nbremer.github.io/ORCA/commit-history/",
-    desc: "One square per day, darker for busier. Weekly habits, holidays and the end-of-year rush all show up without a single axis label.",
-    hint: "Hover any day.",
+  card({
     draw: function (stage) {
       var start = new Date(2025, 0, 1);
       var days = d3.timeDays(start, new Date(2026, 0, 1)).map(function (d, i) { var dow = d.getDay(); var v0 = (dow === 0 || dow === 6 ? 2 : 9) + 6 * Math.sin(i / 58) + (d.getMonth() === 11 ? 8 : 0) + normal(R) * 2.5; if (d.getMonth() === 0 && d.getDate() < 6) v0 = 0.5; return { d: d, v: Math.max(0, Math.round(v0)) }; });

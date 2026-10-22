@@ -49,8 +49,29 @@ The sitemap (`sitemap-index.xml`) is generated automatically on every build.
 
 Import the repo in Vercel. It detects Astro on its own (build `npm run build`, output `dist`). Add the same `SITE_URL` environment variable.
 
+## Let AI crawlers in (Cloudflare)
+
+Cloudflare blocks AI crawlers by default on new domains and can swap our robots.txt for its own. Once studionarrm.com is on Cloudflare:
+
+1. In the Cloudflare dashboard, open the domain, then **AI Crawl Control** (older dashboards: **Security → Bots**).
+2. Set **Block AI bots** to **Do not block (allow)**.
+3. Turn **off** "Manage your robots.txt" (or "Instruct AI bot traffic with robots.txt"), so ours is served unchanged.
+4. Leave **Bot Fight Mode** off; it challenges ClaudeBot, GPTBot and PerplexityBot. Super Bot Fight Mode is fine only if "Verified bots" is set to **Allow**.
+5. Under **Caching → Configuration**, turn on **Crawler Hints**. It pings search engines (IndexNow) when pages change.
+6. Check: `curl -A "ClaudeBot" -sI https://studionarrm.com/` and `curl -s https://studionarrm.com/robots.txt` should give 200 and our file.
+
+## Files for AI agents
+
+Built automatically, nothing to maintain by hand:
+
+- `/llms.txt`: summary and links (src/pages/llms.txt.js).
+- `/<page>/index.md`: each page as Markdown, linked from the page's `<head>` (integrations/agent-files.mjs, made from the built HTML after `astro build`).
+- `/llms-full.txt`: every page's Markdown in one file.
+- `_headers`: security headers plus content type and canonical link for the `.md` files (public/_headers, with per-page rules appended at build). Cloudflare only; Vercel ignores it.
+- The home FAQ (page and JSON-LD) comes from src/data/faq.js; the data-viz card text from src/data/viz.js.
+
 ## After the first deploy
 
 - Add the site in **Google Search Console** and **Bing Webmaster Tools**, then submit `https://<your-domain>/sitemap-index.xml`. Bing also feeds ChatGPT search and Copilot.
 - Put the site URL on your LinkedIn profile and resume. Links pointing back help both search engines and AI answer engines connect the site to you.
-- When you change content, update `updated` in `src/data/site.js`.
+- When you change content, update `updated` in `src/data/site.js`. It drives the footer date, `dateModified` in the structured data and llms.txt. A page can override it with `updated="YYYY-MM-DD"` on `<Base>`.

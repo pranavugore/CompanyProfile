@@ -385,3 +385,6 @@ fieldset input { width: auto; accent-color: var(--accent); }
 /* Particle network behind the home header (public/assets/particle-network.js) */
 .hero { isolation: isolate; }
 .hero .net { position: absolute; inset: 0; z-index: -1; pointer-events: none; display: block; }
+
+/* Visually hidden, still read by screen readers and AI agents. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
