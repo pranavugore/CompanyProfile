@@ -13,6 +13,6 @@ export default defineConfig({
   integrations: [
     sitemap({ filter: (page) => !page.includes("/404") }),
     // Markdown copy of every page, llms-full.txt and _headers rules for them, in reading order.
-    agentFiles({ order: ["/", ...SERVICES.map((s) => s.href), "/work/", "/about/"] }),
+    agentFiles({ order: ["/", ...SERVICES.map((s) => s.href), "/gp-clinics/", "/gp-clinics/rule-21-guide/", "/work/", "/about/"] }),
   ],
 });

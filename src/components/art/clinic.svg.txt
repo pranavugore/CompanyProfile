@@ -1,0 +1,47 @@
+<svg viewBox="0 0 520 330" aria-hidden="true" focusable="false">
+            <g>
+              <rect x="20" y="22" width="200" height="270" rx="16" class="s-surface"/>
+              <rect x="40" y="44" width="120" height="10" rx="5" class="s-tone"/>
+              <rect x="40" y="62" width="84" height="7" rx="3.5" class="s-muted" opacity=".45"/>
+              <g>
+                <rect x="40" y="94" width="18" height="18" rx="5" class="s-tone"/><path d="M44 103 L48 107 L54 99" stroke="var(--bg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="68" y="99" width="110" height="7" rx="3.5" class="s-muted" opacity=".5"/>
+              </g>
+              <g>
+                <rect x="40" y="128" width="18" height="18" rx="5" class="s-tone"/><path d="M44 137 L48 141 L54 133" stroke="var(--bg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="68" y="133" width="94" height="7" rx="3.5" class="s-muted" opacity=".5"/>
+              </g>
+              <g>
+                <rect x="40" y="162" width="18" height="18" rx="5" class="s-tone"/><path d="M44 171 L48 175 L54 167" stroke="var(--bg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="68" y="167" width="104" height="7" rx="3.5" class="s-muted" opacity=".5"/>
+              </g>
+              <g>
+                <rect x="40" y="196" width="18" height="18" rx="5" fill="none" class="s-stroke-tone" stroke-width="2"/>
+                <rect x="68" y="201" width="80" height="7" rx="3.5" class="s-muted" opacity=".5"/>
+              </g>
+              <path d="M170 222 L196 232 V254 C196 270 184 280 170 286 C156 280 144 270 144 254 V232 Z" class="s-tone"/>
+              <path d="M160 254 L167 261 L181 246" stroke="var(--bg)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g opacity=".55">
+              <rect x="262" y="40" width="96" height="58" rx="10" fill="none" stroke="var(--muted)" stroke-width="2.5"/>
+              <rect x="276" y="26" width="68" height="20" rx="4" fill="none" stroke="var(--muted)" stroke-width="2.5"/>
+              <rect x="276" y="60" width="40" height="7" rx="3.5" class="s-muted"/>
+              <circle cx="336" cy="64" r="5" class="s-muted"/><circle cx="336" cy="80" r="5" class="s-muted"/>
+              <path d="M256 30 L364 108" stroke="var(--muted)" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <text x="310" y="128" text-anchor="middle" class="s-text" style="fill:var(--muted)">fax</text>
+            <path class="flowline s-stroke-tone" d="M232 196 H300" stroke-width="2.5" fill="none"/>
+            <g>
+              <rect x="300" y="150" width="200" height="132" rx="16" class="s-surface"/>
+              <rect x="316" y="166" width="128" height="30" rx="12" class="s-tone-soft"/>
+              <rect x="326" y="177" width="90" height="7" rx="3.5" class="s-muted" opacity=".6"/>
+              <rect x="356" y="206" width="128" height="30" rx="12" class="s-tone"/>
+              <rect x="368" y="217" width="80" height="7" rx="3.5" fill="var(--bg)" opacity=".8"/>
+              <rect x="316" y="246" width="100" height="24" rx="10" class="s-tone-soft"/>
+              <g transform="translate(462 246)">
+                <rect x="0" y="9" width="24" height="18" rx="4" class="s-tone"/>
+                <path d="M5 9 V5 C5 -1 19 -1 19 5 V9" stroke="var(--tone)" stroke-width="3" fill="none"/>
+              </g>
+            </g>
+            <text x="400" y="304" text-anchor="middle" class="s-text">secure messaging</text>
+          </svg>

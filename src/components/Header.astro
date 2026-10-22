@@ -6,6 +6,7 @@ import { SERVICES } from "../data/services.js";
 const isService = SERVICES.some((x) => x.slug === current);
 const links = [
   { href: "/#services", label: "Services", key: isService ? current : "home" },
+  { href: "/gp-clinics/", label: "GP clinics", key: "gp-clinics" },
   { href: "/work/", label: "Case studies", key: "work" },
   { href: "/about/", label: "About", key: "about" },
 ];

@@ -1,0 +1,200 @@
+---
+import Base from "../../layouts/Base.astro";
+import ServiceArt from "../../components/ServiceArt.astro";
+import { SITE } from "../../data/site.js";
+import { GP, SOURCES, RULE21, PACKAGE, PLANS, FOUNDING, STEPS, TRUST, GP_FAQ, CHECK, money } from "../../data/gp.js";
+const origin = Astro.site.href.replace(/\/$/, "");
+const url = origin + GP.href;
+const title = "Rule 21 and fax-free for GP clinics | Studio Narrm, Victoria";
+const description = "Fixed-fee help for regional and rural GP clinics in Victoria: your My Health Record Security and Access Policy (Rule 21), basic security and secure messaging instead of fax. $3,500 + GST.";
+const mail = (subject) => "mailto:" + SITE.email + "?subject=" + encodeURIComponent(subject);
+const offer = (p) => ({
+  "@type": "Offer",
+  name: p.name,
+  price: p.price,
+  priceCurrency: "AUD",
+  priceSpecification: { "@type": "UnitPriceSpecification", price: p.price, priceCurrency: "AUD", valueAddedTaxIncluded: false, ...(p.price < 1000 ? { unitText: "month", billingDuration: "P12M" } : {}) },
+  itemOffered: { "@type": "Service", name: p.name, description: p.items.join("; ") },
+});
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": url + "#service",
+    name: "Rule 21 and fax-free package for GP clinics",
+    serviceType: "My Health Record Security and Access Policy, practice IT security and secure messaging",
+    description,
+    url,
+    provider: { "@id": origin + "/#org" },
+    audience: { "@type": "BusinessAudience", name: "General practices and GP clinics in regional and rural Victoria" },
+    areaServed: [{ "@type": "State", name: "Victoria, Australia" }, "Gippsland", "Western Victoria", "Murray region"],
+    offers: PLANS.map(offer),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": url + "#faq",
+    mainEntity: GP_FAQ.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: origin + "/" },
+      { "@type": "ListItem", position: 2, name: "GP clinics", item: url },
+    ],
+  },
+];
+---
+<Base title={title} description={description} jsonld={jsonld} current="gp-clinics">
+  <main class="svc gp t-health">
+    <section class="svc-hero">
+      <div class="wrap">
+        <div class="text">
+          <nav class="crumbs mono" aria-label="Breadcrumb"><a href="/">Home</a> / <span>GP clinics</span></nav>
+          <p class="kicker">For regional and rural GP clinics in Victoria</p>
+          <span class="eyebrow">Rule 21 · Fax-free</span>
+          <h1 class="caps">Rule 21 sorted. <i>Fax</i> gone.</h1>
+          <p class="lead">Since 1 October 2026, every practice that uses My Health Record needs a written Security and Access Policy under Rule 21. We put it in place for you at a fixed fee, tighten the security basics, and replace fax with secure messaging inside the practice software you already use.</p>
+          <div class="cta"><a class="btn tone" href={mail(GP.checkSubject)}>Book a free 20-minute Rule 21 check</a><a class="btn ghost" href="#check">Check your readiness in 2 minutes</a></div>
+        </div>
+        <ServiceArt name="clinic" />
+      </div>
+    </section>
+
+    <section class="section" id="rule-21" aria-labelledby="r21-h">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">What changed</span><h2 id="r21-h">What Rule 21 asks of your practice</h2></div>
+          <p>The Australian Digital Health Agency may check that your policy is in place and working. Here's what it needs to cover, in plain words. Read our <a href={GP.guideHref}>Rule 21 guide for small practices</a> for more.</p></div>
+        <ul class="offer four">
+          {RULE21.map(([n, d], k) => <li class="reveal"><span class="n mono">{String(k + 1).padStart(2, "0")}</span><h3>{n}</h3><p>{d}</p></li>)}
+        </ul>
+        <p class="src-note">Sources: {SOURCES.slice(0, 3).map(([n, u], k) => <>{k ? " · " : ""}<a href={u} rel="noopener">{n}</a></>)}. Many practices also still rely on fax for referrals and results, which is why <a href={SOURCES[3][1]} rel="noopener">primary health networks</a> are pushing secure messaging instead.</p>
+      </div>
+    </section>
+
+    <section class="section" id="package" aria-labelledby="pkg-h">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">The package</span><h2 id="pkg-h">One fixed fee, three things done</h2></div></div>
+        <ul class="offer">
+          {PACKAGE.map(([n, d], k) => <li class="reveal"><span class="n mono">{String(k + 1).padStart(2, "0")}</span><h3>{n}</h3><p>{d}</p></li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" aria-labelledby="price-h">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">Pricing</span><h2 id="price-h">Clear prices, no surprises</h2></div><p>All prices exclude GST.</p></div>
+        <div class="plans">
+          {PLANS.map((p, k) => (
+            <article class={"plan" + (k === 0 ? " main" : "")}>
+              <h3>{p.name}</h3>
+              <p class="price"><b>{money(p.price)}</b> <span>+ GST {p.unit}</span></p>
+              <ul>{p.items.map((it) => <li>{it}</li>)}</ul>
+              <p class="note">{p.note}</p>
+            </article>
+          ))}
+        </div>
+        <aside class="founding">
+          <span class="badge">Founding clinics</span>
+          <p><b>The first {FOUNDING.places} clinics get the package for {money(FOUNDING.price)} + GST</b> in return for a short testimonial and a case study we can share once the work is done.</p>
+          <a class="btn tone small" href={mail("Founding clinic offer")}>Ask about a founding place</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="trust" aria-labelledby="trust-h">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">Privacy and trust</span><h2 id="trust-h">Health data handled with care</h2></div></div>
+        <ul class="offer four">
+          {TRUST.map(([n, d]) => <li class="reveal"><h3>{n}</h3><p>{d}</p></li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-h">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">How it works</span><h2 id="how-h">From first call to done</h2></div>
+          <p>Remote set-up means distance isn't a problem. We work with clinics across {GP.regions.slice(0, -1).join(", ")} and {GP.regions.at(-1)}.</p></div>
+        <ol class="steps four">
+          {STEPS.map(([h, p], k) => <li class="reveal"><span class="n">{String(k + 1).padStart(2, "0")}</span><h3>{h}</h3><p>{p}</p></li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section check" id="check" aria-labelledby="check-h">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">Self-check</span><h2 id="check-h">How ready is your practice for Rule 21?</h2></div>
+          <p>Ten quick questions. Your answers stay in your browser and nothing is sent anywhere. This is a guide, not an official assessment.</p></div>
+        <form id="r21" class="quiz">
+          <ol>
+            {CHECK.map(([q], k) => (
+              <li>
+                <fieldset>
+                  <legend>{q}</legend>
+                  <div class="opts">
+                    <label><input type="radio" name={"q" + k} value="yes" required /> Yes</label>
+                    <label><input type="radio" name={"q" + k} value="no" /> No</label>
+                    <label><input type="radio" name={"q" + k} value="unsure" /> Not sure</label>
+                  </div>
+                </fieldset>
+              </li>
+            ))}
+          </ol>
+          <button class="btn tone" type="submit">See my result</button>
+          <p class="form-note" id="r21-note" role="status" aria-live="polite"></p>
+        </form>
+        <div class="result" id="r21-result" hidden>
+          <p class="score"><b id="r21-score"></b> <span id="r21-level"></span></p>
+          <h3>Your gaps</h3>
+          <ul id="r21-gaps"></ul>
+          <a class="btn tone" id="r21-book" href={mail(GP.checkSubject)}>Book a free 20-minute check about these</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq" aria-labelledby="faq-h">
+      <div class="wrap">
+        <div><span class="eyebrow">Questions</span><h2 id="faq-h">GP clinic questions</h2></div>
+        <div>
+          {GP_FAQ.map(([q, a], k) => <details open={k === 0}><summary>{q}</summary><p>{a}</p></details>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-cta">
+      <div class="wrap">
+        <h2>Start with a free 20-minute check</h2>
+        <p>We'll tell you where your practice stands on Rule 21, security and fax, and what it would take to fix. No obligation.</p>
+        <div class="cta"><a class="btn" href={mail(GP.checkSubject)}>Book the free check</a><a class="btn ghost" href={GP.pdf} download>Download the one-page offer (PDF)</a></div>
+      </div>
+    </section>
+  </main>
+  <script is:inline slot="scripts" define:vars={{ fixes: CHECK.map((c) => c[1]), email: SITE.email, subject: GP.checkSubject }}>
+    var form = document.getElementById("r21");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var note = document.getElementById("r21-note");
+      var missing = [], gaps = [], yes = 0;
+      fixes.forEach(function (fix, k) {
+        var picked = form.querySelector('input[name="q' + k + '"]:checked');
+        if (!picked) missing.push(k + 1);
+        else if (picked.value === "yes") yes++;
+        else gaps.push(fix);
+      });
+      if (missing.length) { note.textContent = "Please answer every question (missing: " + missing.join(", ") + ")."; return; }
+      note.textContent = "";
+      var level = yes >= 9 ? "In good shape. Keep it current." : yes >= 6 ? "A few gaps to close." : "Worth acting on soon.";
+      document.getElementById("r21-score").textContent = yes + " of " + fixes.length;
+      document.getElementById("r21-level").textContent = level;
+      var list = document.getElementById("r21-gaps");
+      list.innerHTML = "";
+      (gaps.length ? gaps : ["No gaps from these questions. A yearly review keeps it that way."]).forEach(function (g) { var li = document.createElement("li"); li.textContent = g; list.appendChild(li); });
+      var body = "Our Rule 21 self-check score: " + yes + " of " + fixes.length + "\n\nGaps:\n" + gaps.map(function (g) { return "- " + g; }).join("\n") + "\n\nPractice name:\nPractice software:\nBest time to call:";
+      document.getElementById("r21-book").href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      var res = document.getElementById("r21-result");
+      res.hidden = false;
+      res.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    });
+  </script>
+</Base>

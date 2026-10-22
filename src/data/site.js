@@ -58,10 +58,16 @@ export function org(origin) {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: SITE.brand + " services",
-      itemListElement: SERVICES.map((sv) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: sv.eyebrow, description: sv.summary, url: origin + sv.href },
-      })),
+      itemListElement: [
+        ...SERVICES.map((sv) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: sv.eyebrow, description: sv.summary, url: origin + sv.href },
+        })),
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", "@id": origin + "/gp-clinics/#service", name: "Rule 21 and fax-free package for GP clinics", url: origin + "/gp-clinics/" },
+        },
+      ],
     },
     sameAs: [SITE.linkedin],
   };

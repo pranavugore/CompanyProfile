@@ -1,0 +1,75 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { SITE } from "../../../data/site.js";
+import { GP, SOURCES, RULE21, CHECK } from "../../../data/gp.js";
+const origin = Astro.site.href.replace(/\/$/, "");
+const url = origin + GP.guideHref;
+const title = "Rule 21 explained for small GP practices | Studio Narrm";
+const description = "A plain-English guide to Rule 21 of the My Health Records Rules 2026: what the Security and Access Policy must cover, who it applies to, and what a small practice can do this month.";
+const reviewed = new Date(GP.reviewed + "T00:00:00").toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Rule 21 explained for small GP practices",
+    description,
+    url,
+    dateModified: GP.reviewed,
+    author: { "@id": origin + "/#person" },
+    publisher: { "@id": origin + "/#org" },
+    about: ["My Health Record", "Rule 21", "Security and Access Policy", "General practice"],
+    citation: SOURCES.map(([name, u]) => ({ "@type": "CreativeWork", name, url: u })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: origin + "/" },
+      { "@type": "ListItem", position: 2, name: "GP clinics", item: origin + GP.href },
+      { "@type": "ListItem", position: 3, name: "Rule 21 guide", item: url },
+    ],
+  },
+];
+---
+<Base title={title} description={description} jsonld={jsonld} current="gp-clinics" ogType="article">
+  <main class="wrap-main t-health">
+    <article class="guide">
+      <div class="wrap">
+        <nav class="crumbs mono" aria-label="Breadcrumb"><a href="/">Home</a> / <a href={GP.href}>GP clinics</a> / <span>Rule 21 guide</span></nav>
+        <span class="eyebrow">Guide · Reviewed {reviewed}</span>
+        <h1>Rule 21 explained for small GP practices</h1>
+        <p class="lead">Since 1 October 2026, every practice that uses My Health Record must have a written Security and Access Policy under Rule 21 of the My Health Records Rules 2026. This guide explains what that means for a small practice and what you can do about it this month.</p>
+
+        <h2>Who it applies to</h2>
+        <p>Every healthcare provider organisation that participates in My Health Record, regardless of size. A two-doctor rural clinic has the same obligation as a large city practice. The Australian Digital Health Agency may carry out compliance activities to check that a policy is in place and being followed.</p>
+
+        <h2>What the policy needs to cover</h2>
+        <ul class="plain">
+          {RULE21.map(([n, d]) => <li><b>{n}.</b> {d}</li>)}
+        </ul>
+        <p>The policy has to fit how your practice actually works. A template downloaded and filed away won't reflect your staff, your software or your processes, and that is what a check would look at.</p>
+
+        <h2>What you can do this month</h2>
+        <ol class="plain">
+          {CHECK.map(([, fix]) => <li>{fix}</li>)}
+        </ol>
+        <p>Not sure where you stand? Take the <a href={GP.href + "#check"}>two-minute Rule 21 self-check</a>.</p>
+
+        <h2>Where fax fits in</h2>
+        <p>Fax isn't part of Rule 21, but it sits in the same conversation. Faxed referrals and results are hard to track, easy to misdirect and impossible to audit properly. Primary health networks in Victoria are encouraging practices to use secure messaging instead of fax and email. Secure messaging works inside most practice software, so documents arrive straight into the patient's file.</p>
+
+        <h2>Sources</h2>
+        <ul class="plain">
+          {SOURCES.map(([n, u]) => <li><a href={u} rel="noopener">{n}</a></li>)}
+        </ul>
+        <p class="src-note">This guide is general information, not legal advice. Check the official sources above for the full requirements.</p>
+
+        <aside class="guide-cta">
+          <h2>Want it done for you?</h2>
+          <p>We write your policy, set up access and logins, fix the security basics and replace fax with secure messaging, for a fixed fee.</p>
+          <a class="btn tone" href={GP.href}>See the GP clinic package</a>
+        </aside>
+      </div>
+    </article>
+  </main>
+</Base>
