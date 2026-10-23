@@ -2,6 +2,8 @@
 // Keep copy at capability level: no client names, figures or internal details.
 // To hide a service, set `hidden: true` here and rename its page folder in src/pages
 // with a leading underscore (e.g. _video-ads) so Astro skips it. Reverse both to bring it back.
+import { SHOW_GP } from "./flags.js";
+
 export const ALL_SERVICES = [
   {
     slug: "data-viz",
@@ -41,8 +43,8 @@ export const ALL_SERVICES = [
         ["RPA for older systems", "Software robots that work through screens when a system has no API."],
         ["Migrating existing automations", "Move bots or scripts from a vendor or an old platform to something you own and control."],
         ["Monitoring and hand-over", "Alerts, retries and logs so failures are loud, plus documentation your team can run with."],
-        ["Referrals and results without fax", "For GP clinics: referrals and results move from fax and email to secure messaging inside your practice software."],
-        ["Patient recall reminders", "For GP clinics: recalls and reminders that go out on time without anyone working through a list by hand."],
+        ...(SHOW_GP ? [["Referrals and results without fax", "For GP clinics: referrals and results move from fax and email to secure messaging inside your practice software."],
+        ["Patient recall reminders", "For GP clinics: recalls and reminders that go out on time without anyone working through a list by hand."]] : []),
         ["Compliance records that keep themselves", "Training registers, access reviews and reminders that stay up to date, ready if anyone asks."],
       ],
       examples: [

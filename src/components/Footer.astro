@@ -2,6 +2,7 @@
 import { SITE } from "../data/site.js";
 import Logo from "./Logo.astro";
 import { SERVICES } from "../data/services.js";
+import { SHOW_GP } from "../data/flags.js";
 const { updated: iso = SITE.updated } = Astro.props;
 const updated = new Date(iso + "T00:00:00");
 const nice = updated.toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
@@ -14,7 +15,7 @@ const nice = updated.toLocaleDateString("en-AU", { day: "numeric", month: "long"
         <p style="margin-top:1rem;max-width:22rem">Data, automation, AI agents and apps, designed and built end to end.</p>
       </div>
       <div><h4>Services</h4><ul>{SERVICES.map((sv) => <li><a href={sv.href}>{sv.eyebrow}</a></li>)}</ul></div>
-      <div><h4>More</h4><ul><li><a href="/gp-clinics/">GP clinics</a></li><li><a href="/gp-clinics/rule-21-guide/">Rule 21 guide</a></li><li><a href="/work/">Case studies</a></li><li><a href="/about/">About</a></li><li><a href={SITE.linkedin} rel="me">LinkedIn</a></li></ul></div>
+      <div><h4>More</h4><ul>{SHOW_GP && <li><a href="/gp-clinics/">GP clinics</a></li>}{SHOW_GP && <li><a href="/gp-clinics/rule-21-guide/">Rule 21 guide</a></li>}<li><a href="/work/">Case studies</a></li><li><a href="/about/">About</a></li><li><a href={SITE.linkedin} rel="me">LinkedIn</a></li></ul></div>
     </div>
     <div class="legal"><span>© {updated.getFullYear()} {SITE.brand}</span><span>Last updated <time datetime={iso}>{nice}</time></span></div>
   </div>

@@ -18,6 +18,7 @@ npm run preview   # serves the built dist/ folder
 | Path | What it is |
 |---|---|
 | `src/data/site.js` | Name, job title, email, LinkedIn, location, last-updated date |
+| `src/data/flags.js` | On/off switches. `SHOW_GP = false` hides the GP clinics offer everywhere; set it to `true` and rebuild to bring it back |
 | `src/layouts/Base.astro` | Shared `<head>`: title, description, canonical, Open Graph, JSON-LD |
 | `src/components/Header.astro`, `Footer.astro` | Navigation and footer, shared by every page |
 | `src/pages/index.astro` | Home page |

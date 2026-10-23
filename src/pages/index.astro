@@ -5,6 +5,7 @@ import ServiceArt from "../components/ServiceArt.astro";
 import { SERVICES, isShown } from "../data/services.js";
 import { org } from "../data/site.js";
 import { FAQ, faqJsonLd } from "../data/faq.js";
+import { SHOW_GP } from "../data/flags.js";
 const NUM = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"][SERVICES.length] || String(SERVICES.length);
 const origin = Astro.site.href.replace(/\/$/, "");
 const title = "Studio Narrm | Data, Automation & AI Agents, Melbourne";
@@ -129,10 +130,10 @@ jsonld.push({
 });
 // "Who are you?" section is hidden for now; set to true to bring it back.
 const SHOW_WHO = false;
-// Hero slides: the services, then the GP clinic offer, which has its own page.
+// Hero slides: the services, then the GP clinic offer (when SHOW_GP is on), which has its own page.
 const SLIDES = [
   ...SERVICES.map((sv) => ({ ...sv, link: "#" + sv.slug })),
-  { slug: "gp-clinics", tone: "t-health", art: "clinic", eyebrow: "GP clinics: Rule 21 and fax-free", link: "/gp-clinics/" },
+  ...(SHOW_GP ? [{ slug: "gp-clinics", tone: "t-health", art: "clinic", eyebrow: "GP clinics: Rule 21 and fax-free", link: "/gp-clinics/" }] : []),
 ];
 const TAGS = { "gp-clinics": "Rule 21 · Security · Secure messaging",  "data-viz": "Dashboards · Data stories", automation: "n8n · RPA · AI agents", "agent-ready": "AEO · GEO · MCP", "custom-apps": "Websites · Web apps · Mobile", "video-ads": "Script · Edit · Every format", "marketing-outreach": "Research · Outreach · Follow-up" };
 ---
@@ -151,7 +152,7 @@ const TAGS = { "gp-clinics": "Rule 21 · Security · Secure messaging",  "data-v
             <a class="btn ghost" href="#services">See the work</a>
           </div>
         </div>
-        <div class="slider" aria-roledescription="carousel" aria-label={NUM + " services and our GP clinic offer"}>
+        <div class="slider" aria-roledescription="carousel" aria-label={NUM + (SHOW_GP ? " services and our GP clinic offer" : " services")}>
           <div class="slides">
           {SLIDES.map((sv, i) => (
             <figure class={`slide ${sv.tone}${i === 0 ? " on" : ""}`} aria-hidden={i === 0 ? "false" : "true"}>
@@ -168,12 +169,12 @@ const TAGS = { "gp-clinics": "Rule 21 · Security · Secure messaging",  "data-v
       </div>
     </section>
 
-    <aside class="gp-banner" aria-label="For GP clinics">
+    {SHOW_GP && <aside class="gp-banner" aria-label="For GP clinics">
       <div class="wrap">
         <p>Running a GP clinic in regional Victoria? <span>Get your Rule 21 Security and Access Policy in place and go fax-free, for a fixed fee.</span></p>
         <a href="/gp-clinics/">See the GP clinic package →</a>
       </div>
-    </aside>
+    </aside>}
 
     <section class="intro" aria-labelledby="intro-h">
       <div class="wrap">
@@ -280,9 +281,9 @@ const TAGS = { "gp-clinics": "Rule 21 · Security · Secure messaging",  "data-v
             <label><input type="checkbox" name="need" value="Automation or AI agents"> Automation or AI</label>
             <label><input type="checkbox" name="need" value="A dashboard"> A dashboard</label>
             <label><input type="checkbox" name="need" value="An app or platform"> An app</label>
-            <label><input type="checkbox" name="need" value="Rule 21 / GP clinic" id="f-gp"> Rule 21 / GP clinic</label>
+            {SHOW_GP && <label><input type="checkbox" name="need" value="Rule 21 / GP clinic" id="f-gp"> Rule 21 / GP clinic</label>}
           </fieldset>
-          <div class="gp-fields">
+          {SHOW_GP && <div class="gp-fields">
             <label for="f-software">Practice software
               <select id="f-software" name="software">
                 <option value="">Optional</option>
@@ -295,7 +296,7 @@ const TAGS = { "gp-clinics": "Rule 21 · Security · Secure messaging",  "data-v
             </label>
             <label for="f-staff">Number of staff<input id="f-staff" name="staff" inputmode="numeric" placeholder="Optional"></label>
             <label for="f-town">Town<input id="f-town" name="town" autocomplete="address-level2" placeholder="Optional"></label>
-          </div>
+          </div>}
           <label for="f-msg">Tell us about it<textarea id="f-msg" name="message" required></textarea></label>
           <button class="btn" type="submit">Send via email</button>
           <p class="form-note" id="form-note">This opens your email app with your message filled in.</p>
@@ -339,7 +340,7 @@ const TAGS = { "gp-clinics": "Rule 21 · Security · Secure messaging",  "data-v
       var note = document.getElementById('form-note');
       if (!form.checkValidity()) { note.textContent = 'Please add your name, a valid email and a short message.'; return; }
       var needs = [].slice.call(form.querySelectorAll('input[name=need]:checked')).map(function (c) { return c.value; }).join(', ');
-      var clinic = [['Practice software', form.software.value], ['Staff', form.staff.value], ['Town', form.town.value]].filter(function (p) { return p[1]; }).map(function (p) { return p[0] + ': ' + p[1]; }).join('\n');
+      var clinic = [['Practice software', form.software], ['Staff', form.staff], ['Town', form.town]].map(function (p) { return [p[0], p[1] ? p[1].value : '']; }).filter(function (p) { return p[1]; }).map(function (p) { return p[0] + ': ' + p[1]; }).join('\n');
       var body = form.message.value + '\n\n' + (needs ? 'Looking for: ' + needs + '\n' : '') + (clinic ? clinic + '\n' : '') + 'From: ' + form.name.value + ' <' + form.email.value + '>';
       window.location.href = 'mailto:pranavugore@gmail.com?subject=' + encodeURIComponent('Enquiry from ' + form.name.value) + '&body=' + encodeURIComponent(body);
       note.textContent = 'Your email app should open with the message ready to send. If nothing opens, set up an email app on this device and try again.';

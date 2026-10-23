@@ -3,10 +3,11 @@ import { SITE } from "../data/site.js";
 import Logo from "./Logo.astro";
 const { current = "" } = Astro.props;
 import { SERVICES } from "../data/services.js";
+import { SHOW_GP } from "../data/flags.js";
 const isService = SERVICES.some((x) => x.slug === current);
 const links = [
   { href: "/#services", label: "Services", key: isService ? current : "home" },
-  { href: "/gp-clinics/", label: "GP clinics", key: "gp-clinics" },
+  ...(SHOW_GP ? [{ href: "/gp-clinics/", label: "GP clinics", key: "gp-clinics" }] : []),
   { href: "/work/", label: "Case studies", key: "work" },
   { href: "/about/", label: "About", key: "about" },
 ];

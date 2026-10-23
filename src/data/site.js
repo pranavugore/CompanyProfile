@@ -1,4 +1,5 @@
 import { SERVICES } from "./services.js";
+import { SHOW_GP } from "./flags.js";
 
 export const SITE = {
   brand: "Studio Narrm",
@@ -24,7 +25,8 @@ export const KNOWS_ABOUT = [
   "Solution architecture", "System integration", "Workflow automation", "n8n", "Robotic process automation",
   "AI agents", "Large language models", "Model Context Protocol", "Answer engine optimisation", "Generative engine optimisation",
   "Structured data", "Data analytics", "Data visualisation", "Dashboards", "ETL", "PostgreSQL", "Google AppSheet",
-  "Low-code development", "Web development", "My Health Record Security and Access Policy", "Secure messaging for general practice",
+  "Low-code development", "Web development",
+  ...(SHOW_GP ? ["My Health Record Security and Access Policy", "Secure messaging for general practice"] : []),
 ];
 
 // Organization node for JSON-LD, shared by every page's @graph.
@@ -63,10 +65,10 @@ export function org(origin) {
           "@type": "Offer",
           itemOffered: { "@type": "Service", name: sv.eyebrow, description: sv.summary, url: origin + sv.href },
         })),
-        {
+        ...(SHOW_GP ? [{
           "@type": "Offer",
           itemOffered: { "@type": "Service", "@id": origin + "/gp-clinics/#service", name: "Rule 21 and fax-free package for GP clinics", url: origin + "/gp-clinics/" },
-        },
+        }] : []),
       ],
     },
     sameAs: [SITE.linkedin],
